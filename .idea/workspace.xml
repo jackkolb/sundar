@@ -1,15 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4bf18146-07ca-4673-ae22-4352a260cc63" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/markdown-navigator.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/markdown-navigator/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gitcheck.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/drive.py" beforeDir="false" afterPath="$PROJECT_DIR$/drive.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/drive_api/client_secrets.json" beforeDir="false" afterPath="$PROJECT_DIR$/drive_api_keys/client_secrets.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/drive_api/credentials.json" beforeDir="false" afterPath="$PROJECT_DIR$/drive_api_keys/credentials.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-    </list>
+    <list default="true" id="4bf18146-07ca-4673-ae22-4352a260cc63" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -28,11 +20,20 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="gitcheck.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="gitcheck.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/gitcheck.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="60">
               <caret line="4" column="31" selection-start-line="4" selection-start-column="31" selection-end-line="4" selection-end-column="31" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="a.sh" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/a.sh">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="270">
+              <caret line="18" column="23" lean-forward="true" selection-start-line="18" selection-start-column="23" selection-end-line="18" selection-end-column="23" />
             </state>
           </provider>
         </entry>
@@ -90,6 +91,7 @@
         <option value="$PROJECT_DIR$/drive.py" />
         <option value="$PROJECT_DIR$/main.py" />
         <option value="$PROJECT_DIR$/gitcheck.py" />
+        <option value="$PROJECT_DIR$/a.sh" />
       </list>
     </option>
   </component>
@@ -235,15 +237,15 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="28" y="31" width="1308" height="1021" extended-state="0" />
+    <frame x="28" y="31" width="924" height="1021" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16411042" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23260869" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.2416397" />
       <window_info anchor="bottom" id="Python Console" order="7" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32901832" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32901832" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Favorites" order="2" side_tool="true" />
@@ -432,6 +434,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="4" column="31" selection-start-line="4" selection-start-column="31" selection-end-line="4" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/a.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="18" column="23" lean-forward="true" selection-start-line="18" selection-start-column="23" selection-end-line="18" selection-end-column="23" />
         </state>
       </provider>
     </entry>
