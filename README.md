@@ -20,7 +20,7 @@ the output will try opening a browser to login and reauthenticate.
 Just login for the sundarlabucr@gmail.com account.
 
 
-### email.py
+### mail.py
 Contains functions to manage email communications (and through that,
 SMS communications for emergencies)
 
