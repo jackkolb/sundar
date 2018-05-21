@@ -26,10 +26,10 @@ SMS communications for emergencies)
 
 Usage:
 ```
-import email_utilities
+import mail
 
 # to send an email
-email_utilities.send_email("someone@gmail.com", "some subject", "some message")
+mail.send_email("someone@gmail.com", "some subject", "some message")
 ```
 
 ### logs.py
