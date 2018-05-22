@@ -1,4 +1,4 @@
-accelerometer.data
-current.data
+data/accelerometer.data
+data/current.data
 humidity.data
 temperature.data
