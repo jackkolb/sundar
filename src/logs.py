@@ -1,6 +1,33 @@
 import datetime
 
 
+def get_date():
+    now = datetime.datetime.now()
+    year = now.year
+
+    month = now.month
+    if month < 10:
+        month = "0" + str(month)
+
+    day = now.day
+    if day < 10:
+        day = "0" + str(day)
+
+    hour = now.hour
+    if hour < 10:
+        hour = "0" + str(hour)
+
+    minute = now.minute
+    if minute < 10:
+        minute = "0" + str(minute)
+
+    second = now.second
+    if second < 10:
+        second = "0" + str(second)
+
+    return str(year) + "_" + str(month) + "_" + str(day)
+
+
 # appends a message to the day's log file
 def log(message):
     now = datetime.datetime.now()

@@ -1,4 +1,4 @@
 #/bin/sh
 
 echo Launching Loader
-python3 loader.py
+python3 ./loader.py

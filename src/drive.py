@@ -9,7 +9,7 @@ def login():
     gauth = GoogleAuth()  # general authentication object
 
     # Load the credentials file
-    gauth.LoadCredentialsFile("drive_api_keys/credentials.json")
+    gauth.LoadCredentialsFile("../drive_api_keys/credentials.json")
     if gauth.credentials is None:  # if the credentials file does not exist, do the browser authentication
         gauth.LocalWebserverAuth()
     elif gauth.access_token_expired:  # if the credentials are expired, refresh them
@@ -17,7 +17,7 @@ def login():
     else:  # Authorize the saved credentials
         gauth.Authorize()
 
-    gauth.SaveCredentialsFile("drive_api_keys/credentials.json")  # Save the current credentials to a file
+    gauth.SaveCredentialsFile("../drive_api_keys/credentials.json")  # Save the current credentials to a file
 
     drive = GoogleDrive(gauth)  # Create GoogleDrive instance with authenticated GoogleAuth instance
 
