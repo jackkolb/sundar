@@ -1,6 +1,5 @@
 import datetime
 
-
 # appends a message to the day's log file
 def log(message):
     now = datetime.datetime.now()
