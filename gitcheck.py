@@ -14,8 +14,7 @@ def git_check_loop():
             pass
 
         else:  # new code on GitHub
-            # reset the main script
             logs.log("[Git Check] New build found on GitHub, resetting")
-            sys.exit()
+            sys.exit()  # exits the program (including the thread)
 
         time.sleep(60 * 10)  # waits 10 minutes

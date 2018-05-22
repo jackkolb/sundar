@@ -8,7 +8,3 @@ def main():
     git_check_thread.start()
     print("started")
     return
-
-
-if __name__ == "__main__":
-    main()
