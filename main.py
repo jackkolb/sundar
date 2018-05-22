@@ -1,6 +1,7 @@
 import threading
 import gitcheck
 
+
 def main():
     print("Woo!")
     # launch git check thread -- checks if there are code updates, if there are it kills the program
