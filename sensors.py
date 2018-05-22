@@ -16,7 +16,7 @@ def temperature_sensor_loop(frequency):
             timestamp = time.time()
             temperature_data_file.write(str(timestamp) + ", " + str(temperature_reading))
 
-        time.sleep(1 / float(frequency))
+        time.sleep(1.0 / float(frequency))
 
 
 # reads data from the humidity sensor
@@ -32,7 +32,7 @@ def humidity_sensor_loop(frequency):
             timestamp = time.time()
             humidity_data_file.write(str(timestamp) + ", " + str(humidity_reading))
 
-        time.sleep(1 / float(frequency))
+        time.sleep(1.0 / float(frequency))
 
 
 # reads data from the accelerometer
@@ -48,7 +48,7 @@ def accelerometer_sensor_loop(frequency):
             timestamp = time.time()
             accelerometer_data_file.write(str(timestamp) + ", " + str(accelerometer_reading))
 
-        time.sleep(1 / float(frequency))
+        time.sleep(1.0 / float(frequency))
 
 
 # reads data from the current sensor
@@ -64,7 +64,7 @@ def current_sensor_loop(frequency):
             timestamp = time.time()
             current_data_file.write(str(timestamp) + ", " + str(current_reading))
 
-        time.sleep(1 / float(frequency))
+        time.sleep(1.0 / float(frequency))
 
 
 # manages the sensor processes
@@ -91,6 +91,8 @@ def sensor_manager(settings):
     accelerometer_process.start()
     current_sensor_process.start()
 
+    logs.log("[SENSORS] All sensor processes running!")
+
     # check the sensor processes, exit if any are not alive
     while True:
         if not temperature_process.is_alive():
@@ -104,6 +106,8 @@ def sensor_manager(settings):
             break
         if not current_sensor_process.is_alive():
             logs.log("[SENSORS] Current Sensor process died, restarting all")
+
+        time.sleep(5)
 
     # terminate the processes
     temperature_process.terminate()

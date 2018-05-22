@@ -9,5 +9,4 @@ if __name__ == "__main__":
     while True:
         logs.log("[LOADER] Starting Main Thread")
         main_thread.start()
-        logs.log("[LOADER]   success!")
         main_thread.join()

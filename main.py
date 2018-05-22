@@ -1,3 +1,4 @@
+import multiprocessing
 import threading
 import gitcheck
 import sensors
@@ -16,9 +17,9 @@ def main():
 
     # general loop: polls sensors, stores to logs, uploads at midnight
     while True:
-        logs.log("[MAIN] Starting sensor thread")
-        sensor_thread = threading.Thread(target=sensors.sensor_manager, args=(settings,))
-        sensor_thread.start()
+        logs.log("[MAIN] Starting sensor process")
+        sensor_process = multiprocessing.Process(target=sensors.sensor_manager, args=(settings,))
+        sensor_process.start()
 
-        sensor_thread.join()  # wait for sensor thread to end, restart it if it does
+        sensor_process.join()  # wait for sensor thread to end, restart it if it does
         logs.log("[MAIN] Sensor thread stopped, restarting")
