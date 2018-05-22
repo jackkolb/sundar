@@ -11,10 +11,10 @@ def temperature_sensor_poll():
 # continuously polls the temperature sensor as per the specified frequency
 def temperature_sensor_loop(frequency):
     while True:
-        with open("data/temperature.data", "w") as temperature_data_file:
+        with open("data/temperature.data", "a") as temperature_data_file:
             temperature_reading = temperature_sensor_poll()
             timestamp = time.time()
-            temperature_data_file.write(str(timestamp) + ", " + str(temperature_reading))
+            temperature_data_file.write(str(timestamp) + ", " + str(temperature_reading) + "\n")
 
         time.sleep(1.0 / float(frequency))
 
@@ -27,10 +27,10 @@ def humidity_sensor_poll():
 # continuously polls the humidity sensor as per the specified frequency
 def humidity_sensor_loop(frequency):
     while True:
-        with open("data/humidity.data", "w") as humidity_data_file:
+        with open("data/humidity.data", "a") as humidity_data_file:
             humidity_reading = humidity_sensor_poll()
             timestamp = time.time()
-            humidity_data_file.write(str(timestamp) + ", " + str(humidity_reading))
+            humidity_data_file.write(str(timestamp) + ", " + str(humidity_reading) + "\n")
 
         time.sleep(1.0 / float(frequency))
 
@@ -43,10 +43,10 @@ def accelerometer_sensor_poll():
 # continuously polls the accelerometer as per the specified frequency
 def accelerometer_sensor_loop(frequency):
     while True:
-        with open("data/accelerometer.data", "w") as accelerometer_data_file:
+        with open("data/accelerometer.data", "a") as accelerometer_data_file:
             accelerometer_reading = accelerometer_sensor_poll()
             timestamp = time.time()
-            accelerometer_data_file.write(str(timestamp) + ", " + str(accelerometer_reading))
+            accelerometer_data_file.write(str(timestamp) + ", " + str(accelerometer_reading) + "\n")
 
         time.sleep(1.0 / float(frequency))
 
@@ -59,10 +59,10 @@ def current_sensor_poll():
 # continuously polls the current sensor as per the specified frequency
 def current_sensor_loop(frequency):
     while True:
-        with open("data/current.data", "w") as current_data_file:
+        with open("data/current.data", "a") as current_data_file:
             current_reading = accelerometer_sensor_poll()
             timestamp = time.time()
-            current_data_file.write(str(timestamp) + ", " + str(current_reading))
+            current_data_file.write(str(timestamp) + ", " + str(current_reading) + "\n")
 
         time.sleep(1.0 / float(frequency))
 

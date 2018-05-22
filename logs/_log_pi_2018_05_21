@@ -9782,3 +9782,115 @@
 [ 2018-05-21 19:43:09 ] [SENSORS] Starting Accelerometer Process
 [ 2018-05-21 19:43:09 ] [SENSORS] Starting Current Sensor Process
 [ 2018-05-21 19:43:09 ] [SENSORS] All sensor processes running!
+[ 2018-05-21 19:53:30 ] [LOADER] Starting Main Thread
+[ 2018-05-21 19:53:30 ] [MAIN] Starting GitHub check thread
+[ 2018-05-21 19:53:30 ] [MAIN] Loading settings
+[ 2018-05-21 19:53:30 ] [MAIN] Starting sensor process
+[ 2018-05-21 19:53:30 ] [SENSORS] Starting Temperature Process
+[ 2018-05-21 19:53:30 ] [SENSORS] Starting Humidity Process
+[ 2018-05-21 19:53:30 ] [SENSORS] Starting Accelerometer Process
+[ 2018-05-21 19:53:30 ] [SENSORS] Starting Current Sensor Process
+[ 2018-05-21 19:53:30 ] [SENSORS] All sensor processes running!
+[ 2018-05-21 19:55:23 ] [MAIN] Sensor thread stopped, restarting
+[ 2018-05-21 19:55:23 ] [MAIN] Starting sensor process
+[ 2018-05-21 19:55:23 ] [SENSORS] Starting Temperature Process
+[ 2018-05-21 19:55:23 ] [SENSORS] Starting Humidity Process
+[ 2018-05-21 19:55:23 ] [SENSORS] Starting Accelerometer Process
+[ 2018-05-21 19:55:23 ] [SENSORS] Starting Current Sensor Process
+[ 2018-05-21 19:55:23 ] [SENSORS] All sensor processes running!
+[ 2018-05-21 19:55:24 ] [LOADER] Starting Main Thread
+[ 2018-05-21 19:55:24 ] [MAIN] Starting GitHub check thread
+[ 2018-05-21 19:55:24 ] [MAIN] Loading settings
+[ 2018-05-21 19:55:24 ] [MAIN] Starting sensor process
+[ 2018-05-21 19:55:24 ] [SENSORS] Starting Temperature Process
+[ 2018-05-21 19:55:24 ] [SENSORS] Starting Humidity Process
+[ 2018-05-21 19:55:24 ] [SENSORS] Starting Accelerometer Process
+[ 2018-05-21 19:55:24 ] [SENSORS] Starting Current Sensor Process
+[ 2018-05-21 19:55:24 ] [SENSORS] All sensor processes running!
+[ 2018-05-21 19:55:31 ] [MAIN] Sensor thread stopped, restarting
+[ 2018-05-21 19:55:31 ] [MAIN] Starting sensor process
+[ 2018-05-21 19:55:31 ] [SENSORS] Starting Temperature Process
+[ 2018-05-21 19:55:31 ] [SENSORS] Starting Humidity Process
+[ 2018-05-21 19:55:31 ] [SENSORS] Starting Accelerometer Process
+[ 2018-05-21 19:55:31 ] [SENSORS] Starting Current Sensor Process
+[ 2018-05-21 19:55:31 ] [SENSORS] All sensor processes running!
+[ 2018-05-21 19:55:44 ] [LOADER] Starting Main Thread
+[ 2018-05-21 19:55:44 ] [MAIN] Starting GitHub check thread
+[ 2018-05-21 19:55:44 ] [MAIN] Loading settings
+[ 2018-05-21 19:55:44 ] [MAIN] Starting sensor process
+[ 2018-05-21 19:55:44 ] [SENSORS] Starting Temperature Process
+[ 2018-05-21 19:55:44 ] [SENSORS] Starting Humidity Process
+[ 2018-05-21 19:55:44 ] [SENSORS] Starting Accelerometer Process
+[ 2018-05-21 19:55:44 ] [SENSORS] Starting Current Sensor Process
+[ 2018-05-21 19:55:44 ] [SENSORS] All sensor processes running!
+[ 2018-05-21 19:56:13 ] [MAIN] Sensor thread stopped, restarting
+[ 2018-05-21 19:56:13 ] [MAIN] Starting sensor process
+[ 2018-05-21 19:56:13 ] [SENSORS] Starting Temperature Process
+[ 2018-05-21 19:56:13 ] [SENSORS] Starting Humidity Process
+[ 2018-05-21 19:56:13 ] [SENSORS] Starting Accelerometer Process
+[ 2018-05-21 19:56:13 ] [SENSORS] Starting Current Sensor Process
+[ 2018-05-21 19:56:13 ] [SENSORS] All sensor processes running!
+[ 2018-05-21 19:56:24 ] [LOADER] Starting Main Thread
+[ 2018-05-21 19:56:24 ] [MAIN] Starting GitHub check thread
+[ 2018-05-21 19:56:24 ] [MAIN] Loading settings
+[ 2018-05-21 19:56:24 ] [MAIN] Starting sensor process
+[ 2018-05-21 19:56:24 ] [SENSORS] Starting Temperature Process
+[ 2018-05-21 19:56:24 ] [SENSORS] Starting Humidity Process
+[ 2018-05-21 19:56:24 ] [SENSORS] Starting Accelerometer Process
+[ 2018-05-21 19:56:24 ] [SENSORS] Starting Current Sensor Process
+[ 2018-05-21 19:56:24 ] [SENSORS] All sensor processes running!
+[ 2018-05-21 19:56:44 ] [MAIN] Sensor thread stopped, restarting
+[ 2018-05-21 19:56:44 ] [MAIN] Starting sensor process
+[ 2018-05-21 19:56:44 ] [SENSORS] Starting Temperature Process
+[ 2018-05-21 19:56:44 ] [SENSORS] Starting Humidity Process
+[ 2018-05-21 19:56:44 ] [SENSORS] Starting Accelerometer Process
+[ 2018-05-21 19:56:44 ] [SENSORS] Starting Current Sensor Process
+[ 2018-05-21 19:56:44 ] [SENSORS] All sensor processes running!
+[ 2018-05-21 19:58:46 ] [LOADER] Starting Main Thread
+[ 2018-05-21 19:58:46 ] [MAIN] Starting GitHub check thread
+[ 2018-05-21 19:58:46 ] [MAIN] Loading settings
+[ 2018-05-21 19:58:46 ] [MAIN] Starting sensor process
+[ 2018-05-21 19:58:46 ] [SENSORS] Starting Temperature Process
+[ 2018-05-21 19:58:46 ] [SENSORS] Starting Humidity Process
+[ 2018-05-21 19:58:46 ] [SENSORS] Starting Accelerometer Process
+[ 2018-05-21 19:58:46 ] [SENSORS] Starting Current Sensor Process
+[ 2018-05-21 19:58:46 ] [SENSORS] All sensor processes running!
+[ 2018-05-21 19:58:49 ] [MAIN] Sensor thread stopped, restarting
+[ 2018-05-21 19:58:49 ] [MAIN] Starting sensor process
+[ 2018-05-21 19:58:49 ] [SENSORS] Starting Temperature Process
+[ 2018-05-21 19:58:49 ] [SENSORS] Starting Humidity Process
+[ 2018-05-21 19:58:49 ] [SENSORS] Starting Accelerometer Process
+[ 2018-05-21 19:58:49 ] [SENSORS] Starting Current Sensor Process
+[ 2018-05-21 19:58:49 ] [SENSORS] All sensor processes running!
+[ 2018-05-21 19:58:58 ] [LOADER] Starting Main Thread
+[ 2018-05-21 19:58:58 ] [MAIN] Starting GitHub check thread
+[ 2018-05-21 19:58:58 ] [MAIN] Loading settings
+[ 2018-05-21 19:58:58 ] [MAIN] Starting sensor process
+[ 2018-05-21 19:58:58 ] [SENSORS] Starting Temperature Process
+[ 2018-05-21 19:58:58 ] [SENSORS] Starting Humidity Process
+[ 2018-05-21 19:58:58 ] [SENSORS] Starting Accelerometer Process
+[ 2018-05-21 19:58:58 ] [SENSORS] Starting Current Sensor Process
+[ 2018-05-21 19:58:58 ] [SENSORS] All sensor processes running!
+[ 2018-05-21 19:59:19 ] [MAIN] Sensor thread stopped, restarting
+[ 2018-05-21 19:59:19 ] [MAIN] Starting sensor process
+[ 2018-05-21 19:59:19 ] [SENSORS] Starting Temperature Process
+[ 2018-05-21 19:59:19 ] [SENSORS] Starting Humidity Process
+[ 2018-05-21 19:59:19 ] [SENSORS] Starting Accelerometer Process
+[ 2018-05-21 19:59:19 ] [SENSORS] Starting Current Sensor Process
+[ 2018-05-21 19:59:19 ] [SENSORS] All sensor processes running!
+[ 2018-05-21 20:00:04 ] [LOADER] Starting Main Thread
+[ 2018-05-21 20:00:04 ] [MAIN] Starting GitHub check thread
+[ 2018-05-21 20:00:04 ] [MAIN] Loading settings
+[ 2018-05-21 20:00:04 ] [MAIN] Starting sensor process
+[ 2018-05-21 20:00:04 ] [SENSORS] Starting Temperature Process
+[ 2018-05-21 20:00:04 ] [SENSORS] Starting Humidity Process
+[ 2018-05-21 20:00:04 ] [SENSORS] Starting Accelerometer Process
+[ 2018-05-21 20:00:04 ] [SENSORS] Starting Current Sensor Process
+[ 2018-05-21 20:00:04 ] [SENSORS] All sensor processes running!
+[ 2018-05-21 20:00:06 ] [MAIN] Sensor thread stopped, restarting
+[ 2018-05-21 20:00:06 ] [MAIN] Starting sensor process
+[ 2018-05-21 20:00:06 ] [SENSORS] Starting Temperature Process
+[ 2018-05-21 20:00:06 ] [SENSORS] Starting Humidity Process
+[ 2018-05-21 20:00:06 ] [SENSORS] Starting Accelerometer Process
+[ 2018-05-21 20:00:06 ] [SENSORS] Starting Current Sensor Process
+[ 2018-05-21 20:00:06 ] [SENSORS] All sensor processes running!
