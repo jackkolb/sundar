@@ -2,3 +2,4 @@ data/accelerometer/accelerometer.data
 data/current/current.data
 data/humidity/humidity.data
 data/temperature/temperature.data
+logs/

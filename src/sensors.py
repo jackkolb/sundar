@@ -1,6 +1,8 @@
 import time
 import src.logs
 import multiprocessing
+import datetime
+import src.drive
 
 
 # reads data from the temperature sensor
@@ -107,6 +109,30 @@ def sensor_manager(settings):
         if not current_sensor_process.is_alive():
             src.logs.log("[SENSORS] Current Sensor process died, restarting all")
             break
+
+        # check time, for uploads at 1am nightly
+        update_flag = True
+        current_hour = datetime.datetime.now().hour
+        if current_hour == 22 and update_flag:
+            src.logs.log("[SENSORS] Uploading files to Google Drive")
+            print("accelerometer_" + src.logs.get_date() + ".data")
+            time.sleep(5)
+            src.drive.upload_file("./data/accelerometer/accelerometer_" + src.logs.get_date() + ".data",
+                                  "'Sundar Lab'/data/accelerometer")
+            src.drive.upload_file("data/humidity/humidity" + src.logs.get_date() + ".data",
+                                  "'Sundar Lab'/data/humidity/")
+            src.drive.upload_file("data/temperature/temperature" + src.logs.get_date() + ".data",
+                                  "'Sundar Lab'/data/temperature/")
+            src.drive.upload_file("data/current/current" + src.logs.get_date() + ".data",
+                                  "'Sundar Lab'/data/current_sensor/")
+            src.drive.upload_file("data/logs/_log_pi_" + src.logs.get_date() + "",
+                                  "'Sundar Lab'/data/logs/")
+            src.logs.log("[SENSORS] Completed uploading files to Google Drive")
+
+            update_flag = False
+
+        elif current_hour != 22 and not update_flag:
+            update_flag = True
 
         time.sleep(5)
 
