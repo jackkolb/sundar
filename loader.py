@@ -10,3 +10,4 @@ if __name__ == "__main__":
         src.logs.log("[LOADER] Starting Main Thread")
         main_thread.start()
         main_thread.join()
+        src.logs.log("[LOADER] Main Thread Ended")
