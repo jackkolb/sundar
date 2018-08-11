@@ -4,6 +4,11 @@ import multiprocessing
 import datetime
 import src.drive
 
+from src.accelerometer.LIS3DH import LIS3DH
+
+
+accelerometer_sensor = LIS3DH(debug=True)  # will be initialized with accelerometer_initialize()
+accelerometer_sensor.setRange(LIS3DH.RANGE_2G)
 
 # reads data from the temperature sensor
 def temperature_sensor_poll():
@@ -37,18 +42,25 @@ def humidity_sensor_loop(frequency):
         time.sleep(1.0 / float(frequency))
 
 
+
 # reads data from the accelerometer
 def accelerometer_sensor_poll():
-    return 2
+    x = accelerometer_sensor.getX()
+    y = accelerometer_sensor.getY()
+    z = accelerometer_sensor.getZ()
+
+    # raw values
+    print("DEBUG: X: %.6f\tY: %.6f\tZ: %.6f" % (x, y, z))
+    return x, y, z
 
 
 # continuously polls the accelerometer as per the specified frequency
 def accelerometer_sensor_loop(frequency):
     while True:
         with open("data/accelerometer/accelerometer_" + src.logs.get_date() + ".data", "a") as accelerometer_data_file:
-            accelerometer_reading = accelerometer_sensor_poll()
+            accelerometer_reading_x, accelerometer_reading_y, accelerometer_reading_z = accelerometer_sensor_poll()
             timestamp = time.time()
-            accelerometer_data_file.write(str(timestamp) + ", " + str(accelerometer_reading) + "\n")
+            accelerometer_data_file.write(str(timestamp) + ", [" + str(accelerometer_reading_x) + str(accelerometer_reading_y) + str(accelerometer_reading_z) + "] \n")
 
         time.sleep(1.0 / float(frequency))
 
