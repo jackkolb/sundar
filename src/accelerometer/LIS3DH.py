@@ -127,8 +127,8 @@ class LIS3DH:
                                  "got 0x{:x} at address 0x{:x}").format(
                                      self.DEVICE_ID, val, self.address))
 
-            self.debug(("Successfully connected to LIS3DH " +
-                        "at address 0x{:x}").format(self.address))
+            #self.debug(("Successfully connected to LIS3DH " +
+            #            "at address 0x{:x}").format(self.address))
         except Exception as e:
             print("Error establishing connection with LIS3DH")
             print(e)
@@ -282,8 +282,8 @@ class LIS3DH:
 
     # Write the given value to the given register
     def writeRegister(self, register, value):
-        self.debug("WRT {} to register 0x{:x}".format(
-            bin(value), register))
+        #self.debug("WRT {} to register 0x{:x}".format(
+        #    bin(value), register))
         self.i2c.write8(register, value)
 
     # Set the bit at index 'bit' to 'value' on 'input' and return
