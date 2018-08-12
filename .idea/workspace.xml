@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4bf18146-07ca-4673-ae22-4352a260cc63" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/src/adafruit/adafruit_ft232H.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/adafruit/adafruit_gpio.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/loader.py" beforeDir="false" afterPath="$PROJECT_DIR$/loader.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -14,11 +15,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="main.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="main.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="375">
-              <caret line="25" selection-start-line="25" selection-end-line="25" />
+              <caret line="25" lean-forward="true" selection-start-line="25" selection-end-line="25" />
               <folding>
                 <element signature="e#0#22#0" expanded="true" />
               </folding>
@@ -26,23 +27,21 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="adafruit_ft232H.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/adafruit/adafruit_ft232H.py">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file leaf-file-name="adafruit_gpio.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/adafruit/adafruit_gpio.py">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
       <file leaf-file-name="logs.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/logs.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="176">
               <caret line="27" column="56" selection-start-line="27" selection-start-column="56" selection-end-line="27" selection-end-column="56" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="drive.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/drive.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="24" selection-start-line="24" selection-end-line="49" />
-              <folding>
-                <element signature="e#0#9#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -182,13 +181,15 @@
         <option value="$PROJECT_DIR$/src/accelerometer/LIS3DH.py" />
         <option value="$PROJECT_DIR$/src/sensors.py" />
         <option value="$PROJECT_DIR$/loader.py" />
+        <option value="$PROJECT_DIR$/src/adafruit/adafruit_ft232H.py" />
+        <option value="$PROJECT_DIR$/src/adafruit/adafruit_gpio.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="393" />
+    <option name="x" value="28" />
     <option name="y" value="31" />
-    <option name="width" value="879" />
+    <option name="width" value="924" />
     <option name="height" value="1021" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -208,6 +209,11 @@
               <item name="sundar" type="b2602c69:ProjectViewProjectNode" />
               <item name="sundar" type="462c0819:PsiDirectoryNode" />
               <item name="data" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="sundar" type="b2602c69:ProjectViewProjectNode" />
+              <item name="sundar" type="462c0819:PsiDirectoryNode" />
+              <item name="drive_api_keys" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="sundar" type="b2602c69:ProjectViewProjectNode" />
@@ -244,11 +250,11 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/drive_api_keys" />
       <recent name="$PROJECT_DIR$/src/adafruit" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/src" />
       <recent name="$PROJECT_DIR$/../client_secrets2" />
-      <recent name="$PROJECT_DIR$/drive_api_keys" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -459,14 +465,28 @@
       <option name="project" value="LOCAL" />
       <updated>1534021928182</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="added &quot;main thread end&quot; log">
+      <created>1534022259538</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1534022259538</updated>
+    </task>
+    <task id="LOCAL-00013" summary="unblocked credentials.json">
+      <created>1534022687940</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1534022687940</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="393" y="31" width="879" height="1021" extended-state="6" />
+    <frame x="28" y="31" width="924" height="1021" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.272" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25869566" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.32901832" />
@@ -503,26 +523,11 @@
     <MESSAGE value="&quot;quick save&quot; for transfer to pi" />
     <MESSAGE value="added accelerometer files" />
     <MESSAGE value="added accelerometer reading files" />
-    <option name="LAST_COMMIT_MESSAGE" value="added accelerometer reading files" />
+    <MESSAGE value="added &quot;main thread end&quot; log" />
+    <MESSAGE value="unblocked credentials.json" />
+    <option name="LAST_COMMIT_MESSAGE" value="unblocked credentials.json" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/run.sh">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="10" selection-start-line="3" selection-start-column="10" selection-end-line="3" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="30" column="19" selection-start-line="30" selection-start-column="19" selection-end-line="30" selection-end-column="19" />
-          <folding>
-            <element signature="e#0#35#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/run.sh">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
@@ -686,7 +691,7 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/settings.yaml" />
-    <entry file="file://$PROJECT_DIR$/credentials.json" />
+    <entry file="file://$PROJECT_DIR$/drive_api_keys/credentials.json" />
     <entry file="file://$PROJECT_DIR$/test_logs.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
@@ -736,13 +741,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/data/current.data" />
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="5" selection-start-line="4" selection-start-column="5" selection-end-line="4" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../client_secrets2/credentials2.json" />
     <entry file="file://$PROJECT_DIR$/src/drive.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -754,7 +752,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/credentials.json">
+    <entry file="file://$PROJECT_DIR$/drive_api_keys/credentials.json">
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <caret column="1" lean-forward="true" selection-start-column="1" selection-end-column="1" />
@@ -839,15 +837,28 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="5" lean-forward="true" selection-start-line="4" selection-start-column="5" selection-end-line="4" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="375">
-          <caret line="25" selection-start-line="25" selection-end-line="25" />
+          <caret line="25" lean-forward="true" selection-start-line="25" selection-end-line="25" />
           <folding>
             <element signature="e#0#22#0" expanded="true" />
           </folding>
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/adafruit/adafruit_ft232H.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/adafruit/adafruit_gpio.py">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
   </component>
 </project>
