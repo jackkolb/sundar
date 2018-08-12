@@ -1,7 +1,7 @@
 import subprocess
 import time
 import sys
-import logs
+import src.logs
 
 
 # checks for new code every 10 minutes, if there is an update, pull it and restart processes
@@ -14,7 +14,7 @@ def git_check_loop():
             pass
 
         else:  # new code on GitHub
-            logs.log("[Git Check] New build found on GitHub, resetting")
+            src.logs.log("[Git Check] New build found on GitHub, resetting")
             sys.exit()  # exits the program (including the thread)
 
         time.sleep(60 * 10)  # waits 10 minutes
