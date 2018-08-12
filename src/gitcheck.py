@@ -19,7 +19,7 @@ def check_flag_file():
 # checks for new code every 10 minutes, if there is an update, pull it and restart processes
 def git_check_loop():
     while True:
-        result = str(subprocess.Popen("git pull", shell=True, stdout=subprocess.PIPE).stdout.read())
+        result = str(subprocess.Popen("git pull", shell=False, stdout=subprocess.PIPE).stdout.read())
         result = result[2:-3]
 
         if result == "Already up-to-date.":  # latest remote commit matches current
