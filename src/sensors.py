@@ -1,4 +1,5 @@
 import time
+import src.gitcheck
 import src.logs
 import multiprocessing
 import datetime
@@ -121,8 +122,12 @@ def sensor_manager(settings):
         if not current_sensor_process.is_alive():
             src.logs.log("[SENSORS] Current Sensor process died, restarting all")
             break
+        
+        git_check_flag = src.gitcheck.check_flag_file()
+        if git_check_flag == "RESET":
+            break
 
-        # check time, for uploads at 1am nightly
+        # check time, for uploads at 10pm nightly
         update_flag = True
         current_hour = datetime.datetime.now().hour
         if current_hour == 22 and update_flag:
