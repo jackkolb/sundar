@@ -12,7 +12,7 @@ def check_flag_file():
     if data == "ERROR":
         src.logs.log("[Git Check] Could not open file: data/sys/git_flag")
     if data == "RESET":
-        with open("data/sys/git_flag", "t") as git_flag_file:
+        with open("data/sys/git_flag", "w") as git_flag_file:
             git_flag_file.write("GOOD")
     return data
     
@@ -27,6 +27,6 @@ def git_check_loop():
 
         else:  # new code on GitHub
             src.logs.log("[Git Check] New build found on GitHub, changing flag")
-            with open("data/sys/git_flag", "t") as git_flag_file:  # exits the program (including the thread)
+            with open("data/sys/git_flag", "w") as git_flag_file:  # exits the program (including the thread)
                 git_flag_file.write("RESET")
-        time.sleep(60 * 10)  # waits 10 minutes
+        time.sleep(60)  # waits 10 minutes
