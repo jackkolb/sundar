@@ -114,7 +114,7 @@ class LIS3DH:
         self.debug("Initialising LIS3DH")
 
         # self.i2c = Adafruit_I2C(address, busnum=bus)
-        self.i2c = I2C.Device(address, busnum=bus)
+        self.i2c = src.adafruit.adafruit_i2c.Device(address, busnum=bus)
         self.address = address
 
         try:

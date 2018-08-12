@@ -2,7 +2,7 @@ import time
 import src.logs
 import multiprocessing
 import datetime
-import src.drive
+#import src.drive
 
 from src.accelerometer.LIS3DH import LIS3DH
 
@@ -129,16 +129,16 @@ def sensor_manager(settings):
             src.logs.log("[SENSORS] Uploading files to Google Drive")
             print("accelerometer_" + src.logs.get_date() + ".data")
             time.sleep(5)
-            src.drive.upload_file("./data/accelerometer/accelerometer_" + src.logs.get_date() + ".data",
-                                  "'Sundar Lab'/data/accelerometer")
-            src.drive.upload_file("data/humidity/humidity" + src.logs.get_date() + ".data",
-                                  "'Sundar Lab'/data/humidity/")
-            src.drive.upload_file("data/temperature/temperature" + src.logs.get_date() + ".data",
-                                  "'Sundar Lab'/data/temperature/")
-            src.drive.upload_file("data/current/current" + src.logs.get_date() + ".data",
-                                  "'Sundar Lab'/data/current_sensor/")
-            src.drive.upload_file("data/logs/_log_pi_" + src.logs.get_date() + "",
-                                  "'Sundar Lab'/data/logs/")
+#            src.drive.upload_file("./data/accelerometer/accelerometer_" + src.logs.get_date() + ".data",
+#                                  "'Sundar Lab'/data/accelerometer")
+#            src.drive.upload_file("data/humidity/humidity" + src.logs.get_date() + ".data",
+#                                  "'Sundar Lab'/data/humidity/")
+#            src.drive.upload_file("data/temperature/temperature" + src.logs.get_date() + ".data",
+#                                  "'Sundar Lab'/data/temperature/")
+#            src.drive.upload_file("data/current/current" + src.logs.get_date() + ".data",
+#                                  "'Sundar Lab'/data/current_sensor/")
+#            src.drive.upload_file("data/logs/_log_pi_" + src.logs.get_date() + "",
+#                                  "'Sundar Lab'/data/logs/")
             src.logs.log("[SENSORS] Completed uploading files to Google Drive")
 
             update_flag = False
