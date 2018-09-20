@@ -43,3 +43,8 @@ import logs
 # to add a log entry to the day's log file
 logs.log("some message")
 ```
+
+To run, do:
+'''
+sudo ./run.sh
+'''
