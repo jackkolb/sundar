@@ -32,4 +32,4 @@ def git_check_loop():
             src.logs.log("[Git Check] New build found on GitHub, changing flag")
             with open("data/sys/git_flag", "w") as git_flag_file:  # exits the program (including the thread)
                 git_flag_file.write("RESET")
-        time.sleep(60)  # waits 10 minutes
+        time.sleep(30)  # waits 10 minutes
