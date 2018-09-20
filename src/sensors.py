@@ -113,7 +113,7 @@ def sensor_manager(settings):
     #temperature_process.start()
     #humidity_process.start()
     accelerometer_process.start()
-    GPIO.output(accelerometer_status_led_pin.GPIO.HIGH)
+    GPIO.output(accelerometer_status_led_pin, GPIO.HIGH)
     #current_sensor_process.start()
 
     src.logs.log("[SENSORS] All sensor processes running!")
