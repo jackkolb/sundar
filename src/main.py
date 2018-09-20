@@ -14,7 +14,7 @@ def main():
     git_check_thread = threading.Thread(target=src.gitcheck.git_check_loop)
     git_check_thread.start()
 
-    wifi_check_thread = threading.Tread(target=src.wifi_check.wifi_check_loop)
+    wifi_check_thread = threading.Thread(target=src.wifi_check.wifi_check_loop)
     wifi_check_thread.start()
 
     src.logs.log("[MAIN] Loading settings")
