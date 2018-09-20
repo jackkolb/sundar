@@ -91,7 +91,7 @@ def sensor_manager(settings):
     GPIO.setmode(GPIO.BCM)
     GPIO.setwarnings(False)
     GPIO.setup(accelerometer_status_led_pin, GPIO.OUT)
-    GPIO.output(accelerometer_status_led_pin, GPIO.LOW)
+    GPIO.output(accelerometer_status_led_pin, GPIO.HIGH)
 
     # get the sensor frequencies from the settings
 #    temperature_frequency = settings["TEMPERATURE_FREQUENCY"]
