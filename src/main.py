@@ -15,8 +15,6 @@ def main():
     GPIO.setup(accelerometer_status_led_pin, GPIO.OUT)
     GPIO.output(accelerometer_status_led_pin, GPIO.HIGH)
 
-    return
-
 
     src.logs.log("[MAIN] Starting GitHub check thread")
     # launch git check thread -- checks if there are code updates, if there are it kills the program

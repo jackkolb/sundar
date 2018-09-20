@@ -31,6 +31,3 @@ def wifi_check_loop():
             print("Wifi up!!!!")
             GPIO.output(wifi_check_led_pin, GPIO.HIGH)
         time.sleep(3)  # waits 10 minutes
-
-
-wifi_check_loop()
