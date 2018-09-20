@@ -85,43 +85,43 @@ def current_sensor_loop(frequency):
 # manages the sensor processes
 def sensor_manager(settings):
     # get the sensor frequencies from the settings
-    temperature_frequency = settings["TEMPERATURE_FREQUENCY"]
-    humidity_frequency = settings["HUMIDITY_FREQUENCY"]
+#    temperature_frequency = settings["TEMPERATURE_FREQUENCY"]
+#    humidity_frequency = settings["HUMIDITY_FREQUENCY"]
     accelerometer_frequency = settings["ACCELEROMETER_FREQUENCY"]
-    current_sensor_frequency = settings["CURRENT_SENSOR_FREQUENCY"]
+#    current_sensor_frequency = settings["CURRENT_SENSOR_FREQUENCY"]
 
     # create the sensor processes
-    src.logs.log("[SENSORS] Starting Temperature Process")
-    temperature_process = multiprocessing.Process(target=temperature_sensor_loop, args=(temperature_frequency,))
-    src.logs.log("[SENSORS] Starting Humidity Process")
-    humidity_process = multiprocessing.Process(target=humidity_sensor_loop, args=(humidity_frequency,))
+#    src.logs.log("[SENSORS] Starting Temperature Process")
+#    temperature_process = multiprocessing.Process(target=temperature_sensor_loop, args=(temperature_frequency,))
+#    src.logs.log("[SENSORS] Starting Humidity Process")
+#    humidity_process = multiprocessing.Process(target=humidity_sensor_loop, args=(humidity_frequency,))
     src.logs.log("[SENSORS] Starting Accelerometer Process")
     accelerometer_process = multiprocessing.Process(target=accelerometer_sensor_loop, args=(accelerometer_frequency,))
-    src.logs.log("[SENSORS] Starting Current Sensor Process")
-    current_sensor_process = multiprocessing.Process(target=current_sensor_loop, args=(current_sensor_frequency,))
+#    src.logs.log("[SENSORS] Starting Current Sensor Process")
+#    current_sensor_process = multiprocessing.Process(target=current_sensor_loop, args=(current_sensor_frequency,))
 
     # start the sensor processes
-    temperature_process.start()
-    humidity_process.start()
+    #temperature_process.start()
+    #humidity_process.start()
     accelerometer_process.start()
-    current_sensor_process.start()
+    #current_sensor_process.start()
 
     src.logs.log("[SENSORS] All sensor processes running!")
 
     # check the sensor processes, exit if any are not alive
     while True:
-        if not temperature_process.is_alive():
-            src.logs.log("[SENSORS] Temperature process died, restarting all")
-            break
-        if not humidity_process.is_alive():
-            src.logs.log("[SENSORS] Humidity process died, restarting all")
-            break
+        #if not temperature_process.is_alive():
+        #    src.logs.log("[SENSORS] Temperature process died, restarting all")
+        #    break
+        #if not humidity_process.is_alive():
+        #    src.logs.log("[SENSORS] Humidity process died, restarting all")
+        #    break
         if not accelerometer_process.is_alive():
             src.logs.log("[SENSORS] Accelerometer process died, restarting all")
             break
-        if not current_sensor_process.is_alive():
-            src.logs.log("[SENSORS] Current Sensor process died, restarting all")
-            break
+        #if not current_sensor_process.is_alive():
+        #    src.logs.log("[SENSORS] Current Sensor process died, restarting all")
+        #    break
         
         git_check_flag = src.gitcheck.check_flag_file()
         if git_check_flag == "RESET":
@@ -154,10 +154,10 @@ def sensor_manager(settings):
         time.sleep(5)
 
     # terminate the processes
-    temperature_process.terminate()
-    humidity_process.terminate()
+#    temperature_process.terminate()
+#    humidity_process.terminate()
     accelerometer_process.terminate()
-    current_sensor_process.terminate()
+#    current_sensor_process.terminate()
     src.logs.log("[SENSORS] Terminated all sensor subprocesses")
 
     return
