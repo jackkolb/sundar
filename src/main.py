@@ -9,13 +9,6 @@ import RPi.GPIO as GPIO
 
 
 def main():
-    accelerometer_status_led_pin = 12
-    GPIO.setmode(GPIO.BCM)
-    GPIO.setwarnings(False)
-    GPIO.setup(accelerometer_status_led_pin, GPIO.OUT)
-    GPIO.output(accelerometer_status_led_pin, GPIO.HIGH)
-
-
     src.logs.log("[MAIN] Starting GitHub check thread")
     # launch git check thread -- checks if there are code updates, if there are it kills the program
     git_check_thread = threading.Thread(target=src.gitcheck.git_check_loop)

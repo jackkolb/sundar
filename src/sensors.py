@@ -9,7 +9,7 @@ from src.accelerometer.LIS3DH import LIS3DH
 import RPi.GPIO as GPIO
 
 
-accelerometer_status_led_pin = 12
+accelerometer_status_led_pin = 25
 
 accelerometer_sensor = LIS3DH(debug=True)  # will be initialized with accelerometer_initialize()
 accelerometer_sensor.setRange(LIS3DH.RANGE_2G)
@@ -91,7 +91,7 @@ def sensor_manager(settings):
     GPIO.setmode(GPIO.BCM)
     GPIO.setwarnings(False)
     GPIO.setup(accelerometer_status_led_pin, GPIO.OUT)
-    GPIO.output(accelerometer_status_led_pin, GPIO.HIGH)
+    GPIO.output(accelerometer_status_led_pin, GPIO.LOW)
 
     # get the sensor frequencies from the settings
 #    temperature_frequency = settings["TEMPERATURE_FREQUENCY"]
@@ -167,7 +167,7 @@ def sensor_manager(settings):
 #    temperature_process.terminate()
 #    humidity_process.terminate()
     accelerometer_process.terminate()
-#    GPIO.output(accelerometer_status_led_pin.GPIO.LOW)
+    GPIO.output(accelerometer_status_led_pin.GPIO.LOW)
 #    current_sensor_process.terminate()
     src.logs.log("[SENSORS] Terminated all sensor subprocesses")
 
