@@ -166,6 +166,7 @@ def sensor_manager(settings):
     # terminate the processes
 #    temperature_process.terminate()
 #    humidity_process.terminate()
+    print("Resetting")
     accelerometer_process.terminate()
     GPIO.output(accelerometer_status_led_pin, GPIO.LOW)
 #    current_sensor_process.terminate()
