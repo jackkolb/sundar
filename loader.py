@@ -1,4 +1,5 @@
 import threading
+import importlib
 import src.main
 import src.logs
 
@@ -6,8 +7,8 @@ import src.logs
 if __name__ == "__main__":
     
     while True:
-        reload(src.main)
-        reload(src.logs)
+        importlib.reload(src.main)
+        importlib.reload(src.logs)
         import src.main
         import src.logs
         main_thread = threading.Thread(target=src.main.main)
