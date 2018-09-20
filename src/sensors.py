@@ -54,7 +54,7 @@ def accelerometer_sensor_poll():
     z = accelerometer_sensor.getZ()
 
     # raw values
-    #print("DEBUG: X: %.6f\tY: %.6f\tZ: %.6f" % (x, y, z))
+    print("DEBUG: X: %.6f\tY: %.6f\tZ: %.6f" % (x, y, z))
     return x, y, z
 
 
