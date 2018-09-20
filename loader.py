@@ -6,5 +6,5 @@ if __name__ == "__main__":
 
     while True:
         src.logs.log("[LOADER] Starting Main Thread")
-        subprocess.check_call(["python3", "./src/main.py"])
+        subprocess.check_call(["python3", "./src/main.py"], shell=True)
         src.logs.log("[LOADER] Main Thread Ended")
