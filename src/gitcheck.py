@@ -25,6 +25,7 @@ def git_check_loop():
         result = result[2:-3]
 
         if result == "Already up-to-date.":  # latest remote commit matches current
+            print("good") 
             pass
 
         else:  # new code on GitHub
