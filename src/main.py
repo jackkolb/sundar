@@ -5,9 +5,17 @@ import src.wifi_check
 import src.sensors
 import src.logs
 import src.settings as sensor_settings
+import RPi.GPIO as GPIO
 
 
 def main():
+    accelerometer_status_led_pin = 12
+    GPIO.setmode(GPIO.BCM)
+    GPIO.setwarnings(False)
+    GPIO.setup(accelerometer_status_led_pin, GPIO.OUT)
+    GPIO.output(accelerometer_status_led_pin, GPIO.HIGH)
+
+
     src.logs.log("[MAIN] Starting GitHub check thread")
     # launch git check thread -- checks if there are code updates, if there are it kills the program
     git_check_thread = threading.Thread(target=src.gitcheck.git_check_loop)
@@ -15,7 +23,7 @@ def main():
 
     wifi_check_thread = threading.Tread(target=src.wifi_check.wifi_check_loop)
     wifi_check_thread.start()
-    
+
     src.logs.log("[MAIN] Loading settings")
     settings = sensor_settings.retrieve_settings()
 
