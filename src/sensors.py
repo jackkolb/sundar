@@ -113,10 +113,10 @@ def sensor_manager(settings):
     #temperature_process.start()
     #humidity_process.start()
     accelerometer_process.start()
-    GPIO.output(accelerometer_status_led_pin, GPIO.HIGH)
     #current_sensor_process.start()
 
     src.logs.log("[SENSORS] All sensor processes running!")
+    GPIO.output(accelerometer_status_led_pin, GPIO.HIGH)
 
     # check the sensor processes, exit if any are not alive
     while True:
@@ -128,6 +128,7 @@ def sensor_manager(settings):
         #    break
         if not accelerometer_process.is_alive():
             src.logs.log("[SENSORS] Accelerometer process died, restarting all")
+            GPIO.output(accelerometer_status_led_pin, GPIO.LOW)
             break
         #if not current_sensor_process.is_alive():
         #    src.logs.log("[SENSORS] Current Sensor process died, restarting all")
