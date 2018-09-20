@@ -10,7 +10,7 @@ TEMPERATURE_FREQUENCY=2
 HUMIDITY_FREQUENCY=2
 
 # Accelerometer polling frequency (polls per second)
-ACCELEROMETER_FREQUENCY=250
+ACCELEROMETER_FREQUENCY=2
 
 # Current Sensor polling frequency (polls per second)
 CURRENT_SENSOR_FREQUENCY=2
