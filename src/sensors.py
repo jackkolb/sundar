@@ -9,7 +9,7 @@ from src.accelerometer.LIS3DH import LIS3DH
 import RPi.GPIO as GPIO
 
 
-accelerometer_status_led_pin = 25
+accelerometer_status_led_pin = 12
 
 accelerometer_sensor = LIS3DH(debug=True)  # will be initialized with accelerometer_initialize()
 accelerometer_sensor.setRange(LIS3DH.RANGE_2G)
