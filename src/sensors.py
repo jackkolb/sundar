@@ -167,7 +167,7 @@ def sensor_manager(settings):
 #    temperature_process.terminate()
 #    humidity_process.terminate()
     accelerometer_process.terminate()
-    GPIO.output(accelerometer_status_led_pin.GPIO.LOW)
+    GPIO.output(accelerometer_status_led_pin, GPIO.LOW)
 #    current_sensor_process.terminate()
     src.logs.log("[SENSORS] Terminated all sensor subprocesses")
 
