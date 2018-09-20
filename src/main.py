@@ -1,6 +1,7 @@
 import multiprocessing
 import threading
 import src.gitcheck
+import src.wifi_check
 import src.sensors
 import src.logs
 import src.settings as sensor_settings
@@ -12,6 +13,9 @@ def main():
     git_check_thread = threading.Thread(target=src.gitcheck.git_check_loop)
     git_check_thread.start()
 
+    wifi_check_thread = threading.Tread(target=src.wifi_check.wifi_check_loop)
+    wifi_check_thread.start()
+    
     src.logs.log("[MAIN] Loading settings")
     settings = sensor_settings.retrieve_settings()
 
