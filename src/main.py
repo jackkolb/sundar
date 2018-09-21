@@ -5,6 +5,7 @@ import src.wifi_check
 import src.sensors
 import src.logs
 import src.settings as sensor_settings
+import importlib
 import RPi.GPIO as GPIO
 
 
@@ -23,6 +24,10 @@ def main():
     # general loop: polls sensors, stores to logs, uploads at midnight
     while True:
         src.logs.log("[MAIN] Starting sensor process")
+        importlib.reload(src.gitcheck)
+        importlib.reload(src.wifi_check)
+        importlib.reload(src.sensors)
+        importlib.reload(src.logs)
         sensor_process = multiprocessing.Process(target=src.sensors.sensor_manager, args=(settings,))
         sensor_process.start()
 
