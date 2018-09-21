@@ -116,7 +116,7 @@ def sensor_manager(settings):
     #current_sensor_process.start()
 
     src.logs.log("[SENSORS] All sensor processes running!")
-    GPIO.output(accelerometer_status_led_pin, GPIO.HIGH)
+#    GPIO.output(accelerometer_status_led_pin, GPIO.HIGH)
 
     # check the sensor processes, exit if any are not alive
     while True:
