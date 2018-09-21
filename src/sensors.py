@@ -62,7 +62,9 @@ def accelerometer_sensor_poll():
 def accelerometer_sensor_loop(frequency):
     while True:
         with open("data/accelerometer/accelerometer_" + src.logs.get_date() + ".data", "a") as accelerometer_data_file:
+            GPIO.output(accelerometer_status_led_pin, GPIO.HIGH)
             accelerometer_reading_x, accelerometer_reading_y, accelerometer_reading_z = accelerometer_sensor_poll()
+            GPIO.output(accelerometer_status_led_pin, GPIO.LOW)
             timestamp = time.time()
             accelerometer_data_file.write(str(timestamp) + ", [" + str(accelerometer_reading_x) + str(accelerometer_reading_y) + str(accelerometer_reading_z) + "] \n")
 
@@ -91,7 +93,7 @@ def sensor_manager(settings):
     GPIO.setmode(GPIO.BCM)
     GPIO.setwarnings(False)
     GPIO.setup(accelerometer_status_led_pin, GPIO.OUT)
-    GPIO.output(accelerometer_status_led_pin, GPIO.LOW)
+    
 
     # get the sensor frequencies from the settings
 #    temperature_frequency = settings["TEMPERATURE_FREQUENCY"]
@@ -128,7 +130,7 @@ def sensor_manager(settings):
         #    break
         if not accelerometer_process.is_alive():
             src.logs.log("[SENSORS] Accelerometer process died, restarting all")
-            GPIO.output(accelerometer_status_led_pin, GPIO.LOW)
+           # GPIO.output(accelerometer_status_led_pin, GPIO.LOW)
             break
         #if not current_sensor_process.is_alive():
         #    src.logs.log("[SENSORS] Current Sensor process died, restarting all")
@@ -169,7 +171,7 @@ def sensor_manager(settings):
 #    humidity_process.terminate()
     print("Resetting")
     accelerometer_process.terminate()
-    GPIO.output(accelerometer_status_led_pin, GPIO.LOW)
+   # GPIO.output(accelerometer_status_led_pin, GPIO.LOW)
 #    current_sensor_process.terminate()
     src.logs.log("[SENSORS] Terminated all sensor subprocesses")
 
