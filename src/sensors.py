@@ -20,7 +20,7 @@ def initialize_accelerometer():
         accelerometer_sensor = LIS3DH(debug=True)  # will be initialized with accelerometer_initialize()
         accelerometer_sensor.setRange(LIS3DH.RANGE_2G)
         return True
-    except OSError:
+    except:
         return False
 
 # reads data from the temperature sensor
