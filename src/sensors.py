@@ -11,8 +11,18 @@ import RPi.GPIO as GPIO
 
 accelerometer_status_led_pin = 25
 
-accelerometer_sensor = LIS3DH(debug=True)  # will be initialized with accelerometer_initialize()
-accelerometer_sensor.setRange(LIS3DH.RANGE_2G)
+accelerometer_sensor = "NONE"
+
+
+def initialize_accelerometer():
+    try:
+        global accelerometer_sensor
+        accelerometer_sensor = LIS3DH(debug=True)  # will be initialized with accelerometer_initialize()
+        accelerometer_sensor.setRange(LIS3DH.RANGE_2G)
+        return True
+    except OSError:
+        src.logs.log("Failed to initialize accelerometer")
+        return True
 
 # reads data from the temperature sensor
 def temperature_sensor_poll():

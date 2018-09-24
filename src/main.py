@@ -27,6 +27,7 @@ def main():
         importlib.reload(src.gitcheck)
         importlib.reload(src.wifi_check)
         importlib.reload(src.sensors)
+        src.sensors.initialize_accelerometer()
         importlib.reload(src.logs)
         sensor_process = multiprocessing.Process(target=src.sensors.sensor_manager, args=(settings,))
         sensor_process.start()

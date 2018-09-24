@@ -28,6 +28,7 @@ def git_check_loop():
             pass
 
         else:  # new code on GitHub
+            print(result)
             src.logs.log("[Git Check] New build found on GitHub, changing flag")
             with open("data/sys/git_flag", "w") as git_flag_file:  # exits the program (including the thread)
                 git_flag_file.write("RESET")
