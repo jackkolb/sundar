@@ -21,8 +21,7 @@ def initialize_accelerometer():
         accelerometer_sensor.setRange(LIS3DH.RANGE_2G)
         return True
     except OSError:
-        src.logs.log("Failed to initialize accelerometer")
-        return True
+        return False
 
 # reads data from the temperature sensor
 def temperature_sensor_poll():

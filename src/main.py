@@ -27,8 +27,13 @@ def main():
         importlib.reload(src.gitcheck)
         importlib.reload(src.wifi_check)
         importlib.reload(src.sensors)
-        src.sensors.initialize_accelerometer()
         importlib.reload(src.logs)
+
+        accelerometer_status = src.sensors.initialize_accelerometer()
+        if accelerometer_status == False:
+            src.logs.log("Accelerometer failed to initialize")
+            continue
+
         sensor_process = multiprocessing.Process(target=src.sensors.sensor_manager, args=(settings,))
         sensor_process.start()
 
