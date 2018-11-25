@@ -6,19 +6,24 @@ import datetime
 #import src.drive
 
 from src.accelerometer.LIS3DH import LIS3DH
+from src.accelerometer.LIS3DH_2 import LIS3DH_2
 import RPi.GPIO as GPIO
 
 
 accelerometer_status_led_pin = 25
 
 accelerometer_sensor = "NONE"
+accelerometer_sensor_2 = "NONE"
 
 
 def initialize_accelerometer():
     try:
-        global accelerometer_sensor
-        accelerometer_sensor = LIS3DH(debug=True)  # will be initialized with accelerometer_initialize()
-        accelerometer_sensor.setRange(LIS3DH.RANGE_2G)
+        global accelerometer_sensor_1
+        global accelerometer_sensor_2
+        accelerometer_sensor_1 = LIS3DH(debug=True)  # will be initialized with accelerometer_initialize()
+        accelerometer_sensor_1.setRange(LIS3DH.RANGE_2G)
+        accelerometer_sensor_2 = LIS3DH_2(debug=True)  # will be initialized with accelerometer_initialize()
+        accelerometer_sensor_2.setRange(LIS3DH.RANGE_2G)
         return True
     except:
         return False
@@ -58,13 +63,17 @@ def humidity_sensor_loop(frequency):
 
 # reads data from the accelerometer
 def accelerometer_sensor_poll():
-    x = accelerometer_sensor.getX()
-    y = accelerometer_sensor.getY()
-    z = accelerometer_sensor.getZ()
+    x1 = accelerometer_sensor_1.getX()
+    y1 = accelerometer_sensor_1.getY()
+    z1 = accelerometer_sensor_1.getZ()
+
+    x2 = accelerometer_sensor_2.getX()
+    y2 = accelerometer_sensor_2.getY()
+    z2 = accelerometer_sensor_2.getZ()
 
     # raw values
     #print("DEBUG: X: %.6f\tY: %.6f\tZ: %.6f" % (x, y, z))
-    return x, y, z
+    return x1, y1, z1, x2, y2, z2
 
 
 # continuously polls the accelerometer as per the specified frequency
@@ -72,10 +81,10 @@ def accelerometer_sensor_loop(frequency):
     while True:
         with open("data/accelerometer/accelerometer_" + src.logs.get_date() + ".data", "a") as accelerometer_data_file:
             GPIO.output(accelerometer_status_led_pin, GPIO.HIGH)
-            accelerometer_reading_x, accelerometer_reading_y, accelerometer_reading_z = accelerometer_sensor_poll()
+            x1, y1, z1, x2, y2, z2 = accelerometer_sensor_poll()
             GPIO.output(accelerometer_status_led_pin, GPIO.LOW)
             timestamp = time.time()
-            accelerometer_data_file.write(str(timestamp) + ", [" + str(accelerometer_reading_x) + str(accelerometer_reading_y) + str(accelerometer_reading_z) + "] \n")
+            accelerometer_data_file.write(str(timestamp) + ", [" + str(x1) + " " + str(y1) + " " + str(z1) + " " + str(x2) + " " + str(y2) + " " + str(z2) + "] \n")
 
         time.sleep(1.0 / float(frequency))
 
