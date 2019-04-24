@@ -23,8 +23,8 @@ void my_callback(ADXL355Fifo * fifo)
   printf("writing\n");
 
   FILE * fp;
-  fp = fopen("./data/data_1.txt", "w");
-  fprintf(fp, "%lld:%d,%d,%d",time_now.tv_sec,x,y,z);
+  fp = fopen("./data/data_1.txt", "a");
+  fprintf(fp, "%lld:%d,%d,%d\n",time_now.tv_sec,x,y,z);
   fclose(fp);
   return;
 }
