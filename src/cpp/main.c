@@ -21,12 +21,12 @@ void my_callback(ADXL355Fifo * fifo)
   float z = fifo->data[0].z;
   
   printf("X: %d\n", x);  
-  printf("t: %lld.%09ld\n", time_now.tv_sec, time_now.tv_nsec);
+  printf("t: %lld\n", time_now.tv_sec);
 
   FILE * fp;
   fp = fopen("./data/data_1.txt", "w");
   printf("a\n");
-  fprintf(fp, ":%d,%d,%d",x,y,z);
+  fprintf(fp, "%lld:%d,%d,%d",time_now.tv_sec,x,y,z);
   printf("b\n");
   fclose(fp);
   return;
