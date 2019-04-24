@@ -8,7 +8,6 @@ ifdef DEBUG
 endif
 
 OBJECTS_FOLDER=objects
-BUILD_FOLDER=build
 SOURCE_FOLDER=src
 
 SOURCES=adxl355.c
@@ -25,10 +24,7 @@ $(OBJECTS_FOLDER)/%.o: $(SOURCE_FOLDER)/%.c
 	$(CC) $(CFLAGS) -o $@ $<
 
 control: $(BUILD_FOLDER)
-	$(CC) $(VALGRIND_FLAGS) -I$(SOURCE_FOLDER) ./main.c -l:$(LIB) -lwiringPi -L./ -o $(BUILD_FOLDER)/$@
-
-$(BUILD_FOLDER):
-	mkdir $(BUILD_FOLDER)
+	$(CC) $(VALGRIND_FLAGS) -I$(SOURCE_FOLDER) ./main.c -l:$(LIB) -lwiringPi -L./ -o ./collect.o
 
 $(OBJECTS_FOLDER):
 	mkdir $(OBJECTS_FOLDER)
