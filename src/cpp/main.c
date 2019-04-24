@@ -20,9 +20,9 @@ void my_callback(ADXL355Fifo * fifo)
   
   FILE * fp;
   fp = fopen("./data/data_1.txt", "w");
-  printf("a");
+  printf("a\n");
   fprintf(fp, "%d:%d,%d,%d",now,x,y,z);
-  printf("b");
+  printf("b\n");
   fclose(fp);
   return;
 }
