@@ -58,7 +58,7 @@ int main(int argc, char * argv[])
 
   adxl355_fifo_stream(&spi, my_callback, FIFO_STREAM_OVR_BREAK|FIFO_STREAM_FIFO_READ_BREAK);
 
-      fp->close();
+  fclose(fp);
 
   adxl355_standby_mode(&spi);
 
