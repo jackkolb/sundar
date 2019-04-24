@@ -9,6 +9,8 @@
 
 #include "adxl355.h"
 
+FILE * fp;
+
 void my_callback(ADXL355Fifo * fifo)
 {
 
@@ -24,10 +26,8 @@ void my_callback(ADXL355Fifo * fifo)
 
   printf("%f", x);
 
-//  FILE * fp;
-//  fp = fopen("./data/data_1.txt", "a");
-//  fprintf(fp, "%lld:%d,%d,%d\n",time_now.tv_sec,x,y,z);
-//  fclose(fp);
+
+  fprintf(fp, "%lld:%d,%d,%d\n",time_now.tv_sec,x,y,z);
   return;
 }
 
@@ -54,7 +54,11 @@ int main(int argc, char * argv[])
 
   adxl355_measurement_mode(&spi);
 
+  fp = fopen("./data/data_1.txt", "a");
+
   adxl355_fifo_stream(&spi, my_callback, FIFO_STREAM_OVR_BREAK|FIFO_STREAM_FIFO_READ_BREAK);
+
+  fp.close();
 
   adxl355_standby_mode(&spi);
 
