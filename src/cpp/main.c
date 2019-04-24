@@ -11,7 +11,7 @@
 
 void my_callback(ADXL355Fifo * fifo)
 {
-  usleep(1000); // sleep for 1ms
+
   unsigned mult = 0;
   struct timespec time_now;
   clock_gettime(CLOCK_REALTIME, &time_now);
