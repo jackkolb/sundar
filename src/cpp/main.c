@@ -11,7 +11,7 @@
 
 void my_callback(ADXL355Fifo * fifo)
 {
-  
+  usleep(1000); // sleep for 1ms
   unsigned mult = 0;
   struct timespec time_now;
   clock_gettime(CLOCK_REALTIME, &time_now);
@@ -19,17 +19,12 @@ void my_callback(ADXL355Fifo * fifo)
   float x = fifo->data[0].x;
   float y = fifo->data[0].y;
   float z = fifo->data[0].z;
-  
-  printf("X: %d\n", x);  
-  printf("t: %lld\n", time_now.tv_sec);
+ 
+  printf("writing\n");
 
   FILE * fp;
   fp = fopen("./data/data_1.txt", "w");
-  printf("ab\n");
-  fprintf(fp, "adwadwa\n");
-  printf("b\n");
   fprintf(fp, "%lld:%d,%d,%d",time_now.tv_sec,x,y,z);
-  printf("b\n");
   fclose(fp);
   return;
 }
