@@ -21,6 +21,7 @@ void my_callback(ADXL355Fifo * fifo)
   FILE * fp;
   fp = fopen("./data/data_1.txt", "w");
   printf("a\n");
+  printf("%f\n",now);
   fprintf(fp, "%f:%d,%d,%d",now,x,y,z);
   printf("b\n");
   fclose(fp);
