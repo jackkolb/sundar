@@ -10,10 +10,10 @@
 
 void my_callback(ADXL355Fifo * fifo)
 {
-  time_t now = time(0)
-  float x = fifo->data[0].x
-  float y = fifo->data[0].y
-  float z = fifo->data[0].z
+  time_t now = time(0);
+  float x = fifo->data[0].x;
+  float y = fifo->data[0].y;
+  float z = fifo->data[0].z;
   
   printf("X: %d\n", x);  
   
@@ -21,7 +21,7 @@ void my_callback(ADXL355Fifo * fifo)
   fp = fopen("./data/data_1.txt", "w");
   fprintf(fp, "%d:%d,%d,%d",now,x,y,z);
   fclose(fp);
-  return 0;
+  return;
 }
 
 int main(int argc, char * argv[])
