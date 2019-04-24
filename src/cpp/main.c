@@ -26,6 +26,8 @@ void my_callback(ADXL355Fifo * fifo)
   FILE * fp;
   fp = fopen("./data/data_1.txt", "w");
   printf("a\n");
+  fprintf(fp, "adwadwa\n");
+  printf("b\n");
   fprintf(fp, "%lld:%d,%d,%d",time_now.tv_sec,x,y,z);
   printf("b\n");
   fclose(fp);
