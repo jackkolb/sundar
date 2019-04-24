@@ -5,6 +5,7 @@
 
 #include <wiringPi.h>
 #include <wiringPiSPI.h>
+#include <time.h>
 
 #include "adxl355.h"
 
