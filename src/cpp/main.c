@@ -18,14 +18,11 @@ void my_callback(ADXL355Fifo * fifo)
   struct timespec time_now;
   clock_gettime(CLOCK_REALTIME, &time_now);
 
-  float x = fifo->data[0].x;
-  float y = fifo->data[0].y;
-  float z = fifo->data[0].z;
+  double x = fifo->data[0].x;
+  double y = fifo->data[0].y;
+  double z = fifo->data[0].z;
  
-  printf("writing\n");
-
-  printf("%f", x);
-
+  printf("collecting...\n");
 
   fprintf(fp, "%lld:%d,%d,%d\n",time_now.tv_sec,x,y,z);
   return;
