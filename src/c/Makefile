@@ -8,7 +8,7 @@ ifdef DEBUG
 endif
 
 OBJECTS_FOLDER=objects
-SOURCE_FOLDER=src
+SOURCE_FOLDER=adxl_src
 
 SOURCES=adxl355.c
 OBJECTS=$(foreach obj, $(SOURCES:.c=.o), $(OBJECTS_FOLDER)/$(obj))

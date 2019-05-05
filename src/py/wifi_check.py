@@ -3,7 +3,7 @@ import time
 import sys
 import urllib.request
 import RPi.GPIO as GPIO
-
+import logs
 
 wifi_check_led_pin = 8
 
@@ -25,9 +25,9 @@ def wifi_check_loop():
             result = "bad"
 
         if result == "bad" and old_result != result:  # wifi down
-            print("Wifi down!!!!!!!!!!")
+            logs.log("[WIFI] Wifi down")
             GPIO.output(wifi_check_led_pin, GPIO.LOW)
         if result == "good" and old_result != result:
-            print("Wifi up!!!!")
+            logs.log("[WIFI] Wifi up")
             GPIO.output(wifi_check_led_pin, GPIO.HIGH)
         time.sleep(3)  # waits 10 minutes
