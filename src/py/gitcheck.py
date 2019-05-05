@@ -24,7 +24,7 @@ def git_check_loop():
         result = str(out)
         result = result[2:-3]
 
-        if result == "Already up-to-date.":  # latest remote commit matches current
+        if "Already up-to-date." in result:  # latest remote commit matches current
             pass
 
         else:  # new code on GitHub
@@ -32,4 +32,4 @@ def git_check_loop():
             logs.log("[Git Check] New build found on GitHub, changing flag")
             with open("git_flag", "w") as git_flag_file:  # exits the program (including the thread)
                 git_flag_file.write("RESET")
-        time.sleep(30)  # waits 10 minutes
+        time.sleep(10)  # waits 10 minutes
