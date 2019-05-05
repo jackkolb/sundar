@@ -25,5 +25,5 @@ def main():
         sensor_process = subprocess.Popen(["./src/c/collect.o", "data/dataaa.txtt"])
         sensor_process.wait()  # wait for sensor thread to end, restart it if it does
         logs.log("[MAIN] Sensor process stopped, restarting")
-        if gitcheck.check_flag_file() == "RESET"
+        if gitcheck.check_flag_file() == "RESET":
             sys.exit()
