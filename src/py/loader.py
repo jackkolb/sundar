@@ -11,5 +11,5 @@ if __name__ == "__main__":
         main_thread = multiprocessing.Process(target=main.main)
         logs.log("[LOADER] Starting Main Process")
         main_thread.start()
-        main_thread.wait()
+        main_thread.join()
         logs.log("[LOADER] Main Process Ended")
