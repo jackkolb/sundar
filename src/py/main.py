@@ -5,7 +5,7 @@ import wifi_check
 import logs
 import settings as sensor_settings
 import RPi.GPIO as GPIO
-import sys
+import os
 
 def main():
     logs.log("[MAIN] Starting GitHub check thread")
@@ -26,4 +26,4 @@ def main():
         sensor_process.wait()  # wait for sensor thread to end, restart it if it does
         logs.log("[MAIN] Sensor process stopped, restarting")
         if gitcheck.check_flag_file() == "RESET":
-            sys.exit()
+            os.exit()

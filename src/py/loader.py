@@ -1,4 +1,4 @@
-import threading, importlib
+import multiprocessing, importlib
 import main, logs
 
 if __name__ == "__main__":
@@ -8,8 +8,8 @@ if __name__ == "__main__":
         importlib.reload(logs)
         import main
         import logs
-        main_thread = threading.Thread(target=main.main)
-        logs.log("[LOADER] Starting Main Thread")
+        main_thread = multiprocessing.Process(target=main.main)
+        logs.log("[LOADER] Starting Main Process")
         main_thread.start()
-        main_thread.join()
-        logs.log("[LOADER] Main Thread Ended")
+        main_thread.wait()
+        logs.log("[LOADER] Main Process Ended")
