@@ -19,7 +19,7 @@ def check_flag_file():
 # checks for new code every 10 minutes, if there is an update, pull it and restart processes
 def git_check_loop():
     while True:
-        git_process = subprocess.Popen(["sudo", "git","pull"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        git_process = subprocess.Popen(["git","pull"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
         out, err = git_process.communicate()
         result = str(out)
         result = result[2:-3]
