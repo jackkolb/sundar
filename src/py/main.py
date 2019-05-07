@@ -22,7 +22,7 @@ def main():
     # general loop: launch collection script, when it dies relaunch it
     while True:
         logs.log("[MAIN] Starting sensor process")
-        sensor_process = subprocess.Popen(["./src/c/collect.o", "data/dataaa.txtt"])
+        sensor_process = subprocess.Popen(["./src/c/collect.o", "data/data.txt"])
         sensor_process.wait()  # wait for sensor thread to end, restart it if it does
         logs.log("[MAIN] Sensor process stopped, restarting")
         if gitcheck.check_flag_file() == "RESET":
