@@ -6,9 +6,6 @@ import socket
 
 lcd = "PLACEHOLDER"
 
-wifi = "off"
-collecting = "no"
-
 char_wifi = "\x00"
 char_no_wifi = "\x01"
 char_collecting = "\x02"
@@ -84,28 +81,38 @@ def charflag_flip():
     else:
         charflag = "-"
 
+def collection_file():
+    name = "INITIAL"
+    try:
+        with open("./settings/out_file", "r") as out_file:
+            name = out_file.readline()
+    except Exception:
+        name = "empty"
+    return name
+
 
 def init_lcd():
     global lcd
     lcd = CharLCD(numbering_mode=GPIO.BOARD, cols=16, rows=2, pin_rs=15, pin_rw=18, pin_e=16, pins_data=[21, 22, 23, 24])
-
+    lcd.clear()
 
 def update():
     ip = get_ip_address()
     if ip != "FAIL":        
         lcd.cursor_pos = (0, 0)
+
         lcd.write_string(char_wifi + " " + ip)
     else:
         lcd.cursor_pos = (0, 0)
         lcd.write_string(char_no_wifi + " " + "No WiFi!     ")
 
-   
-    if collecting == "yes":
+    out_file = collection_file()
+    if out_file != "" and out_file != "empty":
         lcd.cursor_pos = (1, 0)
-        lcd.write_string("\x02") # collecting
+        lcd.write_string(char_collecting + " " + out_file) # collecting
     else:   
         lcd.cursor_pos = (1, 0)
-        lcd.write_string("\x03") # not collecting
+        lcd.write_string("\x03" + " " + "              ") # not collecting
 
 
     lcd.cursor_pos = (0, 15)
