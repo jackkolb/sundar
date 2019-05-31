@@ -6,13 +6,13 @@ import logs
 
 def check_flag_file():
     data = "ERROR"
-    with open("git_flag", "r") as git_flag_file:
+    with open("settings/git_flag", "r") as git_flag_file:
         data = git_flag_file.readline()
     
     if data == "ERROR":
-        logs.log("[Git Check] Could not open file: src/py/git_flag")
+        logs.log("[Git Check] Could not open file: settings/git_flag")
     if data == "RESET":
-        with open("git_flag", "w") as git_flag_file:
+        with open("settings/git_flag", "w") as git_flag_file:
             git_flag_file.write("GOOD")
     return data
     
@@ -30,6 +30,6 @@ def git_check_loop():
         else:  # new code on GitHub
             print(result)
             logs.log("[Git Check] New build found on GitHub, changing flag")
-            with open("git_flag", "w") as git_flag_file:  # exits the program (including the thread)
+            with open("settings/git_flag", "w") as git_flag_file:  # exits the program (including the thread)
                 git_flag_file.write("RESET")
         time.sleep(10)  # waits 10 minutes
