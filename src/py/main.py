@@ -6,6 +6,7 @@ import logs
 import settings as sensor_settings
 import RPi.GPIO as GPIO
 import os
+import signals.lcd
 
 def main():
     logs.log("[MAIN] Starting GitHub check thread")
@@ -18,6 +19,9 @@ def main():
 
     logs.log("[MAIN] Loading settings")
     settings = sensor_settings.retrieve_settings()
+
+    logs.log("[MAIN] Starting LCD")
+    signals.lcd.start_lcd()
 
     # general loop: launch collection script, when it dies relaunch it
     while True:

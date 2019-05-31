@@ -153,7 +153,7 @@ def custom_chars():
     )
     lcd.create_char(3, not_collecting)
 
-if __name__ == "__main__":
+def start_lcd():
     init_lcd()
     custom_chars()
     while True:
