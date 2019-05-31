@@ -6,7 +6,6 @@ import logs
 import settings as sensor_settings
 import RPi.GPIO as GPIO
 import os
-import signals.lcd
 
 def main():
     GPIO.setmode(GPIO.BCM)
