@@ -9,7 +9,7 @@ import os
 import signals.lcd
 
 def main():
-    GPIO.cleanup()
+    GPIO.setmode(GPIO.BCM)
     logs.log("[MAIN] Starting GitHub check thread")
     # launch git check thread -- checks if there are code updates, if there are it kills the program
     git_check_thread = threading.Thread(target=gitcheck.git_check_loop)
