@@ -159,3 +159,6 @@ def start_lcd():
     while True:
         update()
         time.sleep(.25)
+
+
+start_lcd()

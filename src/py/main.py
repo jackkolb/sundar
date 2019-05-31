@@ -21,8 +21,8 @@ def main():
     logs.log("[MAIN] Loading settings")
     settings = sensor_settings.retrieve_settings()
 
-    logs.log("[MAIN] Starting LCD")
-    signals.lcd.start_lcd()
+    #logs.log("[MAIN] Starting LCD")
+    #signals.lcd.start_lcd()
 
     # general loop: launch collection script, when it dies relaunch it
     while True:
