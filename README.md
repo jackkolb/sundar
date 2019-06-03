@@ -12,7 +12,7 @@ Usage:
 import drive
 
 # to upload a file
-drive.upload_file("some_file.txt", "Folder")
+drive.upload_file("some_file.dat", "Folder")
 ```
 
 All the authentication should be handled automatically, otherwise
