@@ -5,6 +5,9 @@ import time
 import socket
 import subprocess
 
+import lcd_util
+
+
 lcd = "PLACEHOLDER"
 
 wifi_name = "no wifi"
@@ -18,6 +21,12 @@ char_collecting = "\x02"
 char_not_collecting = "\x03"
 
 charflag = "*"
+
+def lcd_move(x, y):
+
+
+def lcd_write(message):
+
 
 def get_ip_address():
     ip_address = 'INITIAL'
@@ -61,9 +70,9 @@ def get_disk_usage():
     return usage
 
 
-def init_lcd():
+def lcd_init():
     global lcd
-    lcd = CharLCD(numbering_mode=GPIO.BCM, cols=16, rows=2, pin_rs=22, pin_rw=23, pin_e=24, pins_data=[19, 16, 26, 20]) # gpio_board were 15,16,18 ; data pins were 21, 22, 23, 24
+    lcd = CharLCD(numbering_mode=GPIO.BCM, cols=16, rows=2, pin_rs=22, pin_rw=None, pin_e=24, pins_data=[19, 16, 26, 20]) # gpio_board were 15,16,18 ; data pins were 21, 22, 23, 24
     lcd.clear()
 
 def update():
@@ -154,11 +163,11 @@ def custom_chars():
     lcd.create_char(3, not_collecting)
 
 def start_lcd():
-    init_lcd()
+    lcd_init()
     custom_chars()
     while True:
         update()
         time.sleep(.25)
-
+    GPIO.cleanup()
 
 start_lcd()
