@@ -5,8 +5,6 @@ import time
 import socket
 import subprocess
 
-import lcd_util
-
 
 lcd = "PLACEHOLDER"
 
@@ -21,11 +19,6 @@ char_collecting = "\x02"
 char_not_collecting = "\x03"
 
 charflag = "*"
-
-def lcd_move(x, y):
-
-
-def lcd_write(message):
 
 
 def get_ip_address():
@@ -72,7 +65,10 @@ def get_disk_usage():
 
 def lcd_init():
     global lcd
-    lcd = CharLCD(numbering_mode=GPIO.BCM, cols=16, rows=2, pin_rs=22, pin_rw=None, pin_e=24, pins_data=[19, 16, 26, 20]) # gpio_board were 15,16,18 ; data pins were 21, 22, 23, 24
+    pin_rs = 18 # Board: 12
+    pin_e = 15  # Board: 10
+    pins_data = [2, 3, 4, 17] # Board: 3, 5, 7, 11
+    lcd = CharLCD(numbering_mode=GPIO.BCM, cols=16, rows=2, pin_rs=pin_rs, pin_rw=None, pin_e=pin_e, pins_data=pins_data)
     lcd.clear()
 
 def update():
