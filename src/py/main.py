@@ -6,6 +6,7 @@ import logs
 import settings as sensor_settings
 import RPi.GPIO as GPIO
 import os
+import signals.lcd
 
 def main():
     GPIO.setmode(GPIO.BCM)
@@ -20,13 +21,14 @@ def main():
     logs.log("[MAIN] Loading settings")
     settings = sensor_settings.retrieve_settings()
 
-    #logs.log("[MAIN] Starting LCD")
-    #signals.lcd.start_lcd()
+    logs.log("[MAIN] Starting LCD thread")
+    lcd_thread = threading.Thread(target=signals.lcd.start_lcd)
+    lcd_thread.start()
 
     # general loop: launch collection script, when it dies relaunch it
     while True:
         logs.log("[MAIN] Starting sensor process")
-        sensor_process = subprocess.Popen(["./src/c/collect.o", "data/data.txt"])
+        sensor_process = subprocess.Popen(["./src/c/collect.o", "./data/kuhkuh/kuhk", "./data/", "./data/data.txt"])
         sensor_process.wait()  # wait for sensor thread to end, restart it if it does
         logs.log("[MAIN] Sensor process stopped, restarting")
         if gitcheck.check_flag_file() == "RESET":

@@ -65,9 +65,9 @@ def get_disk_usage():
 
 def lcd_init():
     global lcd
-    pin_rs = 18 # Board: 12
-    pin_e = 15  # Board: 10
-    pins_data = [2, 3, 4, 17] # Board: 3, 5, 7, 11
+    pin_rs = 21 # Board: 40
+    pin_e = 20  # Board: 38
+    pins_data = [16, 26, 19, 13] # Board: 36, 37, 35, 33
     lcd = CharLCD(numbering_mode=GPIO.BCM, cols=16, rows=2, pin_rs=pin_rs, pin_rw=None, pin_e=pin_e, pins_data=pins_data)
     lcd.clear()
 
@@ -165,5 +165,3 @@ def start_lcd():
         update()
         time.sleep(.25)
     GPIO.cleanup()
-
-start_lcd()

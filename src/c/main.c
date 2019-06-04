@@ -2,7 +2,7 @@
 
 #include <unistd.h>
 #include <stdio.h>
-
+#include <dirent.h>
 #include <wiringPi.h>
 #include <wiringPiSPI.h>
 #include <sys/time.h>
@@ -43,7 +43,14 @@ int main(int argc, char * argv[])
     ADXL355Acceleration acc = {};
     adxl355_measurement_mode(&spi);
 
-    fp = fopen(argv[1], "a");
+    // check if preferred file exists
+    DIR* dir = opendir(argv[1]);
+    if (dir) {
+        fp = fopen(argv[2], "a");
+    }
+    else {
+        fp = fopen(argv[3], "a");
+    }
 
     adxl355_fifo_stream(&spi, my_callback, FIFO_STREAM_OVR_BREAK|FIFO_STREAM_FIFO_READ_BREAK);
 
