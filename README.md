@@ -1,50 +1,34 @@
 # Sundar's Lab
 Our Codebase for Sundar's Lab
 
+## Overview:
 
-## Modules:
+There are several modules that work together.
 
-### drive.py
-Contains functions to manage the Google Drive
+To start the program, run run.sh.
 
-Usage:
-```
-import drive
+### run.sh
 
-# to upload a file
-drive.upload_file("some_file.dat", "Folder")
-```
+run.sh simply runs loader.py.
 
-All the authentication should be handled automatically, otherwise
-the output will try opening a browser to login and reauthenticate.
-Just login for the sundarlabucr@gmail.com account.
+### loader.py
 
+loader.py runs the Main Module (main.py), restarting it if it stops.
 
-### mail.py
-Contains functions to manage email communications (and through that,
-SMS communications for emergencies)
+### Main Module (main.py)
 
-Usage:
-```
-import mail
+The Main Module starts the GitHub Check Module, loads the settings file, starts the LCD Module, and lastly runs the Collection Module on an infinite loop.
 
-# to send an email
-mail.send_email("someone@gmail.com", "some subject", "some message")
-```
+### GitHub Check Module (gitcheck.py)
 
-### logs.py
-Contains functions to manage the log files, will automatically write to
-the current day's file
+The GitHub Check Module repeatedly runs "git pull" to keep the codebase updated. If the codebase is updated, this module will set a file (settings/git_flag) contents to "RESET". The Main Module will see this change and reset itself.
 
-Usage:
-```
-import logs
+### LCD Module (lcd.py)
 
-# to add a log entry to the day's log file
-logs.log("some message")
-```
+The LCD Module controls a 16x2 LCD display. It gets the device's IP address and currently connected WiFi network, reads the (settings/out_file) to get the name/location of the data output file, and gets the remaining disk storage. This information is displayed on the screen.
 
-To run, do:
-'''
-sudo ./run.sh
-'''
+### Collection Module (main.c -> collect.o)
+
+The Collection Module is a compiled C script that collects data from the accelerometer and stores it to a given file:
+`	collect.o PREFERRED_OUTPUT_DIRECTORY PREFERRED_OUTPUT_FILE SECONDARY_OUTPUT_FILE`
+

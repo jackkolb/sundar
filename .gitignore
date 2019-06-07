@@ -1,5 +1,2 @@
-data/accelerometer/
-data/current/
-data/humidity/
-data/temperature/
 logs/
+data/
