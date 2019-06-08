@@ -9,11 +9,11 @@ To start the program, run run.sh.
 
 ### run.sh
 
-run.sh simply runs loader.py.
+run.sh simply runs the Loader Module (loader.py).
 
-### loader.py
+### Loader Module
 
-loader.py runs the Main Module (main.py), restarting it if it stops.
+The Loader Module is the base system bootstrap: it runs the Main Module (main.py), restarting it if it stops.
 
 ### Main Module (main.py)
 
@@ -26,6 +26,10 @@ The GitHub Check Module repeatedly runs "git pull" to keep the codebase updated.
 ### LCD Module (lcd.py)
 
 The LCD Module controls a 16x2 LCD display. It gets the device's IP address and currently connected WiFi network, reads the (settings/out_file) to get the name/location of the data output file, and gets the remaining disk storage. This information is displayed on the screen.
+
+### LED Module (led.py)
+
+The LED Module controls an RGB LED: it periodically reads from a flag file (flags/damage) and displays a green/yellow/red light according to the current damage level.
 
 ### Collection Module (main.c -> collect.o)
 
