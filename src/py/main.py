@@ -7,6 +7,7 @@ import settings as sensor_settings
 import RPi.GPIO as GPIO
 import os
 import signals.lcd
+import signals.led
 
 def main():
     GPIO.setmode(GPIO.BCM)
@@ -24,6 +25,10 @@ def main():
     logs.log("[MAIN] Starting LCD thread")
     lcd_thread = threading.Thread(target=signals.lcd.start_lcd)
     lcd_thread.start()
+
+    logs.log("[MAIN] Starting LED thread")
+    led_thread = threading.Thread(target=signals.led.start_led)
+    led_thread.start()
 
     # general loop: launch collection script, when it dies relaunch it
     while True:
