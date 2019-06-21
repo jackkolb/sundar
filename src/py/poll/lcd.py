@@ -50,6 +50,10 @@ def destination_file():
     try:
         with open("./flags/destination", "r") as out_file:
             name = out_file.readline()
+            if "SUNDAR_RESEARCH" in name:
+                name = "Flashdrive"
+            else:
+                name = "Onboard"
     except Exception:
         name = "empty"
     return name
