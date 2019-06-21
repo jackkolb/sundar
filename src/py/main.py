@@ -43,7 +43,7 @@ def main():
             if status == "COLLECT":
                 destination = poll.location.get_output_location()
                 if destination == "none":
-                    destination = "data/data.txt"
+                    destination = "data/raw_data.txt"
                 logs.log("[MAIN] Starting sensor process")
                 print("output at: " + destination)
                 sensor_process = subprocess.Popen(["./src/c/collect.o", destination])
