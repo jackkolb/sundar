@@ -43,8 +43,9 @@ def main():
             if status == "COLLECT":
                 destination = poll.lcd.destination_file()
                 if destination == "empty":
-                    destination = "./data/data.txt"
+                    destination = "data/data.txt"
                 logs.log("[MAIN] Starting sensor process")
+                print("output at: " + destination)
                 sensor_process = subprocess.Popen(["./src/c/collect.o", destination])
                 sensor_process.wait()  # wait for sensor thread to end, restart it if it does
                 logs.log("[MAIN] Sensor process stopped")
