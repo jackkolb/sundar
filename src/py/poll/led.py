@@ -21,6 +21,7 @@ def leds_red():
     GPIO.output(LED_DAMAGE_PIN_B, 0)
 
 def start_led():
+    GPIO.setwarnings(False)
     GPIO.setup(LED_DAMAGE_PIN_R, GPIO.OUT)
     GPIO.setup(LED_DAMAGE_PIN_G, GPIO.OUT)
     GPIO.setup(LED_DAMAGE_PIN_B, GPIO.OUT)
