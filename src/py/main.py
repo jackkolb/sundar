@@ -1,11 +1,13 @@
 import subprocess
 import threading
-import poll.gitcheck
 import logs
 import settings as sensor_settings
 import RPi.GPIO as GPIO
 import os
 import poll.lcd
+import poll.led
+import poll.location
+import poll.gitcheck
 
 def main():
     GPIO.setmode(GPIO.BCM)
