@@ -28,7 +28,7 @@ def main():
 
     # start LED thread
     logs.log("[MAIN] Starting LED thread")
-    lcd_thread = threading.Thread(target=poll.led.damage_status_led)
+    lcd_thread = threading.Thread(target=poll.led.start_led)
     lcd_thread.start()
 
     # start location determination thread
