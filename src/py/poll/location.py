@@ -19,6 +19,6 @@ def set_output_location():
 
 def get_output_location():
     destination = "none"
-    with open("flag/destination", "r") as output_location_flag:
+    with open("flags/destination", "r") as output_location_flag:
         destination = output_location_flag.readline()
     return destination
