@@ -15,3 +15,10 @@ def set_output_location():
                     output_location_flag.write("data/raw_data.txt")
                 currently_outputting_to_flashdrive = False
         time.sleep(1)
+
+
+def get_output_location():
+    destination = "none"
+    with open("flag/destination", "r") as output_location_flag:
+        destination = output_location_flag.readline()
+    return destination

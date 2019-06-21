@@ -41,8 +41,8 @@ def main():
         with open("flags/collection", "r") as collection_flag:
             status = collection_flag.readline()
             if status == "COLLECT":
-                destination = poll.lcd.destination_file()
-                if destination == "empty":
+                destination = poll.location.get_output_location()
+                if destination == "none":
                     destination = "data/data.txt"
                 logs.log("[MAIN] Starting sensor process")
                 print("output at: " + destination)
