@@ -45,10 +45,10 @@ def charflag_flip():
     else:
         charflag = "-"
 
-def collection_file():
+def destination_file():
     name = "INITIAL"
     try:
-        with open("./settings/out_file", "r") as out_file:
+        with open("./flags/destination", "r") as out_file:
             name = out_file.readline()
     except Exception:
         name = "empty"
@@ -89,7 +89,7 @@ def update():
         lcd.write_string(char_no_wifi + " " + "No WiFi!     ")
 
     # display collection information
-    out_file = collection_file()
+    out_file = destination_file()
     if out_file != "" and out_file != "empty":
         lcd.cursor_pos = (1, 0)
         lcd.write_string(char_collecting + " " + out_file) # collecting
