@@ -53,7 +53,7 @@ def destination_file():
             if "SUNDAR_RESEARCH" in name:
                 name = "Flashdrive"
             else:
-                name = "Onboard"
+                name = "Onboard   "
     except Exception:
         name = "empty"
     return name
