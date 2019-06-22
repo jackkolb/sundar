@@ -9,6 +9,9 @@
 
 #include "adxl355.h"
 
+int sample_duration = 10; // sample time duration in seconds
+int sample_rate = 1000; // sample rate
+
 FILE * fp;
 
 unsigned long long getMicrotime() {
@@ -33,8 +36,6 @@ int main(int argc, char * argv[])
 
   fp = fopen(argv[1], "a");
 
-  int sample_duration = 10; // sample time duration in seconds
-  int sample_rate = 1000; // sample rate
   int samples = sample_duration * sample_rate;
 
   for (int i = 0; i < samples; i++){
@@ -43,7 +44,7 @@ int main(int argc, char * argv[])
     fprintf(fp, "%d,", acc.x);
     fprintf(fp, "%d,", acc.y);
     fprintf(fp, "%d\n", acc.z);
-    usleep((1.0 / sample_rate) * 1000000);
+    usleep((1.0 / sample_rate) * 1000000 - 185);  // 185 useconds was found to be the processing delay
   }
 
   printf("Done reading\n");
