@@ -37,7 +37,7 @@ int main(int argc, char * argv[])
   int sample_rate = 1000; // sample rate
   int samples = sample_duration * sample_rate;
 
-  for (int i = 0; i < 20; i++){
+  for (int i = 0; i < samples; i++){
     adxl355_read_acceleration(&spi, &acc);
     fprintf(fp, "%lld,", getMicrotime());
     fprintf(fp, "%d,", acc.x);
