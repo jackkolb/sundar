@@ -40,9 +40,9 @@ int main(int argc, char * argv[])
   for (int i = 0; i < 20; i++){
     adxl355_read_acceleration(&spi, &acc);
     fprintf(fp, "%lld,", getMicrotime());
-    fprintf(fp, "%d,", fifo->acc.x);
-    fprintf(fp, "%d,", fifo->acc.y);
-    fprintf(fp, "%d\n", fifo->acc.z);
+    fprintf(fp, "%d,", acc.x);
+    fprintf(fp, "%d,", acc.y);
+    fprintf(fp, "%d\n", acc.z);
     usleep((1.0 / sample_rate) * 1000000);
   }
 
