@@ -65,7 +65,7 @@
 #define ADXL355_STATUS_ACTIVITY 	8
 #define ADXL355_STATUS_NVM_BUSY 	16
                               //  4294967295
-#define ADXL355_FIFO_MAX_COUNT		6000000096 // WAS 96!! Change to 96 to revert to original!
+#define ADXL355_FIFO_MAX_COUNT		1431655764 // WAS 96!! Change to 96 to revert to original!
 #define FIFO_STREAM_OVR_BREAK		0x01
 #define FIFO_STREAM_FIFO_READ_BREAK	0x02
 
