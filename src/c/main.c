@@ -11,7 +11,7 @@
 
 FILE * fp;
 int counter = 0;
-int limit = 50;
+int limit = 50000;
 
 unsigned long long getMicrotime() {
   struct timeval tm;
@@ -21,7 +21,7 @@ unsigned long long getMicrotime() {
 
 void my_callback(ADXL355Fifo * fifo)
 {
-  if (counter >= 50) {
+  if (counter >= limit) {
     fprintf(fp, "%lld,", getMicrotime());
     fprintf(fp, "%d,", fifo->data[0].x);
     fprintf(fp, "%d,", fifo->data[0].y);
