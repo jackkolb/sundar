@@ -7,6 +7,8 @@
 #include "adxl355.h"
 #include <stdio.h>
 
+#include <unistd.h>
+
 int
 adxl355_another_spi_write(ADXL355_HANDLER * handler, uint8_t * data, uint8_t * result, size_t len)
 {
@@ -300,8 +302,10 @@ adxl355_fifo_stream(ADXL355_HANDLER * handler, void (* callback)(ADXL355Fifo * f
   ADXL355Fifo fifo = {};
 
   while (1){
+
     adxl355_get_status_n_fifo(handler, &status);
-    
+    usleep(100000);   // to revert back, remove this!
+
     if (status.status.FIFO_OVR){
       if (flags & FIFO_STREAM_OVR_BREAK){
         printf("                        [ADXL] Buffer overflow, exiting\n");
