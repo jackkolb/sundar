@@ -33,7 +33,7 @@ int main(int argc, char * argv[])
   ADXL355Acceleration acc = {};
 
   int sample_duration = strtoi(argv[1], NULL, 10);
-  int sample_rate = x = strtoi(argv[2], NULL, 10);
+  int sample_rate = strtoi(argv[2], NULL, 10);
   fp = fopen(argv[3], "a");
 
   int samples = sample_duration * sample_rate;
