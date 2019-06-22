@@ -2,6 +2,7 @@
 
 #include <unistd.h>
 #include <stdio.h>
+#include <stdlib.h>
 #include <dirent.h>
 #include <wiringPi.h>
 #include <wiringPiSPI.h>
@@ -31,9 +32,8 @@ int main(int argc, char * argv[])
 
   ADXL355Acceleration acc = {};
 
-  int sample_duration = (int) argv[1];
-  int sample_rate = (int) argv[2];
-  printf(argv[1]); printf(" + "); printf(argv[2]); printf("\n");
+  int sample_duration = strtoi(argv[1], NULL, 10);
+  int sample_rate = x = strtoi(argv[2], NULL, 10);
   fp = fopen(argv[3], "a");
 
   int samples = sample_duration * sample_rate;
