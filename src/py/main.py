@@ -36,6 +36,9 @@ def main():
     location_thread = threading.Thread(target=poll.location.set_output_location)
     location_thread.start()
 
+    duration = 20
+    rate = 1000
+
     # general loop: launch collection script, when it dies relaunch it
     while True:
         with open("flags/collection", "r") as collection_flag:
@@ -44,10 +47,10 @@ def main():
                 destination = poll.location.get_output_location()
                 if destination == "none":
                     destination = "data/raw_data.txt"
-                logs.log("[MAIN] Starting sensor process")
+                logs.log("[MAIN] Starting accelerometer collection")
                 print("output at: " + destination)
-                sensor_process = subprocess.Popen(["./src/c/collect.o", destination])
+                sensor_process = subprocess.Popen(["./src/c/collect.o", duration, rate, destination])
                 sensor_process.wait()  # wait for sensor thread to end, restart it if it does
-                logs.log("[MAIN] Sensor process stopped")
+                logs.log("[MAIN] Collection complete")
         if poll.gitcheck.check_flag_file() == "RESET":
             os._exit(1)

@@ -9,9 +9,6 @@
 
 #include "adxl355.h"
 
-int sample_duration = 10; // sample time duration in seconds
-int sample_rate = 1000; // sample rate
-
 FILE * fp;
 
 unsigned long long getMicrotime() {
@@ -34,7 +31,9 @@ int main(int argc, char * argv[])
 
   ADXL355Acceleration acc = {};
 
-  fp = fopen(argv[1], "a");
+  int duration = argv[1];
+  int sample_rate = argv[2];
+  fp = fopen(argv[3], "a");
 
   int samples = sample_duration * sample_rate;
 
@@ -44,10 +43,8 @@ int main(int argc, char * argv[])
     fprintf(fp, "%d,", acc.x);
     fprintf(fp, "%d,", acc.y);
     fprintf(fp, "%d\n", acc.z);
-    usleep((1.0 / sample_rate) * 1000000 - 185);  // 185 useconds was found to be the processing delay
+    usleep((1.0 / sample_rate) * 1000000 - 185);  // 185 useconds was found to be the processing delay for the har disk, "good enough" for flashdrive
   }
-
-  printf("Done reading\n");
 
   fclose(fp);
   adxl355_standby_mode(&spi);
