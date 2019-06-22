@@ -2,10 +2,18 @@ import math
 
 with open("data.txt", "r") as data:
 	lines = data.readlines()
-min_dist = 10000
-mx = -1
-my = -1
-z = -1
+
+min_dist_p = 10000
+mxp = -1
+myp = -1
+zp = -1
+
+min_dist_n = 100000
+mxn = -1
+myn = -1
+zn = -1
+
+g = []
 
 for line in lines:
 	d = line.split(":")
@@ -16,14 +24,35 @@ for line in lines:
 		continue
 	x = int(d[0])
 	y = int(d[1])
-	test_z = int(d[2][:-1])
-	if math.sqrt(x*x + y*y) < min_dist and test_z != 0:
-		z = test_z
-		min_dist = math.sqrt(x*x + y*y)
-		mx = x
-		my = y
+	z = int(d[2][:-1])
+	
+	if x == 0 or y == 0:
+		g.append(math.sqrt(x*x+y*y+z*z))
+	
+	if math.sqrt(x*x + y*y) < min_dist_p and z > 0:
+		zp = z
+		min_dist_p = math.sqrt(x*x + y*y)
+		mxp = x
+		myp = y
 		
-print(z)
-print(min_dist)
-print(mx)
-print(my)
+	if math.sqrt(x*x + y*y) < min_dist_n and z < 0:
+		zn = z
+		min_dist_n = math.sqrt(x*x + y*y)
+		mxn = x
+		myn = y
+
+print(zp)
+print(min_dist_p)
+print(mxp)
+print(myp)
+
+print()
+
+print(zn)
+print(min_dist_n)
+print(mxn)
+print(myn)
+
+print()
+print(len(g))
+print(sum(g)/len(g))
