@@ -305,6 +305,7 @@ adxl355_fifo_stream(ADXL355_HANDLER * handler, void (* callback)(ADXL355Fifo * f
 
     adxl355_get_status_n_fifo(handler, &status);
     usleep(100000);   // to revert back, remove this!
+    printf("ADSBABD\n");
 
     if (status.status.FIFO_OVR){
       if (flags & FIFO_STREAM_OVR_BREAK){
