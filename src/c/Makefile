@@ -26,7 +26,7 @@ $(OBJECTS_FOLDER)/%.o: $(SOURCE_FOLDER)/%.c
 control: $(BUILD_FOLDER)
 	$(CC) $(VALGRIND_FLAGS) -I$(SOURCE_FOLDER) ./main.c -l:$(LIB) -lwiringPi -L./ -o ./collect.o
 	$(CC) $(VALGRIND_FLAGS) -I$(SOURCE_FOLDER) ./test_collect.c -l:$(LIB) -lwiringPi -L./ -o ./test_collect.o
-	$(CC) $(VALGRIND_FLAGS) -I$(SOURCE_FOLDER) ./test_updated.c -l:$(LIB) -lwiringPi -L./ -o ./test_solo.o
+	$(CC) $(VALGRIND_FLAGS) -I$(SOURCE_FOLDER) ./test_solo.c -l:$(LIB) -lwiringPi -L./ -o ./test_solo.o
 
 $(OBJECTS_FOLDER):
 	mkdir $(OBJECTS_FOLDER)
