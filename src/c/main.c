@@ -10,6 +10,8 @@
 #include "adxl355.h"
 
 FILE * fp;
+int counter = 0;
+int limit = 50;
 
 unsigned long long getMicrotime() {
   struct timeval tm;
@@ -19,10 +21,14 @@ unsigned long long getMicrotime() {
 
 void my_callback(ADXL355Fifo * fifo)
 {
-  fprintf(fp, "%lld,", getMicrotime());
-  fprintf(fp, "%d,", fifo->data[0].x);
-  fprintf(fp, "%d,", fifo->data[0].y);
-  fprintf(fp, "%d\n", fifo->data[0].z);
+  if (counter >= 50) {
+    fprintf(fp, "%lld,", getMicrotime());
+    fprintf(fp, "%d,", fifo->data[0].x);
+    fprintf(fp, "%d,", fifo->data[0].y);
+    fprintf(fp, "%d\n", fifo->data[0].z);
+    counter = 0;
+  }
+  counter++;
 }
 
 int main(int argc, char * argv[])
