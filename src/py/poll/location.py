@@ -1,6 +1,7 @@
 import time
 import os
 
+# LOOP: checks if the flashdrive in plugged in, if so, change the output destination to the flashdrive
 def set_output_location():
     currently_outputting_to_flashdrive = False
     while True:
@@ -16,7 +17,7 @@ def set_output_location():
                 currently_outputting_to_flashdrive = False
         time.sleep(1)
 
-
+# retrieves the string in the destination flag file
 def get_output_location():
     destination = "none"
     with open("flags/destination", "r") as output_location_flag:

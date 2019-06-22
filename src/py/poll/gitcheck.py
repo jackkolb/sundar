@@ -3,7 +3,7 @@ import time
 import sys
 import logs
 
-
+# checks the git flag, returns its contents. If the flag is "RESET", writes it to "GOOD"
 def check_flag_file():
     data = "ERROR"
     with open("flags/git_flag", "r") as git_flag_file:

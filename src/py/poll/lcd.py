@@ -1,3 +1,7 @@
+"""
+LCD Module: runs the LCD display. To start the module, run start_lcd()
+"""
+
 import time
 from RPLCD import CharLCD
 import RPi.GPIO as GPIO
@@ -20,7 +24,7 @@ char_not_collecting = "\x03"
 
 charflag = "*"
 
-
+# gets the Pi's current IP address
 def get_ip_address():
     ip_address = 'INITIAL'
     try:
@@ -38,6 +42,7 @@ def get_ip_address():
         wifi_name = "FAIL"
     return ip_address, wifi_name
 
+# used for the "active" indicator, changes the character
 def charflag_flip():
     global charflag
     if charflag == "-":
@@ -45,6 +50,7 @@ def charflag_flip():
     else:
         charflag = "-"
 
+# reads the destination flag, returns either "Flashdrive" or "Onboard" accordingly
 def destination_file():
     name = "INITIAL"
     try:
@@ -58,7 +64,7 @@ def destination_file():
         name = "empty"
     return name
 
-
+# gets the current disk full as a percent (ex: 39%)
 def get_disk_usage():
     p = subprocess.Popen("df", stdout=subprocess.PIPE, shell=True)
     (output, err) = p.communicate()
@@ -66,7 +72,7 @@ def get_disk_usage():
     usage = [x for x in str(output).split("\\n")[1].split(" ") if "%" in x][0]
     return usage
 
-
+# initializes the LCD display
 def lcd_init():
     global lcd
     pin_rs = 21 # Board: 40
@@ -75,6 +81,7 @@ def lcd_init():
     lcd = CharLCD(numbering_mode=GPIO.BCM, cols=16, rows=2, pin_rs=pin_rs, pin_rw=None, pin_e=pin_e, pins_data=pins_data)
     lcd.clear()
 
+# updates the display with the latest information
 def update():
     # display wifi information
     global wifi_counter, disk_usage_previous
@@ -113,6 +120,7 @@ def update():
     lcd.write_string(charflag)
     charflag_flip()
 
+# generates the custom characters
 def custom_chars():
     wifi = (
         0b10001,
@@ -162,6 +170,7 @@ def custom_chars():
     )
     lcd.create_char(3, not_collecting)
 
+# starts the LCD module
 def start_lcd():
     lcd_init()
     custom_chars()
