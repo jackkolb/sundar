@@ -23,5 +23,5 @@ def get_output_location():
     with open("flags/destination", "r") as output_location_flag:
         destination = output_location_flag.readline()
     if destination == "":
-        destination = "empty"
+        destination = "none"
     return destination

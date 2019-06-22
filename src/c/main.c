@@ -33,6 +33,7 @@ int main(int argc, char * argv[])
 
   int sample_duration = (int) argv[1];
   int sample_rate = (int) argv[2];
+  printf(argv[1]); printf(" + "); printf(argv[2]); printf("\n");
   fp = fopen(argv[3], "a");
 
   int samples = sample_duration * sample_rate;

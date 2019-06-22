@@ -48,7 +48,6 @@ def main():
                 if destination == "none":
                     destination = "data/raw_data.txt"
                 logs.log("[MAIN] Starting accelerometer collection")
-                print("output at: " + destination)
                 sensor_process = subprocess.Popen(["./src/c/collect.o", str(duration), str(rate), destination])
                 sensor_process.wait()  # wait for sensor thread to end, restart it if it does
                 logs.log("[MAIN] Collection complete")
