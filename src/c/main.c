@@ -37,15 +37,13 @@ int main(int argc, char * argv[])
   fp = fopen(argv[3], "a");
 
   int samples = sample_duration * sample_rate;
-   printf("%i", samples); printf("\n");
   for (int i = 0; i < samples; i++){
-    printf("%i\n", i);
     adxl355_read_acceleration(&spi, &acc);
     fprintf(fp, "%lld,", getMicrotime());
     fprintf(fp, "%d,", acc.x);
     fprintf(fp, "%d,", acc.y);
     fprintf(fp, "%d\n", acc.z);
-    usleep((1.0 / sample_rate) * 1000000 - 185);  // 185 useconds was found to be the processing delay for the har disk, "good enough" for flashdrive
+    usleep((1.0 / sample_rate) * 1000000 - 185);  // 185 useconds was found to be the processing delay for the hard disk, "good enough" for flashdrive
   }
 
   fclose(fp);
