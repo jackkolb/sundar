@@ -22,6 +22,7 @@ unsigned long long getMicrotime() {
 void my_callback(ADXL355Fifo * fifo)
 {
   if (counter >= limit) {
+    printf(counter); printf("\n");
     fprintf(fp, "%lld,", getMicrotime());
     fprintf(fp, "%d,", fifo->data[0].x);
     fprintf(fp, "%d,", fifo->data[0].y);
