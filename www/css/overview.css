@@ -20,8 +20,8 @@
 }
 
 .node-circle {
-    height: 30pt;
-    width: 30pt;
+    height: 20pt;
+    width: 20pt;
     border-radius: 50%;
     float: right;
 }
@@ -41,7 +41,7 @@
 }
 
 .node-status {
-    padding: 2%;
+    padding: 4%;
 }
 
 ul.tile-list {
