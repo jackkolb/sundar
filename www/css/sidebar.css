@@ -18,9 +18,9 @@
     font-size: 25px;
     color: darkslategrey;
     display: block;
-    font-family: roboto;
+    font-family: "Roboto";
 }
 
 .sidenav a:hover {
-    background-color: lightgrey;
+    color: blue;
 }
