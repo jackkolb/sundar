@@ -41,7 +41,12 @@ function generatePlot(name, x_data, y_data) {
                     scaleLabel: {
                         display: true,
                         labelString: 'Bearing Damage Level'
-                    }
+                    },
+                    ticks: {
+                        beginAtZero: true,
+                        stepSize: 1,
+                        max: 5
+                    }                 
                 }]
             }
         }
