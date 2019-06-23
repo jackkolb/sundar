@@ -46,7 +46,7 @@ function generateNode(id) {
         nodeInformation.append(nodeDamage);
         nodeInformation.append(nodeLife);
 
-    node.setAttribute("onclick", "console.log(" + id + "); loadHistory(); loadSelectedItem(" + id + ")");
+    node.setAttribute("onclick", "loadHistory(); loadSelectedItem(" + id + ")");
 
     return node;
 }
