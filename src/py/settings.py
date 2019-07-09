@@ -1,12 +1,9 @@
-def retrieve_settings():
-    with open("settings/settings", "r") as settings_file:
-        settings = {}
+def get_duration():
+    with open("flags/duration", "r") as duration_file:
+        duration = duration_file.read()
+    return duration
 
-        lines = settings_file.readlines()
-        for line in lines:
-            if line[0] == "#" or line == "\\n" or line == "\n" or line == "":
-                continue
-            setting = line[:-1].split("=")
-            settings[setting[0]] = setting[1]
-
-    return settings
+def get_rate():
+    with open("flags/rate", "r") as rate_file:
+        rate = rate_file.read()
+    return rate

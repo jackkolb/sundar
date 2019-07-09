@@ -1,13 +1,14 @@
 import subprocess
 import threading
 import logs
-import settings as sensor_settings
+import settings
 import RPi.GPIO as GPIO
 import os
 import poll.lcd
 import poll.led
 import poll.location
 import poll.gitcheck
+import poll.webserver
 
 def main():
     GPIO.setmode(GPIO.BCM)
@@ -16,10 +17,6 @@ def main():
     # launch git check thread -- checks if there are code updates, if there are it kills the program
     git_check_thread = threading.Thread(target=poll.gitcheck.git_check_loop)
     git_check_thread.start()
-
-    # load settings
-    logs.log("[MAIN] Loading settings")
-    settings = sensor_settings.retrieve_settings()
 
     # start LCD thread
     logs.log("[MAIN] Starting LCD thread")
@@ -31,13 +28,15 @@ def main():
     lcd_thread = threading.Thread(target=poll.led.start_led)
     lcd_thread.start()
 
+    # start webserver manager thread
+    logs.log("[MAIN] Starting Webserver Manager thread")
+    lcd_thread = threading.Thread(target=poll.webserver.manage_webserver())
+    lcd_thread.start()
+
     # start location determination thread
     logs.log("[MAIN] Starting output location thread")
-    location_thread = threading.Thread(target=poll.location.set_output_location)
+    location_thread = threading.Thread(target=poll.location.manage_output_location)
     location_thread.start()
-
-    duration = 20
-    rate = 1000
 
     # general loop: launch collection script, when it dies relaunch it
     while True:
@@ -46,10 +45,16 @@ def main():
             if status == "COLLECT":
                 destination = poll.location.get_output_location()
                 if destination == "none":
-                    destination = "data/raw_data.txt"
+                    destination = "data/"
+                accelerometer_destination = destination + "accelerometer.data"
                 logs.log("[MAIN] Starting accelerometer collection")
-                sensor_process = subprocess.Popen(["./src/c/collect.o", str(duration), str(rate), destination])
+                sensor_process = subprocess.Popen(["./src/c/collect.o", settings.get_duration(), settings.get_rate(), accelerometer_destination])
                 sensor_process.wait()  # wait for sensor thread to end, restart it if it does
                 logs.log("[MAIN] Collection complete")
+                logs.log("[MAIN] Starting classification")
+                classifier_destination = destination + "classifier.data"
+                # RUN CLASSIFICATION FUNCTION HERE
+                logs.log("[MAIN] Classification completed")
+
         if poll.gitcheck.check_flag_file() == "RESET":
             os._exit(1)

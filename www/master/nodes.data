@@ -1,0 +1,32 @@
+{
+    "Fume Hood A":
+        {
+            "key": "sundarA",
+            "settings": {
+                "name": "Fume Hood A",
+                "active": "true",
+            },
+            "life": "64",
+            "data": [[1,1],[2,1],[3,1],[4,2],[5,2],[6,3],[7,3],[8,4],[9,5],[10,5]]
+        },
+    "Fume Hood B":
+        {
+            "key": "sundarB",
+            "settings": {
+                "name": "Fume Hood B",
+                "active": "true",
+            },
+            "life": "34",
+            "data": [[1,1],[2,1],[3,3],[4,2],[5,3],[6,4],[7,4],[8,5],[9,5],[10,5]]
+        },
+    "Fume Hood C":
+        {
+            "key": "sundarC",
+            "settings": {
+                "name": "Fume Hood C",
+                "active": "true",
+            },
+            "life": "12",
+            "data": [[1,1],[2,1],[3,1],[4,1],[5,1],[6,2],[7,2],[8,2],[9,2],[10,2]]
+        },
+}
