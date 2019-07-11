@@ -18,10 +18,11 @@
         <script src="static/js/ChartJs/Chart.min.js"></script>
         <script src="static/js/ChartJs/ChartUtils.js"></script>
         <script src="static/js/history.js"></script>
+        <script src="static/js/menus.js"></script>
         <script src="static/js/history_select.js"></script>
         <script src="static/js/content.js"></script>
         <script src="static/js/utilities.js"></script>
-        <script src="static/js/menus.js"></script>
+        
         <script src="static/js/nodes.js"></script>
 
         <div class="title-bar">
@@ -50,8 +51,9 @@
 
         <script>
             var data = {{ data | safe }};
-
-            loadOverview();
+            console.log("!!");
+            loadOverview(data);
+            console.log("<<");
         </script>
     
     </body>

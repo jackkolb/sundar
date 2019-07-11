@@ -8,6 +8,7 @@ def load_nodes():
     global data
     with open("nodes.data", "r") as nodes_data:
         data = nodes_data.read()
+    return data
 
 def write_nodes():
     global data

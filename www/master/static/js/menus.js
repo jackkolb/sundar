@@ -4,10 +4,11 @@ function clearContent() {
     document.getElementById("content").innerHTML = "<br><br>";
 }
 
-function loadOverview() {
+function loadOverview(data) {
     if (current_tab != "overview") {
+        console.log("LoadOverview()");
         clearContent();
-        loadNodes();
+        loadNodes(data);
         highlightMenu("overview");
         current_tab = "overview";
     }

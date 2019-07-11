@@ -1,6 +1,8 @@
-function generateNode(id) {
-    var node_name = data[id].name;
-    var bearing_status = data[id].damage;
+function generateNode(id, data) {
+    console.log("TEST");
+    var node_name = data[id].settings.name;
+    console.log(data[id]["data"][1][1]);
+    var bearing_status = data[id]["data"][data[id]["data"].length-1][1];
     var estimate_life = data[id].life;
 
     var node = document.createElement("div");
@@ -59,14 +61,18 @@ function addUL(node) {
     list.appendChild(newLI);
 }
 
-function loadNodes() {
+function loadNodes(data) {
     var ul = document.createElement("ul");
         ul.id = "node-tiles";
         ul.className = "tile-list";
     document.getElementById("content").append(ul);
 
-    for (var id = 0; id < data.length; id++) {
-       addUL(generateNode(id));
+    console.log("Hello");
+    console.log(data);
+    console.log("..");
+    for (var key in data) {
+        console.log(key)
+        addUL(generateNode(key, data));
     }
 
 }

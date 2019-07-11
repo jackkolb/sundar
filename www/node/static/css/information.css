@@ -1,40 +1,42 @@
-.information-box {
-    margin: 0 auto;
-    margin-top: 40pt;
-    width: 80%;
-    height: 77%;
-}
-
-.information-panel {
-    border-radius: 10pt;
-    box-shadow: 0px 5px 8px -4px black;
-
+/* node overview box */
+.node-overview {
     background-color: white;
+    height: 85%;
+    /*width: 30%;*/
+    box-shadow: 0px 5px 8px -4px black;
+    border-radius: 5pt;
+    width: 80%;
+    margin: 0 auto;
 }
 
 .node-name {
-    font-size: 50pt;
-    width: 100%;
-    height: 15%;
-    color: darkslategrey;
-    padding: 15pt 0 0 20pt;
+    font-size: 30pt;
+    color: dimgrey;
+    padding: 1% 5%;
+    float: left;
 }
 
-.node-life {
-    font-size: 20pt;
-    color: dimgrey;
-    padding: 0 0 0 20pt;
+.node-circle {
+    height: 30pt;
+    width: 30pt;
+    border-radius: 50%;
+    float: right;
 }
 
 .node-damage {
     font-size: 20pt;
-    height: 15%;
-    color: dimgrey;
-    padding: 0 0 0 0pt;
+    color: grey;
+    padding: 0 5%;
 }
 
-.node-plot {
-    width: 90%;
-    height: 60%;
-    margin: 0 auto;
+.node-life {
+    font-size: 20pt;
+    color: grey;
+    padding: 0 5%;
+    float: left;
 }
+
+.node-status {
+    padding: 4%;
+}
+

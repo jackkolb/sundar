@@ -8,9 +8,9 @@
         <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
         <link href="../static/css/styles.css" rel="stylesheet">
         <link href="../static/css/title.css" rel="stylesheet">
-        <link href="../static/css/overview.css" rel="stylesheet">
         <link href="../static/css/information.css" rel="stylesheet">
-        
+        <link href="../static/css/slider.css" rel="stylesheet">
+
         <script src="../static/js/ChartJs/Chart.min.js"></script>
         <script src="../static/js/ChartJs/ChartUtils.js"></script>
         <script src="../static/js/information.js"></script>
@@ -27,18 +27,33 @@
             </span>
         </div>
 
+        <br><br><br><br><br>
         <div class="content" id="content">
-            <br><br>
-            <div class="information-box">
-                <div class="information-panel">
-                    test
+            <div class="node-overview" id="node">
+                <div class="node-name" id="nodeName">
+                    {{ node_name }}
                 </div>
-            </div>
-        </div>
 
-        <script>
-            //var data = {{ data | safe }};
-        </script>
-    
+                <div class="node-status" id="nodeStatus">
+                    <div class="node-circle" id="nodeCircle" style="background-color: green; box-shadow: 0 0 10px 0px green">
+                    </div>
+                </div>
+                <br>
+                <div class="node-information" id="nodeInformation">
+                    <div class="node-damage" id="nodeDamage">
+                       Damage: {{ node_damage }}
+                    </div>
+                    <div class="node-life" id="nodeLife">
+                        Life Expectancy: {{ node_life }} weeks
+                    </div>
+                </div>
+                <br><br><br>
+                <label class="switch">
+                    <input type="checkbox">
+                    <span class="slider round"></span>
+                </label>
+            </div>
+
+        </div>
     </body>
 </html>
