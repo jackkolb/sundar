@@ -1,0 +1,18 @@
+.numberbox {
+    width: 35%;
+    float: right;
+    border: 0 solid transparent;
+    border-bottom: 1pt solid lightskyblue;
+    height: 20pt;
+    font-size: 15;
+}
+
+.numberbox:hover {
+    border-bottom: 1pt solid lightsteelblue;
+}
+
+.numberbox:focus {
+    border: 2px solid transparent;
+    box-shadow: none;
+    outline: none;
+}

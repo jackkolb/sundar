@@ -10,11 +10,11 @@
         <link href="../static/css/title.css" rel="stylesheet">
         <link href="../static/css/information.css" rel="stylesheet">
         <link href="../static/css/slider.css" rel="stylesheet">
-
+        <link href="../static/css/numberbox.css" rel="stylesheet">
+        <link href="../static/css/buttons.css" rel="stylesheet">
         <script src="../static/js/ChartJs/Chart.min.js"></script>
         <script src="../static/js/ChartJs/ChartUtils.js"></script>
         <script src="../static/js/information.js"></script>
-        <script src="../static/js/content.js"></script>
 
         <div class="title-bar">
             <span>
@@ -30,30 +30,132 @@
         <br><br><br><br><br>
         <div class="content" id="content">
             <div class="node-overview" id="node">
-                <div class="node-name" id="nodeName">
-                    {{ node_name }}
-                </div>
-
-                <div class="node-status" id="nodeStatus">
-                    <div class="node-circle" id="nodeCircle" style="background-color: green; box-shadow: 0 0 10px 0px green">
+                <div class="node-header">
+                    <div class="node-name" id="nodeName">
+                        {{ data["name"] }}
+                    </div>
+                    <div class="node-circle" id="nodeCircle">
                     </div>
                 </div>
                 <br>
                 <div class="node-information" id="nodeInformation">
-                    <div class="node-damage" id="nodeDamage">
-                       Damage: {{ node_damage }}
+                    <div class="node-attribute" id="nodeDamage">
+                       Damage: 
                     </div>
                     <div class="node-life" id="nodeLife">
-                        Life Expectancy: {{ node_life }} weeks
+                        Life Expectancy: {{ data["life"] }} weeks
                     </div>
                 </div>
                 <br><br><br>
-                <label class="switch">
-                    <input type="checkbox">
-                    <span class="slider round"></span>
-                </label>
-            </div>
 
+                <div class="history-box" id="history-plot">
+                </div>
+
+                <br>
+
+                <!-- Activate Toggle -->
+                <div class="option">
+                    <div class="option-left node-attribute">
+                        Activate Node
+                    </div>
+                    <div class="option-right">
+                        <label class="switch">
+                            <input id="activeToggle" type="checkbox" onclick="setActive()">
+                            <span class="slider round"></span>
+                        </label>
+                    </div>
+                </div>
+                
+                <!-- Sampling Duration -->
+                <div class="option">
+                    <div class="option-left node-attribute">
+                        Sampling Duration (sec)
+                    </div>
+                    <div class="option-right">
+                        <input id="duration-entry" type="number" class="numberbox" onchange="setDuration();" />
+                    </div>
+                </div>
+
+                <!-- Sampling Rate -->
+                <div class="option">
+                    <div class="option-left node-attribute">
+                        Sampling Rate (Hz)
+                    </div>
+                    <div class="option-right">
+                        <input id="rate-entry" type="number" class="numberbox" onchange="setRate();" />
+                    </div>
+                </div>
+
+                <!-- Autosave to Flashdrive Toggle -->
+                <div class="option">
+                    <div class="option-left node-attribute">
+                        Save to Flashdrive
+                    </div>
+                    <div class="option-right">
+                        <label class="switch">
+                            <input id="flashdriveToggle" type="checkbox" onclick="setFlashdrive()">
+                            <span class="slider round"></span>
+                        </label>
+                    </div>
+                </div>
+                <br><br>
+
+                <!-- Button line along the bottom -->
+                <div class="buttons">
+                    <button class="action" onclick="flashLEDs()">
+                        <div class="text">
+                            Flash LEDs
+                        </div>
+                    </button>
+        
+                    <button class="action" onclick="resetNode()">
+                        <div class="text">
+                            Reset Node
+                        </div>
+                    </button>
+
+                    <button class="action" onclick="downloadLogs()">
+                        <div class="text">
+                            Download Logs
+                        </div>
+                    </button>
+
+                    <button class="action" onclick="downloadHistory()">
+                        <div class="text">
+                            Download History
+                        </div>
+                    </button>
+
+                    <button class="action" onclick="setDefaults()">
+                        <div class="text">
+                            Set Defaults
+                        </div>
+                    </button>
+                </div>
+                <br>
+            </div>
+            <br><br>
         </div>
     </body>
+
+    <script>
+        var data_x = []; var data_y = [];
+        var data = JSON.parse("{{ data['data'] }}");
+        for (var i = 0; i < data.length; i++) {
+            data_x.push(data[i][0]);
+            data_y.push(data[i][1]);
+        };
+        last_damage = data_y[data_y.length-1];
+
+        generatePlot("data series", data_x, data_y);
+
+        document.getElementById("nodeDamage").innerHTML += data_y[data_y.length-1];
+
+        document.getElementById("nodeCircle").style = "background-color: " + getDamageColor(last_damage) + "; box-shadow: 0 0 10px 0px " + getDamageColor(last_damage);
+
+        document.getElementById("activeToggle").checked = {{ data["active"] }};
+        document.getElementById("flashdriveToggle").checked = {{ data["flashdrive"] }};
+        document.getElementById("duration-entry").value = {{ data["duration"] }};
+        document.getElementById("rate-entry").value = {{ data["rate"] }};
+    </script>
 </html>

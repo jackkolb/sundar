@@ -20,6 +20,7 @@
     bottom: 0;
     background-color: #ccc;
     transition: .4s;
+    border-radius: 20pt;
 }
 
 .slider:before {
@@ -28,9 +29,10 @@
     height: 15pt;
     width: 15pt;
     left: 2pt;
-    bottom: 2pt;
+    bottom: 2.5pt;
     background-color: whitesmoke;
     transition: .4s;
+    border-radius: 50%;
 }
 
 input:checked + .slider {
@@ -38,17 +40,9 @@ input:checked + .slider {
 }
 
 input:focus + .slider {
-    box-shadow: 0 0 1pt #2196F3;
+    box-shadow: 0 0 3pt #2196F3;
 }
 
 input:checked + .slider:before {
-    transform: translateX(30pt);
-}
-
-.slider.round {
-    border-radius: 20pt;
-}
-
-.slider.round:before {
-    border-radius: 50%;
+    transform: translateX(20.75pt);
 }

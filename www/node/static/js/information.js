@@ -33,19 +33,25 @@ function generatePlot(name, x_data, y_data) {
                     display: true,
                     scaleLabel: {
                         display: true,
-                        labelString: 'Date'
+                        labelString: 'Date',
+                        fontSize: 15
+                    },
+                    ticks: {
+                        fontSize: 15
                     }
                 }],
                 yAxes: [{
                     display: true,
                     scaleLabel: {
                         display: true,
-                        labelString: 'Bearing Damage Level'
+                        labelString: 'Bearing Damage Level',
+                        fontSize: 15
                     },
                     ticks: {
                         beginAtZero: true,
                         stepSize: 1,
-                        max: 5
+                        max: 5,
+                        fontSize: 15
                     }                 
                 }]
             }
@@ -61,49 +67,126 @@ function generatePlot(name, x_data, y_data) {
     window.myLine = new Chart(ctx, config);
 }
 
-function generateHistory() {
-    var content = document.getElementById("content");
-
-    // create history
-    var historyBox = document.createElement("div");
-        historyBox.className = "history-box"
-    var historyPanel = document.createElement("div");
-        historyPanel.className = "history-panel";
-    historyBox.appendChild(historyPanel);
-
-    var historyName = document.createElement("div");
-        historyName.className = "history-name";
-        historyName.id = "history-name";
-    var historyLife = document.createElement("div");
-        historyLife.className = "history-life";
-        historyLife.id = "history-life";
-    var historyDamage = document.createElement("div");
-        historyDamage.className = "history-damage";
-        historyDamage.id = "history-damage";
-    var historyPlot = document.createElement("div");
-        historyPlot.className = "history-plot";
-        historyPlot.id = "history-plot";
-
-    historyPanel.appendChild(historyName);
-    historyPanel.appendChild(historyLife);
-    historyPanel.appendChild(historyDamage);
-    historyPanel.appendChild(historyPlot);
-
-    content.appendChild(historyBox);
+function setActive() {
+    value = document.getElementById("activeToggle").checked;
+    console.log("set active to " + value)
+    sendUpdate("active", value)
 }
 
-function loadSelectedItem(id) {
-    document.getElementById("history-name").innerHTML = data[id].name;
-    document.getElementById("history-damage").innerHTML = "Bearing Damage Level: " + data[id].damage;
-    document.getElementById("history-life").innerHTML = "Estimated Life: " + data[id].life + " weeks";
+function setFlashdrive() {
+    value = document.getElementById("flashdriveToggle").checked;
+    console.log("set flashdrive to " + value);
+    sendUpdate("flashdrive", value);
+}
 
-    data_x = [];
-    data_y = [];
-    for (var i = 0; i < data[id].data.length; i++) {
-        var point = data[id].data[i];
-        data_x.push(point[0]);
-        data_y.push(point[1]);
+function setDuration() {
+    var value = document.getElementById("duration-entry").value;
+    if (value == "" || value <= 0) {
+        value = 20;
     }
+    console.log("set duration to " + value);
+    sendUpdate("duration", value);
+}
 
-    generatePlot(data[id].name, data_x, data_y);
+function setRate() {
+    var value = document.getElementById("rate-entry").value;
+    if (value == "" || value <= 0) {
+        value = 500;
+    }
+    console.log("set rate to " + value);
+    sendUpdate("rate", value);
+    return;
+}
+
+function downloadLogs() {
+    fetch("/logs")
+    .then(resp=>resp.blob())
+    .then(blob => {
+      const url = window.URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.style.display = 'none';
+      a.href = url;
+      a.download = 'logs.txt';
+      document.body.appendChild(a);
+      a.click();
+      window.URL.revokeObjectURL(url);
+    })
+    .catch(() => alert('unable to download Logs'));
+    return;
+}
+
+function downloadHistory() {
+    fetch("/data")
+    .then(resp=>resp.blob())
+    .then(blob => {
+      const url = window.URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.style.display = 'none';
+      a.href = url;
+      a.download = 'history.data';
+      document.body.appendChild(a);
+      a.click();
+      window.URL.revokeObjectURL(url);
+    })
+    .catch(() => alert('unable to download History'));
+    return;
+}
+
+function flashLEDs() {
+    console.log("Flashing LEDs");
+    sendUpdate("flashLED", "true");
+    return;
+}
+
+function resetNode() {
+    if (confirm("Are you sure you wish to reset the node? This will delete logs, history, and cannot be reversed!")) {
+        if (confirm("Are you completely sure you wish to reset the node? This is the last confirmation.")) {
+            setDefaults();
+            sendUpdate("reset", "true");
+        }
+    }
+}
+
+function setDefaults() {
+    var active_node = false;
+    var default_duration = 20;
+    var default_rate = 1000;
+    var save_flashdrive = true;
+
+    document.getElementById("activeToggle").checked = active_node;
+    setActive();
+    document.getElementById("duration-entry").value = default_duration;
+    setDuration();
+    document.getElementById("rate-entry").value = default_rate;
+    setRate();
+    document.getElementById("flashdriveToggle").checked = save_flashdrive;
+    setFlashdrive();
+    return;
+}
+
+function sendUpdate(key, value) {
+    var url = "update?key=" + key + "&value=" + value;
+    var xmlHttp = new XMLHttpRequest();
+    xmlHttp.open("GET", url, true);
+    xmlHttp.send(null);
+}
+
+function getDamageColor(damage) {
+    var color = "grey";
+    if (damage == 5) {
+        color = "red";
+    }
+    if (damage == 4) {
+        color = "yellow";
+    }
+    if (damage == 3) {
+        color = "yellow";
+    }
+    if (damage == 2) {
+        color = "green";
+    }
+    if (damage == 1) {
+        color = "green";
+    }
+    return color;
 }

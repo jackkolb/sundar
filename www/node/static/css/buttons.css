@@ -1,0 +1,25 @@
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.action {
+    background-color: transparent;
+    border: 1pt solid skyblue;
+    border-radius: 5px;
+    margin: 2%;
+}
+
+.action-left {
+    margin-left: 5%;
+}
+
+.action-right {
+    margin-right: 5%;
+}
+
+.action:hover {
+    background-color: skyblue;
+}
+

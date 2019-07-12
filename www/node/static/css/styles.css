@@ -17,3 +17,9 @@ canvas{
     -webkit-user-select: none;
     -ms-user-select: none;
 }
+
+.text {
+    font-family: 'Roboto', sans-serif;
+    font-size: 2em;
+    color: darkslategray;
+}

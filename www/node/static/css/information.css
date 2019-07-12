@@ -1,29 +1,31 @@
 /* node overview box */
 .node-overview {
     background-color: white;
-    height: 85%;
-    /*width: 30%;*/
     box-shadow: 0px 5px 8px -4px black;
     border-radius: 5pt;
     width: 80%;
     margin: 0 auto;
 }
 
+.node-header {
+    display: flex;
+    justify-content: space-between;
+}
+
 .node-name {
-    font-size: 30pt;
+    font-size: 40pt;
     color: dimgrey;
     padding: 1% 5%;
-    float: left;
 }
 
 .node-circle {
     height: 30pt;
     width: 30pt;
     border-radius: 50%;
-    float: right;
+    margin: 3% 3%;
 }
 
-.node-damage {
+.node-attribute {
     font-size: 20pt;
     color: grey;
     padding: 0 5%;
@@ -36,7 +38,22 @@
     float: left;
 }
 
-.node-status {
-    padding: 4%;
+.option {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
+.option-left {
+    flex-wrap: nowrap;
+}
+
+.option-right {
+    margin-right: 5%;
+}
+
+.history-box {
+    height: 40%;
+    width: 80%;
+    margin: 0 auto;
+}
