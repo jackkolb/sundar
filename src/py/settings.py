@@ -1,9 +1,16 @@
 def get_duration():
-    with open("flags/duration", "r") as duration_file:
+    with open("settings/duration", "r") as duration_file:
         duration = duration_file.read()
     return duration
 
 def get_rate():
-    with open("flags/rate", "r") as rate_file:
+    with open("settings/rate", "r") as rate_file:
         rate = rate_file.read()
     return rate
+
+def get_flashdrive():
+    with open("settings/flashdrive", "r") as flashdrive_file:
+        if flashdrive_file.read() == "true":
+            return True
+        else:
+            return False

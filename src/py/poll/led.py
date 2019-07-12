@@ -27,6 +27,17 @@ def leds_red():
     GPIO.output(LED_DAMAGE_PIN_G, 0)
     GPIO.output(LED_DAMAGE_PIN_B, 0)
 
+# turns on the blue LED
+def leds_blue():
+    GPIO.output(LED_DAMAGE_PIN_R, 0)
+    GPIO.output(LED_DAMAGE_PIN_G, 0)
+    GPIO.output(LED_DAMAGE_PIN_B, 1)
+
+def leds_off():
+    GPIO.output(LED_DAMAGE_PIN_R, 0)
+    GPIO.output(LED_DAMAGE_PIN_G, 0)
+    GPIO.output(LED_DAMAGE_PIN_B, 0)
+
 # LOOP: reads from the damage flag, turns on the appropriate LED
 def start_led():
     GPIO.setwarnings(False)
@@ -45,3 +56,11 @@ def start_led():
             leds_red()
 
         time.sleep(30)
+
+def flash_blue_led():
+    for i in range(3):
+        leds_blue()
+        time.sleep(.2)
+        leds_off()
+        time.sleep(.2)
+    return

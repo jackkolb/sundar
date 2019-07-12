@@ -85,6 +85,10 @@ def flash_LED():
     with open("data/LED", "w") as led_file:
         led_file.write("true")
 
+def load_flash_led():
+    with open("data/LED", "r") as led_file:
+        return led_file.read()
+
 def load_information():
     information = {
         "life": load_life(),
@@ -96,3 +100,13 @@ def load_information():
         "rate": load_rate()
     }
     return information
+
+def load_settings():
+    settings = {
+        "active": load_active(),
+        "rate": load_rate(),
+        "duration": load_duration(),
+        "flash": load_flash_led(),
+        "flashdrive": load_flashdrive()
+    }
+    set_flashdrive("false")

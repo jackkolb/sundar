@@ -5,6 +5,7 @@
 import urllib3
 import requests
 import time
+import led
 
 # Manages the webserver, interacting via POST requests 
 def manage_webserver():
@@ -17,6 +18,8 @@ def manage_webserver():
         set_active(r.json()["active"])
         set_rate(r.json()["rate"])
         set_duration(r.json()["duration"])
+        set_flash(r.json()["flash"])
+        set_flashdrive(r.json()["flashdrive"])
 
         # sleep
         time.sleep(1)
@@ -44,4 +47,12 @@ def set_duration(status):
     with open("settings/duration", "w") as duration_flag:
         duration_flag.write(status)
 
+# writes the flashdrive status
+def set_flashdrive(status):
+    with open("settings/flashdrive", "w") as flashdrive_flag:
+        flashdrive_flag.write(status)
 
+# checks if should flash the LEDs
+def set_flash(status):
+    if status == "true":
+        led.flash_blue_led()
