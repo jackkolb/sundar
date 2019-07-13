@@ -48,6 +48,7 @@ def data_set():
         updateData("active", value)
     if key == "flashdrive" and value in ["true", "false"]:
         updateData("flashdrive", value)
+        print(updated flash)
     elif key == "duration" and value.isdigit():
         updateData("duration", value)
     elif key == "rate" and value.isdigit():
