@@ -1,3 +1,4 @@
 logs/
 data/*.txt
-data/*.dat
+data/*.data
+data/*.py
