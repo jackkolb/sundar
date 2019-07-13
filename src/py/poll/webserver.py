@@ -5,7 +5,24 @@
 import urllib3
 import requests
 import time
-import .src.py.poll.led
+try:
+    import src.py.poll.led
+except:
+    try:
+        import py.poll.led
+    except:
+        try:
+            import poll.led
+        except:
+            try:
+                import led
+            except:
+                try:
+                    import .led
+                except:
+                    pass
+
+
 
 # Manages the webserver, interacting via POST requests 
 def manage_webserver():
