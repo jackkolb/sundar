@@ -5,7 +5,7 @@ import os
 def manage_output_location():
     currently_outputting_to_flashdrive = False
     while True:
-        if get_flashdrive_setting and os.path.exists("/media/pi/SUNDAR_RESEARCH"):
+        if get_flashdrive_setting() and os.path.exists("/media/pi/SUNDAR_RESEARCH"):
             if not currently_outputting_to_flashdrive:
                 with open("flags/destination", "w") as output_location_flag:
                     output_location_flag.write("/media/pi/SUNDAR_RESEARCH/data/")
