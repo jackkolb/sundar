@@ -5,7 +5,7 @@
 import urllib3
 import requests
 import time
-import src.py.poll.led
+import .src.py.poll.led
 
 # Manages the webserver, interacting via POST requests 
 def manage_webserver():
