@@ -8,7 +8,6 @@ def get_key(key):
         return key_file.read()
 
 def updateData(file, value):
-    print("writing " + value + " to data/" + file)
     with open("data/" + file, "w") as data_file:
         data_file.write(value)
 
@@ -47,9 +46,8 @@ def data_set():
     # process update
     if key == "active" and value in ["true", "false"]:
         updateData("active", value)
-    if key == "flashdrive" and value in ["true", "false"]:
+    elif key == "flashdrive" and value in ["true", "false"]:
         updateData("flashdrive", value)
-        print("updated flash")
     elif key == "duration" and value.isdigit():
         updateData("duration", value)
     elif key == "rate" and value.isdigit():
