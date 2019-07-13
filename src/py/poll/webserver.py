@@ -15,7 +15,8 @@ except:
             import poll.led
         except:
             try:
-                import led
+                print(1+"S")
+                #import led
             except:
                 try:
                     import .led
