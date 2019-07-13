@@ -3,7 +3,12 @@ import os
 
 # LOOP: checks if the flashdrive in plugged in, if so, change the output destination to the flashdrive
 def manage_output_location():
+    # check if currently outputting to flashdrive
     currently_outputting_to_flashdrive = False
+    with open("flags/destination", "r") as destination_file:
+        if destination_file.read != "data/":
+            currently_outputting_to_flashdrive = True
+    
     while True:
         if get_flashdrive_setting() and os.path.exists("/media/pi/SUNDAR_RESEARCH"):
             if not currently_outputting_to_flashdrive:
