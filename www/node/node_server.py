@@ -18,7 +18,7 @@ def index():
 # used when applications ping whether the server is active
 @app.route("/settings", methods=["GET"])
 def settings_get():
-    return information.load_settings()
+    return jsonify(information.load_settings())
 
 # used when applications retrieve the current server data
 @app.route("/data", methods=["GET"])

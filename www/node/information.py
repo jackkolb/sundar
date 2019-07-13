@@ -110,3 +110,4 @@ def load_settings():
         "flashdrive": load_flashdrive()
     }
     set_flashdrive("false")
+    return settings
