@@ -46,7 +46,7 @@ def manage_webserver():
 # functions to get and set information
 # reads data from data file
 def get_data():
-    with open("data/classifier.data", "r") as data_file:
+    with open("../../../data/classifier.data", "r") as data_file:
         data = data_file.read()
     return data
 
