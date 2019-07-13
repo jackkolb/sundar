@@ -8,6 +8,7 @@ def get_key(key):
         return key_file.read()
 
 def updateData(file, value):
+    print("writing " + value + " to data/" + file)
     with open("data/" + file, "w") as data_file:
         data_file.write(value)
 
