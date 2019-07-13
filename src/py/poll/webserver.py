@@ -15,11 +15,11 @@ except:
             import poll.led
         except:
             try:
-                print(1+"S")
-                #import led
+                import led
             except:
                 try:
-                    import .led
+                    print(":(")
+                    #import .led
                 except:
                     pass
 
