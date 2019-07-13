@@ -40,21 +40,24 @@ def main():
 
     # general loop: launch collection script, when it dies relaunch it
     while True:
-        with open("flags/collection", "r") as collection_flag:
-            status = collection_flag.readline()
-            if status == "COLLECT":
-                destination = poll.location.get_output_location()
-                if destination == "none":
-                    destination = "data/"
-                accelerometer_destination = destination + "accelerometer.data"
-                logs.log("[MAIN] Starting accelerometer collection")
-                sensor_process = subprocess.Popen(["./src/c/collect.o", settings.get_duration(), settings.get_rate(), accelerometer_destination])
-                sensor_process.wait()  # wait for sensor thread to end, restart it if it does
-                logs.log("[MAIN] Collection complete")
-                logs.log("[MAIN] Starting classification")
-                classifier_destination = destination + "classifier.data"
-                # RUN CLASSIFICATION FUNCTION HERE
-                logs.log("[MAIN] Classification completed")
+        try:
+            with open("settings/active", "r") as collection_flag:
+                status = collection_flag.readline()
+        except:
+            status == "false"
+        if status == "true":
+            destination = poll.location.get_output_location()
+            if destination == "none":
+                destination = "data/"
+            accelerometer_destination = destination + "accelerometer.data"
+            logs.log("[MAIN] Starting accelerometer collection")
+            sensor_process = subprocess.Popen(["./src/c/collect.o", settings.get_duration(), settings.get_rate(), accelerometer_destination])
+            sensor_process.wait()  # wait for sensor thread to end, restart it if it does
+            logs.log("[MAIN] Collection complete")
+            logs.log("[MAIN] Starting classification")
+            classifier_destination = destination + "classifier.data"
+            # RUN CLASSIFICATION FUNCTION HERE
+            logs.log("[MAIN] Classification completed")
 
         if poll.gitcheck.check_flag_file() == "RESET":
             os._exit(1)
