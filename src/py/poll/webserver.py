@@ -33,7 +33,7 @@ def manage_webserver():
 
         # read settings from webserver
         r = requests.get("http://0.0.0.0:5000/settings")
-        print(r)
+        print(r.content)
         set_active(r.json()["active"])
         set_rate(r.json()["rate"])
         set_duration(r.json()["duration"])
