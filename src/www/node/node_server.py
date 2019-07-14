@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, jsonify
-import information
+import www.node.information
 
 app = Flask(__name__)
 
@@ -13,26 +13,26 @@ def updateData(file, value):
 
 @app.route("/")
 def index():
-    return render_template("index.html", data=information.load_information())
+    return render_template("index.html", data=www.node.information.load_information())
 
 # used when applications ping whether the server is active
 @app.route("/settings", methods=["GET"])
 def settings_get():
-    return jsonify(information.load_settings())
+    return jsonify(www.node.information.load_settings())
 
 # used when applications retrieve the current server data
 @app.route("/data", methods=["GET"])
 def data_get():
-    return jsonify(eval(information.load_data()))
+    return jsonify(eval(www.node.information.load_data()))
 
 @app.route("/logs", methods=["GET"])
 def logs_get():
-    return information.load_logs()
+    return www.node.information.load_logs()
 
 @app.route("/reset", methods=["GET"])
 def reset_get():
-    information.reset_logs()
-    information.reset_data()
+    www.node.information.reset_logs()
+    www.node.information.reset_data()
     
 
 # used when applications set the data
@@ -55,10 +55,10 @@ def data_set():
     elif key == "name":
         updateData("name", value)
     elif key == "reset" and value == "true":
-        information.reset_data()
-        information.reset_logs()
+        www.node.information.reset_data()
+        www.node.information.reset_logs()
     elif key == "flashLED" and value == "true":
-        information.flash_LED()
+        www.node.information.flash_LED()
 
     return "good"
 
