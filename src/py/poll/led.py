@@ -56,12 +56,17 @@ def start_led():
             leds_red()
         
         # check LED flag in case flash was called
-        with open("flags/LED", "r+") as led_flag:
+        modify_flag = False
+        with open("flags/LED", "r") as led_flag:
             value = led_flag.read()
-            print(value)
             if value == "true":
                 flash_blue_led()
-                led_flag.write("false") 
+                modify_flag = True
+
+        if modify_flag:
+            with open("flags/LED", "w") as led_flag:    
+                led_flag.write("false")
+            modify_flag = False
 
         time.sleep(3)
 
