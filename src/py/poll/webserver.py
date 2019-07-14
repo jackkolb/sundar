@@ -11,16 +11,20 @@ import py.poll.led
 # Manages the webserver, interacting via POST requests 
 def manage_webserver():
     while True:
-        # update webserver's data
-        r = requests.post("http://0.0.0.0:5000/data", json={"data": get_data()})
+        try:
+            # update webserver's data
+            r = requests.post("http://0.0.0.0:5000/data", json={"data": get_data()})
 
-        # read settings from webserver
-        r = requests.get("http://0.0.0.0:5000/settings")
-        set_active(r.json()["active"])
-        set_rate(r.json()["rate"])
-        set_duration(r.json()["duration"])
-        set_flash(r.json()["flashLED"])
-        set_flashdrive(r.json()["flashdrive"])
+            # read settings from webserver
+            r = requests.get("http://0.0.0.0:5000/settings")
+            set_active(r.json()["active"])
+            set_rate(r.json()["rate"])
+            set_duration(r.json()["duration"])
+            set_flash(r.json()["flashLED"])
+            set_flashdrive(r.json()["flashdrive"])
+        
+        except:
+            print("[WEBSERVER] Web node not active")
 
         # sleep
         time.sleep(1)
