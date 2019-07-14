@@ -1,4 +1,4 @@
 logs/
-data/*.txt
-data/*.data
+data/raw_data.txt
+data/accelerometer.data
 data/*.py
