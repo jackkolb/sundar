@@ -60,7 +60,6 @@ def data_set():
     elif key == "flashLED" and value == "true":
         information.flash_LED()
 
-
     return "good"
 
 
