@@ -1,6 +1,6 @@
 import subprocess
 import threading
-import logs
+import src.py.logs
 import settings
 import RPi.GPIO as GPIO
 import os
