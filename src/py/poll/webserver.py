@@ -41,7 +41,7 @@ def manage_webserver():
         set_flashdrive(r.json()["flashdrive"])
 
         # sleep
-        time.sleep()
+        time.sleep(5)
 
 
 # functions to get and set information
