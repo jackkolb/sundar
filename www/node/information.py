@@ -113,7 +113,7 @@ def load_settings():
         "active": load_active(),
         "rate": load_rate(),
         "duration": load_duration(),
-        "flash": load_flash_led(),
+        "flashLED": load_flash_led(),
         "flashdrive": load_flashdrive()
     }
     reset_flash_LED()
