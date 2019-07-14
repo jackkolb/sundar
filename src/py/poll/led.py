@@ -65,6 +65,7 @@ def start_led():
         time.sleep(30)
 
 def flash_blue_led():
+    print("flashing leds")
     for i in range(3):
         leds_blue()
         time.sleep(.2)
