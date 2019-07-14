@@ -7,15 +7,19 @@ import requests
 import time
 try:
     import src.py.poll.led
+    print("1")
 except:
     try:
         import py.poll.led
+        print("2")
     except:
         try:
             import poll.led
+            print("3")
         except:
             try:
                 import led
+                print("4")
             except:
                 try:
                     print(":(")
@@ -33,7 +37,6 @@ def manage_webserver():
 
         # read settings from webserver
         r = requests.get("http://0.0.0.0:5000/settings")
-        print(r.content)
         set_active(r.json()["active"])
         set_rate(r.json()["rate"])
         set_duration(r.json()["duration"])

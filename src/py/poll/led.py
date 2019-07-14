@@ -48,16 +48,12 @@ def start_led():
     while True:
         with open("flags/damage", "r") as damage_flag:
             status = damage_flag.readline()
-            print("damage status: " + status)
         if status == "1" or status == "2":
             leds_green()
-            print("led is green")
         if status == "3":
             leds_yellow()
-            print("led is yellow")
         if status == "4" or status == "5":
             leds_red()
-            print("led is red")
         
         # check LED flag in case flash was called
         modify_flag = False
@@ -67,10 +63,9 @@ def start_led():
                 flash_blue_led()
                 led_flag.write("false")
 
-        time.sleep(3)
+        time.sleep(1)
 
 def flash_blue_led():
-    print("flashing leds")
     for i in range(3):
         leds_blue()
         time.sleep(.2)
