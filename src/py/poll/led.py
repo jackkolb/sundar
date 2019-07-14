@@ -46,6 +46,7 @@ def start_led():
     GPIO.setup(LED_DAMAGE_PIN_B, GPIO.OUT)
 
     while True:
+        print("checking leds")
         with open("flags/damage", "r") as damage_flag:
             status = damage_flag.readline()
         if status == "1" or status == "2":
