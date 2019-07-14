@@ -62,7 +62,7 @@ def start_led():
                 flash_blue_led()
                 led_flag.write("false") 
 
-        time.sleep(30)
+        time.sleep(3)
 
 def flash_blue_led():
     print("flashing leds")
