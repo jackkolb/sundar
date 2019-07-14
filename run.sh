@@ -5,7 +5,7 @@ cd "$(dirname "$0")"
 #bash -c "cd ~/projects/sundar/www/node; ./node.sh" &
 
 echo Launching Loader
-python3 ./src/py/loader.py
+python3 ./src/loader.py
 
 #echo Resetting Webserver
 #./reset.sh
