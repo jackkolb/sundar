@@ -73,4 +73,5 @@ def set_flashdrive(status):
 # checks if should flash the LEDs
 def set_flash(status):
     if status == "true":
-        led.flash_blue_led()
+        with open("flags/LED", "r") as LED_flag:
+            LED_flag.write("true")
