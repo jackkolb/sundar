@@ -62,5 +62,5 @@ def data_set():
 
     return "good"
 
-
-app.run(host="0.0.0.0")
+def main():
+    app.run(host="0.0.0.0")
