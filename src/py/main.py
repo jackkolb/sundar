@@ -25,8 +25,8 @@ def main():
 
     # start LED thread
     logs.log("[MAIN] Starting LED thread")
-    lcd_thread = threading.Thread(target=poll.led.start_led)
-    lcd_thread.start()
+    led_thread = threading.Thread(target=poll.led.start_led)
+    led_thread.start()
 
     # start webserver manager thread
     logs.log("[MAIN] Starting Webserver Manager thread")
