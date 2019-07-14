@@ -40,6 +40,7 @@ def leds_off():
 
 # LOOP: reads from the damage flag, turns on the appropriate LED
 def start_led():
+    print("starting LED check")
     GPIO.setwarnings(False)
     GPIO.setup(LED_DAMAGE_PIN_R, GPIO.OUT)
     GPIO.setup(LED_DAMAGE_PIN_G, GPIO.OUT)
