@@ -41,7 +41,6 @@ def data_set():
     valid_keys = ["active", "duration", "rate", "name", "flashLED", "flashdrive", "reset"]
     key = request.args.get("key")
     value = request.args.get("value")
-    print(">>>" + key + "<<<>>>>" + value + "<<<")
     if key not in valid_keys:
         return "bad"
     # process update

@@ -5,28 +5,7 @@
 import urllib3
 import requests
 import time
-try:
-    import src.py.poll.led
-    print("1")
-except:
-    try:
-        import py.poll.led
-        print("2")
-    except:
-        try:
-            import poll.led
-            print("3")
-        except:
-            try:
-                import led
-                print("4")
-            except:
-                try:
-                    print(":(")
-                    #import .led
-                except:
-                    pass
-
+import poll.led
 
 
 # Manages the webserver, interacting via POST requests 
@@ -44,7 +23,7 @@ def manage_webserver():
         set_flashdrive(r.json()["flashdrive"])
 
         # sleep
-        time.sleep(5)
+        time.sleep(1)
 
 
 # functions to get and set information
