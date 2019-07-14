@@ -48,6 +48,7 @@ def start_led():
     while True:
         with open("flags/damage", "r") as damage_flag:
             status = damage_flag.readline()
+            print("damage status: " + status)
         if status == "1" or status == "2":
             leds_green()
             print("led is green")
