@@ -38,7 +38,7 @@ def reset_get():
 # used when applications set the data
 @app.route("/update", methods=["GET"])
 def data_set():
-    valid_keys = ["active", "duration", "rate", "name", "flash", "flashdrive", "reset"]
+    valid_keys = ["active", "duration", "rate", "name", "flashLE", "flashdrive", "reset"]
     key = request.args.get("key")
     value = request.args.get("value")
     if key not in valid_keys:
