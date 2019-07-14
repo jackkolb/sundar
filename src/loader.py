@@ -1,5 +1,5 @@
 import multiprocessing, importlib
-import main, logs
+import src.main, src.logs
 
 if __name__ == "__main__":
         
