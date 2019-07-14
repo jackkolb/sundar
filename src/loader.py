@@ -1,11 +1,11 @@
 import multiprocessing, importlib
-import src.main, src.logs
+import py.main, py.logs
 
 if __name__ == "__main__":
         
     while True:
-        importlib.reload(main)
-        importlib.reload(logs)
+        importlib.reload(py.main)
+        importlib.reload(py.logs)
         import py.main
         import py.logs
         import www.node.node_server
