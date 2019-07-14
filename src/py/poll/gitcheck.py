@@ -1,7 +1,7 @@
 import subprocess
 import time
 import sys
-import logs
+import py.logs
 
 # checks the git flag, returns its contents. If the flag is "RESET", writes it to "GOOD"
 def check_flag_file():
@@ -10,7 +10,7 @@ def check_flag_file():
         data = git_flag_file.readline()
     
     if data == "ERROR":
-        logs.log("[Git Check] Could not open file: flags/git_flag")
+        py.logs.log("[Git Check] Could not open file: flags/git_flag")
     if data == "RESET":
         with open("flags/git_flag", "w") as git_flag_file:
             git_flag_file.write("GOOD")
@@ -29,7 +29,7 @@ def git_check_loop():
 
         else:  # new code on GitHub
             print(result)
-            logs.log("[Git Check] New build found on GitHub, resetting")
+            py.logs.log("[Git Check] New build found on GitHub, resetting")
             with open("flags/git_flag", "w") as git_flag_file:  # exits the program (including the thread)
                 git_flag_file.write("RESET")
         time.sleep(10)  # waits 10 seconds
