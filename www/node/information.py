@@ -113,4 +113,5 @@ def load_settings():
         "flash": load_flash_led(),
         "flashdrive": load_flashdrive()
     }
+    reset_flash_LED()
     return settings

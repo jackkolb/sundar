@@ -33,6 +33,7 @@ def manage_webserver():
 
         # read settings from webserver
         r = requests.get("http://0.0.0.0:5000/settings")
+        print(r)
         set_active(r.json()["active"])
         set_rate(r.json()["rate"])
         set_duration(r.json()["duration"])
@@ -40,7 +41,7 @@ def manage_webserver():
         set_flashdrive(r.json()["flashdrive"])
 
         # sleep
-        time.sleep(1)
+        time.sleep()
 
 
 # functions to get and set information
