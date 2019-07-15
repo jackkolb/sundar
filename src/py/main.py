@@ -62,7 +62,7 @@ def main():
             # RUN CLASSIFICATION FUNCTION HERE
 
             # move accelerometer data to storage
-            shutil.move("data/accelerometer.data", "data/raw/accelerometer_" + datetime.datetime.strftime("%Y_%m_%d_%h_%H_%M") + ".data")
+            shutil.move("data/accelerometer.data", "data/raw/accelerometer_" + datetime.datetime.now().strftime("%Y_%m_%d_%h_%H_%M") + ".data")
             py.logs.log("main", "Classification completed")
 
         if py.poll.gitcheck.check_flag_file() == "RESET":
