@@ -10,7 +10,7 @@ if __name__ == "__main__":
         import py.logs
 
         main_thread = multiprocessing.Process(target=py.main.main)
-        py.logs.log("[LOADER] Starting Main Process")
+        py.logs.log("loader", "Starting Main Process")
         main_thread.start()
         main_thread.join()
-        py.logs.log("[LOADER] Main Process Ended")
+        py.logs.log("loader", "Main Process Ended")
