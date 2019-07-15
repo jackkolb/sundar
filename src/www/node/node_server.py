@@ -1,13 +1,11 @@
 from flask import Flask, render_template, request, jsonify
 import www.node.information
+import logging
 
 app = Flask(__name__)
 
-def get_key(key):
-    with open("data/key", "r") as key_file:
-        return key_file.read()
-
-
+log = logging.getLogger('werkzeug')
+log.setLevel(logging.ERROR)
 
 @app.route("/")
 def index():
