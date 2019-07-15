@@ -9,7 +9,7 @@ import py.poll.led
 
 
 # Manages the webserver, interacting via POST requests 
-def manage_webserver():
+#def manage_webserver():
     #while True:
         #try:
             # update webserver's data
