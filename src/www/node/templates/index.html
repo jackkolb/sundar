@@ -141,6 +141,7 @@
     <script>
         var data_x = []; var data_y = [];
         var data = "{{ data['data'].replace('\n', '\\n') }}".split("\\n");
+        console.log(data);
         for (var i = 0; i < data.length; i++) {
             var point = data[i].split(" ");
             console.log(point);
