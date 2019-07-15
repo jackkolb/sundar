@@ -7,15 +7,15 @@ def get_key(key):
     with open("data/key", "r") as key_file:
         return key_file.read()
 
-def updateData(file, value):
-    with open("data/" + file, "w") as data_file:
+def updateSettings(file, value):
+    with open("settings/" + file, "w") as data_file:
         data_file.write(value)
 
 @app.route("/")
 def index():
     return render_template("index.html", data=www.node.information.load_information())
 
-# used when applications ping whether the server is active
+# used when applications ping whether the server is active and retrieve settings
 @app.route("/settings", methods=["GET"])
 def settings_get():
     return jsonify(www.node.information.load_settings())
@@ -45,15 +45,15 @@ def data_set():
         return "bad"
     # process update
     if key == "active" and value in ["true", "false"]:
-        updateData("active", value)
+        updateSettings("active", value)
     elif key == "flashdrive" and value in ["true", "false"]:
-        updateData("flashdrive", value)
+        updateSettings("flashdrive", value)
     elif key == "duration" and value.isdigit():
-        updateData("duration", value)
+        updateSettings("duration", value)
     elif key == "rate" and value.isdigit():
-        updateData("rate", value)
+        updateSettings("rate", value)
     elif key == "name":
-        updateData("name", value)
+        updateSettings("name", value)
     elif key == "reset" and value == "true":
         www.node.information.reset_data()
         www.node.information.reset_logs()

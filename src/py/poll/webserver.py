@@ -17,11 +17,11 @@ def manage_webserver():
 
             # read settings from webserver
             r = requests.get("http://0.0.0.0:5000/settings")
-            set_active(r.json()["active"])
-            set_rate(r.json()["rate"])
-            set_duration(r.json()["duration"])
-            set_flash(r.json()["flashLED"])
-            set_flashdrive(r.json()["flashdrive"])
+            #set_active(r.json()["active"])
+            #set_rate(r.json()["rate"])
+            #set_duration(r.json()["duration"])
+            #set_flash(r.json()["flashLED"])
+            #set_flashdrive(r.json()["flashdrive"])
         
         except:
             print("[WEBSERVER] Web node not active")
