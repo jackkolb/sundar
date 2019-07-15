@@ -30,8 +30,8 @@ def main():
 
     # start webserver manager thread
     py.logs.log("[MAIN] Starting Webserver Manager thread")
-    webserver_thread = threading.Thread(target=py.poll.webserver.manage_webserver)
-    webserver_thread.start()
+    #webserver_thread = threading.Thread(target=py.poll.webserver.manage_webserver)
+    #webserver_thread.start()
 
     # start location determination thread
     py.logs.log("[MAIN] Starting output location thread")
