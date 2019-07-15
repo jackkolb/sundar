@@ -116,6 +116,6 @@ def load_settings():
         "duration": load_duration(),
         "flashLED": load_flash_led(),
         "flashdrive": load_flashdrive()
-    }
+    }data
     reset_flash_LED()
     return settings

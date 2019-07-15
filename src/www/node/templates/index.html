@@ -140,10 +140,11 @@
 
     <script>
         var data_x = []; var data_y = [];
-        var data = JSON.parse("{{ data['data'] }}");
+        var data = {{ data['data'].split("\n") }};
         for (var i = 0; i < data.length; i++) {
-            data_x.push(data[i][0]);
-            data_y.push(data[i][1]);
+            var point = data[i].split(" ");
+            data_x.push(point[0]);
+            data_y.push(point[1]);
         };
         last_damage = data_y[data_y.length-1];
 
