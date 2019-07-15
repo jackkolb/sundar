@@ -143,6 +143,7 @@
         var data = "{{ data['data'].replace('\n', '\\n') }}".split("\\n");
         for (var i = 0; i < data.length; i++) {
             var point = data[i].split(" ");
+            console.log(point);
             data_x.push(point[0]);
             data_y.push(point[1]);
         };
