@@ -11,12 +11,6 @@ def load_name():
         name = name_file.read() 
     return name
 
-def set_name(name):
-    with open("settings/name", "w") as name_file:
-        name_file.write(name)
-        py.logs.log("webserver", "NAME setting has been set to " + name)
-    return "good"
-
 def load_active():
     try:
         with open("settings/active", "r") as active_file:
@@ -24,12 +18,6 @@ def load_active():
     except:
         active = "ERROR LOAD_ACTIVE()"
     return active
-
-def set_active(state):
-    with open("settings/active", "w") as active_file:
-        active_file.write(state)
-        py.logs.log("webserver", "ACTIVE setting has been set to " + state)
-    return "good"
 
 def load_data():
     with open("data/classifier.data", "r") as data_file:
@@ -46,33 +34,16 @@ def load_rate():
         rate = rate_file.read()
     return rate
 
-def set_rate(rate):
-    with open("settings/rate", "w") as rate_file:
-        rate_file.write(rate)
-        py.logs.log("webserver", "RATE setting has been set to " + rate)
-    return "good"
-
 def load_duration():
     with open("settings/duration", "r") as duration_file:
         duration = duration_file.read()
     return duration
-
-def set_duration(data):
-    with open("settings/duration", "w") as duration_file:
-        duration_file.write(data)
-        py.logs.log("webserver", "DURATION setting has been set to " + data)
-    return "good"
 
 def load_flashdrive():
     with open("settings/flashdrive", "r") as flashdrive_file:
         state = flashdrive_file.read()
     return state
 
-def set_flashdrive(state):
-    with open("settings/flashdrive", "w") as flashdrive_file:
-        flashdrive_file.write(state)
-        py.logs.log("webserver", "FLASHDRIVE setting has been set to " + state)
-    return "good"
 
 def load_logs():
     with open("data/logs", "r") as logs_file:
@@ -99,6 +70,11 @@ def load_flash_led():
     with open("flags/LED", "r") as led_file:
         value = led_file.read()
         return value
+
+def updateSettings(file, value):
+    with open("settings/" + file, "w") as data_file:
+        data_file.write(value)
+        py.logs.log("webserver", file.upper() + " setting has been set to " + value)
 
 def load_information():
     information = {

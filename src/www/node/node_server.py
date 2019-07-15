@@ -7,9 +7,7 @@ def get_key(key):
     with open("data/key", "r") as key_file:
         return key_file.read()
 
-def updateSettings(file, value):
-    with open("settings/" + file, "w") as data_file:
-        data_file.write(value)
+
 
 @app.route("/")
 def index():
@@ -45,15 +43,15 @@ def data_set():
         return "bad"
     # process update
     if key == "active" and value in ["true", "false"]:
-        updateSettings("active", value)
+        www.node.information.updateSettings("active", value)
     elif key == "flashdrive" and value in ["true", "false"]:
-        updateSettings("flashdrive", value)
+        www.node.information.updateSettings("flashdrive", value)
     elif key == "duration" and value.isdigit():
-        updateSettings("duration", value)
+        www.node.information.updateSettings("duration", value)
     elif key == "rate" and value.isdigit():
-        updateSettings("rate", value)
+        www.node.information.updateSettings("rate", value)
     elif key == "name":
-        updateSettings("name", value)
+        www.node.information.updateSettings("name", value)
     elif key == "reset" and value == "true":
         www.node.information.reset_data()
         www.node.information.reset_logs()
