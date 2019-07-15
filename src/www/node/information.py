@@ -1,4 +1,5 @@
 # wrappers to various information units
+import py.logs
 
 def load_life():
     with open("data/life", "r") as life_file:
@@ -13,6 +14,7 @@ def load_name():
 def set_name(name):
     with open("settings/name", "w") as name_file:
         name_file.write(name)
+        py.logs.log("webserver", "NAME setting has been set to " + name)
     return "good"
 
 def load_active():
@@ -26,6 +28,7 @@ def load_active():
 def set_active(state):
     with open("settings/active", "w") as active_file:
         active_file.write(state)
+        py.logs.log("webserver", "ACTIVE setting has been set to " + state)
     return "good"
 
 def load_data():
@@ -46,6 +49,7 @@ def load_rate():
 def set_rate(rate):
     with open("settings/rate", "w") as rate_file:
         rate_file.write(rate)
+        py.logs.log("webserver", "RATE setting has been set to " + rate)
     return "good"
 
 def load_duration():
@@ -56,6 +60,7 @@ def load_duration():
 def set_duration(data):
     with open("settings/duration", "w") as duration_file:
         duration_file.write(data)
+        py.logs.log("webserver", "DURATION setting has been set to " + data)
     return "good"
 
 def load_flashdrive():
@@ -66,6 +71,7 @@ def load_flashdrive():
 def set_flashdrive(state):
     with open("settings/flashdrive", "w") as flashdrive_file:
         flashdrive_file.write(state)
+        py.logs.log("webserver", "FLASHDRIVE setting has been set to " + state)
     return "good"
 
 def load_logs():
