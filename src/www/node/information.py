@@ -82,9 +82,7 @@ def reset_data():
         data_file.write("")
 
 def flash_LED():
-    print("flash_led!!!!")
     with open("flags/LED", "w") as led_file:
-        print("writing true to flash_led flag")
         led_file.write("true")
 
 def reset_flash_LED():
@@ -94,7 +92,6 @@ def reset_flash_LED():
 def load_flash_led():
     with open("flags/LED", "r") as led_file:
         value = led_file.read()
-        print("load_flash_led: " + value)
         return value
 
 def load_information():

@@ -4,6 +4,7 @@ LED Module: manages the LEDs. To start the module, run start_led()
 
 import time
 import RPi.GPIO as GPIO
+import py.logs
 
 LED_DAMAGE_PIN_R = 17  # Board: 11
 LED_DAMAGE_PIN_G = 27  # Board: 13
@@ -66,6 +67,7 @@ def start_led():
         time.sleep(1)
 
 def flash_blue_led():
+    py.logs("led", "Flashing blue LEDs")
     for i in range(10):
         leds_blue()
         time.sleep(.2)

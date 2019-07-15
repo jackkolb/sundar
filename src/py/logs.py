@@ -29,7 +29,7 @@ def get_date():
 
 
 # appends a message to the day's log file
-def log(message):
+def log(module, message):
     now = datetime.datetime.now()
     year = now.year
 
@@ -55,14 +55,14 @@ def log(message):
 
     entry_time = "[ " + str(year) + "-" + str(month) + "-" + str(day)\
                  + " " + str(hour) + ":" + str(minute) + ":" + str(second) + " ]"
-    entry = entry_time + " " + message + "\n"
+    entry = entry_time + " [" + module.upper() + "] " + message
 
     try:
         filename = "logs/" + "_log_" + "pi" "_" + str(year) + "_" + str(month) + "_" + str(day)
         with open(filename, "a") as log_file:
-            log_file.write(entry)
+            log_file.write(entry + "\n")
     except Exception as e:
         print(5, "[ERROR] failed to open file: " + str(e))
 
-    print(entry[:-1])
+    print(entry)
     return
