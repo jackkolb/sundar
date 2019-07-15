@@ -6,25 +6,25 @@ def load_life():
     return life
 
 def load_name():
-    with open("data/name", "r") as name_file:
+    with open("settings/name", "r") as name_file:
         name = name_file.read() 
     return name
 
 def set_name(name):
-    with open("data/name", "w") as name_file:
+    with open("settings/name", "w") as name_file:
         name_file.write(name)
     return "good"
 
 def load_active():
     try:
-        with open("data/active", "r") as active_file:
+        with open("settings/active", "r") as active_file:
             active = active_file.read()
     except:
         active = "ERROR LOAD_ACTIVE()"
     return active
 
 def set_active(state):
-    with open("data/active", "w") as active_file:
+    with open("settings/active", "w") as active_file:
         active_file.write(state)
     return "good"
 
@@ -39,32 +39,32 @@ def set_data(data):
     return "good"
 
 def load_rate():
-    with open("data/rate", "r") as rate_file:
+    with open("settings/rate", "r") as rate_file:
         rate = rate_file.read()
     return rate
 
 def set_rate(rate):
-    with open("data/rate", "w") as rate_file:
+    with open("settings/rate", "w") as rate_file:
         rate_file.write(rate)
     return "good"
 
 def load_duration():
-    with open("data/duration", "r") as duration_file:
+    with open("settings/duration", "r") as duration_file:
         duration = duration_file.read()
     return duration
 
 def set_duration(data):
-    with open("data/duration", "w") as duration_file:
+    with open("settings/duration", "w") as duration_file:
         duration_file.write(data)
     return "good"
 
 def load_flashdrive():
-    with open("data/flashdrive", "r") as flashdrive_file:
+    with open("settings/flashdrive", "r") as flashdrive_file:
         state = flashdrive_file.read()
     return state
 
 def set_flashdrive(state):
-    with open("data/flashdrive", "w") as flashdrive_file:
+    with open("settings/flashdrive", "w") as flashdrive_file:
         flashdrive_file.write(state)
     return "good"
 
@@ -83,16 +83,16 @@ def reset_data():
 
 def flash_LED():
     print("flash_led!!!!")
-    with open("data/LED", "w") as led_file:
+    with open("flags/LED", "w") as led_file:
         print("writing true to flash_led flag")
         led_file.write("true")
 
 def reset_flash_LED():
-    with open("data/LED", "w") as led_file:
+    with open("flags/LED", "w") as led_file:
         led_file.write("false")
 
 def load_flash_led():
-    with open("data/LED", "r") as led_file:
+    with open("flags/LED", "r") as led_file:
         value = led_file.read()
         print("load_flash_led: " + value)
         return value
