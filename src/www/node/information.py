@@ -29,12 +29,12 @@ def set_active(state):
     return "good"
 
 def load_data():
-    with open("data/data", "r") as data_file:
+    with open("data/classifier.data", "r") as data_file:
         data = data_file.read()
     return data
 
 def set_data(data):
-    with open("data/data", "w") as data_file:
+    with open("data/classifier.data", "w") as data_file:
         data_file.write(data)
     return "good"
 
@@ -78,7 +78,7 @@ def reset_logs():
         logs_file.write("")
 
 def reset_data():
-    with open("data/data", "w") as data_file:
+    with open("data/classifier.data", "w") as data_file:
         data_file.write("")
 
 def flash_LED():
