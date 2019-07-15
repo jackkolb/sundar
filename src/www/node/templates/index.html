@@ -141,19 +141,15 @@
     <script>
         var data_x = []; var data_y = [];
         var data = "{{ data['data'].replace('\n', '\\n') }}".split("\n");
-        console.log(data);
         for (var i = 0; i < data.length; i++) {
             var point = data[i].split(" ");
-            console.log(point);
             data_x.push(point[0]);
             data_y.push(point[1]);
         };
         last_damage = data_y[data_y.length-1];
 
         generatePlot("data series", data_x, data_y);
-
         document.getElementById("nodeDamage").innerHTML += data_y[data_y.length-1];
-
         document.getElementById("nodeCircle").style = "background-color: " + getDamageColor(last_damage) + "; box-shadow: 0 0 10px 0px " + getDamageColor(last_damage);
 
         document.getElementById("activeToggle").checked = {{ data["active"] }};
