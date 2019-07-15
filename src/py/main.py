@@ -9,6 +9,8 @@ import py.poll.led
 import py.poll.location
 import py.poll.gitcheck
 import www.node.node_server
+import shutil
+import datetime
 
 def main():
     GPIO.setmode(GPIO.BCM)
@@ -58,6 +60,9 @@ def main():
             py.logs.log("main", "Starting classification")
             classifier_destination = destination + "classifier.data"
             # RUN CLASSIFICATION FUNCTION HERE
+
+            # move accelerometer data to storage
+            shutil.move("data/accelerometer.data", "data/raw/accelerometer_" + datetime.datetime.strftime("%Y_%m_%d_%h_%H_%M") + ".data")
             py.logs.log("main", "Classification completed")
 
         if py.poll.gitcheck.check_flag_file() == "RESET":
