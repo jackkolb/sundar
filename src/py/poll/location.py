@@ -1,7 +1,9 @@
+# location.py: contains a thread function for determining where to store data (flashdrive or onboard)
+
 import time
 import os
 
-# LOOP: checks if the flashdrive in plugged in, if so, change the output destination to the flashdrive
+# Continuously checks if the flashdrive in plugged in, if so, change the output destination to the flashdrive
 def manage_output_location():
     # check if currently outputting to flashdrive
     currently_outputting_to_flashdrive = False
@@ -9,12 +11,15 @@ def manage_output_location():
         if destination_file.read != "data/":
             currently_outputting_to_flashdrive = True
     
+    # thread's main loop
     while True:
+        # check if a flashdrive is plugged in and whether the node is set to write to a flashdrive
         if get_flashdrive_setting() and os.path.exists("/media/pi/SUNDAR_RESEARCH"):
             if not currently_outputting_to_flashdrive:
                 with open("flags/destination", "w") as output_location_flag:
                     output_location_flag.write("/media/pi/SUNDAR_RESEARCH/data/")
                 currently_outputting_to_flashdrive = True
+        # otherwise, write to the onboard location (data/)
         else:
             if currently_outputting_to_flashdrive:
                 with open("flags/destination", "w") as output_location_flag:
@@ -22,6 +27,7 @@ def manage_output_location():
                 currently_outputting_to_flashdrive = False
         time.sleep(1)
 
+# checks the flashdrive setting file to see whether the node should write to a flashdrive
 def get_flashdrive_setting():
     with open("settings/flashdrive", "r") as flashdrive_file:
         value = flashdrive_file.read()

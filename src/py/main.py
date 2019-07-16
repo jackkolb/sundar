@@ -1,3 +1,5 @@
+# main.py: starts the various threads (github check, lcd, webserver, etc) and then collects accelerometer data infinitely
+
 import subprocess
 import threading
 import py.logs
@@ -13,57 +15,60 @@ import shutil
 import datetime
 
 def main():
-    GPIO.setmode(GPIO.BCM)
-    py.logs.log("main", "Starting GitHub check thread")
+    GPIO.setmode(GPIO.BCM)  # sets the GPIO pins to BCM
 
-    # launch git check thread -- checks if there are code updates, if there are it kills the program
+    # start git check thread: checks if there are code updates, if there are it sets a flag to restart the program
+    py.logs.log("main", "Starting GitHub check thread")
     git_check_thread = threading.Thread(target=py.poll.gitcheck.git_check_loop)
     git_check_thread.start()
 
-    # start LCD thread
+    # start LCD thread: displays wifi and collection information
     py.logs.log("main", "Starting LCD thread")
     lcd_thread = threading.Thread(target=py.poll.lcd.start_lcd)
     lcd_thread.start()
 
-    # start LED thread
+    # start LED thread: an LED that shows the current damage and flashes on command
     py.logs.log("main", "Starting LED thread")
     led_thread = threading.Thread(target=py.poll.led.start_led)
     led_thread.start()
 
-    # start webserver manager thread
+    # start webserver thread: a webserver to control the device remotely
     py.logs.log("main", "Starting Webserver thread")
     webserver_thread = threading.Thread(target=www.node.node_server.start_server)
     webserver_thread.start()
 
-    # start location determination thread
+    # start location determination thread: determines where to write data
     py.logs.log("main", "Starting output location thread")
     location_thread = threading.Thread(target=py.poll.location.manage_output_location)
     location_thread.start()
 
-
-    # general loop: launch collection script, when it dies relaunch it
+    # general loop: launches collection script, when it finishes relaunch it
     while True:
-        try:
+        # first check if the node should be collecting (set via the webserver)
+        try:  
             with open("settings/active", "r") as collection_flag:
                 status = collection_flag.readline()
         except:
             status == "false"
+
         if status == "true":
-            destination = py.poll.location.get_output_location()
+            destination = py.poll.location.get_output_location()  # get the output location, default to the onboard "data/"
             if destination == "none":
                 destination = "data/"
-            accelerometer_destination = destination + "accelerometer.data"
+            accelerometer_destination = destination + "accelerometer.data"  # creates the save path (ex: data/accelerometer.data)
             py.logs.log("main", "Starting accelerometer collection: " + accelerometer_destination)
-            sensor_process = subprocess.Popen(["./src/c/collect.o", py.settings.get_duration(), py.settings.get_rate(), accelerometer_destination])
-            sensor_process.wait()  # wait for sensor thread to end, restart it if it does
+            # the collect process is run given the sampling duration, sampling rate, and output destination
+            sensor_process = subprocess.Popen(["./src/c/collect.o", py.settings.get_duration(), py.settings.get_rate(), accelerometer_destination])  # starts the collection process
+            sensor_process.wait()  # wait for collection to finish
             py.logs.log("main", "Collection complete")
             py.logs.log("main", "Starting classification")
             classifier_destination = destination + "classifier.data"
             # RUN CLASSIFICATION FUNCTION HERE
 
-            # move accelerometer data to storage
-            shutil.move("data/accelerometer.data", "data/raw/accelerometer_" + datetime.datetime.now().strftime("%Y_%m_%d_%h_%H_%M") + ".data")
+            # move accelerometer data to storage, formatted as accelerometer_year_month_day_hour_minute.data
+            shutil.move("data/accelerometer.data", "data/raw/accelerometer_" + datetime.datetime.now().strftime("%Y_%m_%d_%H_%M") + ".data")
             py.logs.log("main", "Classification completed")
 
+        # check if the git flag indicated a reset
         if py.poll.gitcheck.check_flag_file() == "RESET":
             os._exit(1)
