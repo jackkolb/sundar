@@ -55,7 +55,7 @@ def main():
             destination = py.poll.location.get_output_location()  # get the output location, default to the onboard "data/"
             if destination == "none":
                 destination = "data/"
-            accelerometer_destination = destination + "accelerometer.data"  # creates the save path (ex: data/accelerometer.data)
+            accelerometer_destination = "data/" + "accelerometer.data"  # creates the save path (ex: data/accelerometer.data)
             py.logs.log("main", "Starting accelerometer collection: " + accelerometer_destination)
             # the collect process is run given the sampling duration, sampling rate, and output destination
             sensor_process = subprocess.Popen(["./src/c/collect.o", py.settings.get_duration(), py.settings.get_rate(), accelerometer_destination])  # starts the collection process
@@ -63,10 +63,10 @@ def main():
             py.logs.log("main", "Collection complete")
             py.logs.log("main", "Starting classification")
             classifier_destination = destination + "classifier.data"
-            # RUN CLASSIFICATION FUNCTION HERE
+            ### RUN CLASSIFICATION FUNCTION HERE ###
 
             # move accelerometer data to storage, formatted as accelerometer_year_month_day_hour_minute.data
-            shutil.move("data/accelerometer.data", "data/raw/accelerometer_" + datetime.datetime.now().strftime("%Y_%m_%d_%H_%M") + ".data")
+            shutil.move("data/accelerometer.data", destination + "/accelerometer_" + datetime.datetime.now().strftime("%Y_%m_%d_%H_%M_%S") + ".data")
             py.logs.log("main", "Classification completed")
 
         # check if the git flag indicated a reset
