@@ -3,9 +3,9 @@ Our Codebase for Sundar's Lab
 
 ## Overview:
 
-There are several modules that work together.
+There are several modules that work together. This ReadMe works best describing what the individual modules do and how they interact.
 
-To start the program, run run.sh.
+To start the program, run ./run.sh.
 
 ### run.sh
 
@@ -17,7 +17,7 @@ The Loader Module is the base system bootstrap: it runs the Main Module (main.py
 
 ### Main Module (main.py)
 
-The Main Module starts the GitHub Check Module, loads the settings file, starts the LCD Module, and lastly runs the Collection Module on an infinite loop.
+The Main Module starts the submodules and runs the Collection module, checking the destination submodule and git check flag for updates.
 
 ### GitHub Check Module (gitcheck.py)
 

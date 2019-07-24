@@ -1,11 +1,10 @@
-"""
-LED Module: manages the LEDs. To start the module, run start_led()
-"""
+# led.py: manages the LEDs. To start the module, run start_led()
 
 import time
 import RPi.GPIO as GPIO
 import py.logs
 
+# board pins for each LED
 LED_DAMAGE_PIN_R = 17  # Board: 11
 LED_DAMAGE_PIN_G = 27  # Board: 13
 LED_DAMAGE_PIN_B = 22  # Board: 15

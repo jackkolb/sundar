@@ -1,40 +1,45 @@
+# node_server.py: runs a Flask server to handle interfacing with the node
+
 from flask import Flask, render_template, request, jsonify
 import www.node.information
 import logging
 
-app = Flask(__name__)
+app = Flask(__name__)  # the overall Flask app
 
+# sets logging to only show errors (not logging each individual request)
 log = logging.getLogger('werkzeug')
 log.setLevel(logging.ERROR)
 
+# the index route, returns the base html page with the server information
 @app.route("/")
 def index():
     return render_template("index.html", data=www.node.information.load_information())
 
-# used when applications ping whether the server is active and retrieve settings
+# retrieves server settings
 @app.route("/settings", methods=["GET"])
 def settings_get():
     return jsonify(www.node.information.load_settings())
 
-# used when applications retrieve the current server data
+# retrieves the current server data (classifier history)
 @app.route("/data", methods=["GET"])
 def data_get():
     return jsonify(eval(www.node.information.load_data()))
 
+# retrieves the current server logs
 @app.route("/logs", methods=["GET"])
 def logs_get():
     return www.node.information.load_logs()
 
+# resets the server logs and classifier history
 @app.route("/reset", methods=["GET"])
 def reset_get():
     www.node.information.reset_logs()
     www.node.information.reset_data()
     
-
-# used when applications set the data
+# updates a system setting, used by the buttons displayed on the webpage. This handles one setting change per request.
 @app.route("/update", methods=["GET"])
 def data_set():
-    valid_keys = ["active", "duration", "rate", "name", "flashLED", "flashdrive", "reset"]
+    valid_keys = ["active", "duration", "rate", "name", "flashLED", "flashdrive", "reset"]  # prevents changing settings beyond the valid keys
     key = request.args.get("key")
     value = request.args.get("value")
     if key not in valid_keys:
@@ -58,5 +63,6 @@ def data_set():
 
     return "good"
 
+# starts the Flask app (0.0.0.0 indicates being able to use it with its visible IP address instead of localhost only)
 def start_server():
     app.run(host="0.0.0.0")
