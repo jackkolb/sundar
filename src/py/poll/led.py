@@ -66,7 +66,7 @@ def start_led():
         time.sleep(1)
 
 def flash_blue_led():
-    py.logs("led", "Flashing blue LEDs")
+    py.logs.log("led", "Flashing blue LEDs")
     for i in range(10):
         leds_blue()
         time.sleep(.2)
