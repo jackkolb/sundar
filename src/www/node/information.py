@@ -24,7 +24,7 @@ def load_active():
     return active
 
 # reads from the classifier results file (shows damage level vs. time)
-def load_data():
+def load_history():
     with open("data/classifier.data", "r") as data_file:
         data = data_file.read()
     return data

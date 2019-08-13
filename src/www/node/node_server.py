@@ -3,6 +3,7 @@
 from flask import Flask, render_template, request, jsonify
 import www.node.information
 import logging
+import os
 
 app = Flask(__name__)  # the overall Flask app
 
@@ -20,10 +21,16 @@ def index():
 def settings_get():
     return jsonify(www.node.information.load_settings())
 
-# retrieves the current server data (classifier history)
+# retrieves the current server history
+@app.route("/history", methods=["GET"])
+def history_get():
+    return jsonify(www.node.information.load_history())
+
+# retrieves the current server accelerometer data
 @app.route("/data", methods=["GET"])
 def data_get():
-    return jsonify(eval(www.node.information.load_data()))
+    with open(os.listdir("data")[-1], "r") as data_file:
+        return jsonify(data_file.read())
 
 # retrieves the current server logs
 @app.route("/logs", methods=["GET"])

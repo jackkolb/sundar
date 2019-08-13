@@ -116,7 +116,7 @@ function downloadLogs() {
 }
 
 function downloadHistory() {
-    fetch("/data")
+    fetch("/history")
     .then(resp=>resp.blob())
     .then(blob => {
       const url = window.URL.createObjectURL(blob);
@@ -124,6 +124,23 @@ function downloadHistory() {
       a.style.display = 'none';
       a.href = url;
       a.download = 'history.data';
+      document.body.appendChild(a);
+      a.click();
+      window.URL.revokeObjectURL(url);
+    })
+    .catch(() => alert('unable to download History'));
+    return;
+}
+
+function downloadData() {
+    fetch("/data")
+    .then(resp=>resp.blob())
+    .then(blob => {
+      const url = window.URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.style.display = 'none';
+      a.href = url;
+      a.download = 'data.txt';
       document.body.appendChild(a);
       a.click();
       window.URL.revokeObjectURL(url);
