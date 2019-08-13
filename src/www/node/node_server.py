@@ -31,7 +31,7 @@ def history_get():
 def data_get():
     print(os.listdir("data/raw"))
     print("^^^^^")
-    with open(os.listdir("data/raw")[-1], "r") as data_file:
+    with open("data/raw" + os.listdir("data/raw")[-1], "r") as data_file:
         return jsonify(data_file.read())
 
 # retrieves the current server logs
