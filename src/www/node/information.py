@@ -55,7 +55,7 @@ def load_flashdrive():
 
 # reads the log file
 def load_logs():
-    with open("data/logs", "r") as logs_file:
+    with open("logs/" + py.logs.generate_log_name(), "r") as logs_file:
         logs = logs_file.read()
     return logs
 

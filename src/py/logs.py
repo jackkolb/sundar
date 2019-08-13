@@ -28,8 +28,8 @@ def get_date():
     return str(year) + "_" + str(month) + "_" + str(day)
 
 
-# appends a message to the day's log file
-def log(module, message):
+# uses the current date to determine the log file name
+def generate_log_name():
     now = datetime.datetime.now()
     year = now.year
 
@@ -53,12 +53,19 @@ def log(module, message):
     if second < 10:
         second = "0" + str(second)
 
+    filename = "log_" + "pi" "_" + str(year) + "_" + str(month) + "_" + str(day)    
+    return filename
+
+
+# appends a message to the day's log file
+def log(module, message):
+    filename = "logs/" + generate_log_name()
+
     entry_time = "[ " + str(year) + "-" + str(month) + "-" + str(day)\
                  + " " + str(hour) + ":" + str(minute) + ":" + str(second) + " ]"
     entry = entry_time + " [" + module.upper() + "] " + message
 
     try:
-        filename = "logs/" + "_log_" + "pi" "_" + str(year) + "_" + str(month) + "_" + str(day)
         with open(filename, "a") as log_file:
             log_file.write(entry + "\n")
     except Exception as e:
