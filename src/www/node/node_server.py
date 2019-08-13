@@ -30,6 +30,7 @@ def history_get():
 @app.route("/data", methods=["GET"])
 def data_get():
     print(os.listdir("data"))
+    print("^^^^^")
     with open(os.listdir("data")[-1], "r") as data_file:
         return jsonify(data_file.read())
 
