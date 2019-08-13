@@ -29,9 +29,9 @@ def history_get():
 # retrieves the current server accelerometer data
 @app.route("/data", methods=["GET"])
 def data_get():
-    print(os.listdir("data"))
+    print(os.listdir("data/raw"))
     print("^^^^^")
-    with open(os.listdir("data")[-1], "r") as data_file:
+    with open(os.listdir("data/raw")[-1], "r") as data_file:
         return jsonify(data_file.read())
 
 # retrieves the current server logs
