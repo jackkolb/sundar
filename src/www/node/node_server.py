@@ -24,7 +24,7 @@ def settings_get():
 # retrieves the current server history
 @app.route("/history", methods=["GET"])
 def history_get():
-    return jsonify(www.node.information.load_history())
+    return send_file("../../../data/classifier.data")
 
 # retrieves the current server accelerometer data
 @app.route("/data", methods=["GET"])
@@ -34,7 +34,7 @@ def data_get():
 # retrieves the current server logs
 @app.route("/logs", methods=["GET"])
 def logs_get():
-    return www.node.information.load_logs()
+    return send_file("../../../logs/" + py.logs.generate_log_name())
 
 # resets the server logs and classifier history
 @app.route("/reset", methods=["GET"])
