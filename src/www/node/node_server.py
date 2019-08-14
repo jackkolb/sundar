@@ -29,7 +29,7 @@ def history_get():
 # retrieves the current server accelerometer data
 @app.route("/data", methods=["GET"])
 def data_get():
-    return send_file("data/raw/" + os.listdir("data/raw")[-1])
+    return send_file("../../../data/raw/" + os.listdir("data/raw")[-1])
 
 # retrieves the current server logs
 @app.route("/logs", methods=["GET"])
