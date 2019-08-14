@@ -1,6 +1,6 @@
 # node_server.py: runs a Flask server to handle interfacing with the node
 
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, render_template, request, jsonify, send_file
 import www.node.information
 import logging
 import os
@@ -29,10 +29,7 @@ def history_get():
 # retrieves the current server accelerometer data
 @app.route("/data", methods=["GET"])
 def data_get():
-    print(os.listdir("data/raw"))
-    print("^^^^^")
-    with open("data/raw/" + os.listdir("data/raw")[-1], "r") as data_file:
-        return jsonify(data_file.read())
+    return send_file("data/raw/" + os.listdir("data/raw")[-1])
 
 # retrieves the current server logs
 @app.route("/logs", methods=["GET"])
