@@ -98,7 +98,7 @@ def load_information():
         "name": load_name(),
         "active": load_active(),
         "flashdrive": load_flashdrive(),
-        "data": load_data(),
+        "history": load_history(),
         "duration": load_duration(),
         "rate": load_rate()
     }
