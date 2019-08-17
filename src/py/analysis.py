@@ -4,7 +4,6 @@ import numpy as np
 import numpy.fft as npfft
 import pylab
 import matplotlib.pyplot as plt
-import scipy.fftpack
 import math
 
 # reads file
