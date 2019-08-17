@@ -6,8 +6,9 @@ sudo apt-get install lsop
 
 
 # from python:
-#   flask
-#   RPLCD
-sudo pip3 install flask, RPLCD
+#   flask (webserver)
+#   RPLCD (16x2 LCD display)
+#   numpy (machine learning)
+sudo pip3 install flask, RPLCD, numpy, scipy
 
 

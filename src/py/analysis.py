@@ -1,82 +1,39 @@
-# Generated with SMOP  0.41-beta
-from smop.libsmop import *
-# analysis.m
-import matplotlib as mp
+# performs an FFT
+
 import numpy as np
+import numpy.fft as npfft
+import pylab
+import matplotlib.pyplot as plt
+import scipy.fftpack
+import math
 
-    #SundarLabProgram
-#fft analysis for x,y,z values from accelerometer
+# reads file
+data = []
+x = []
+y = []
+with open("data/test_data.txt", "r") as data_file:
+    while True:
+        entry = data_file.readline().split(" ")       
+        if entry == ['']:
+            break
+        data.append([int(entry[0]), int(entry[1])])
+        x.append(int(entry[0]))
+        y.append(int(entry[1]))
 
-def fftDataAnalysis(filename):
+# determine average timestamp spacing
+spacing = sum([x[i+1] - x[i] for i in range(len(x))[:-1]]) / len(x)
+spacing = spacing / 1000000
 
-    #format long;
-    if fid < 0:
-        # display an error message and halt execution of the program
-        print('File Does Not Exist')
-        return
-    
-    #A = textscan(fid,'%f%f%f%f','Delimiter',':,,\n')
+# number of points
+N = len(x)
 
-    fd = open(filename,'r')    
-    A = np.loadtxt(fd,
-            delimiter=':,,\n')
-    fd.close()
+# generate fft from y (acceleration)
+yf = npfft.fft(y)
 
-    A=makeArraySameSize(A)
-    A[2]
-    
-    analysis(A)
-    
-    avgX=mean(A[2])
-    avgY=mean(A[3])
-    avgZ=mean(A[4])
+# make linear spacing along x
+xf = np.linspace(1.0, 1.0/(2.0*spacing), int(N/2))
 
-    fs=1000
-    
-    ts=20
-# analysis.m:21
-    
-    num_split=dot(ts,fs)
-# analysis.m:22
-    
-    num_samples=floor(length(A) / num_split)
-    for m in range(0,num_samples - 1).reshape(-1):
-        A=A(range(dot(m,num_split) + 1,dot(num_split,(m + 1))),range())
-# analysis.m:27
-        A=fft(A)
-# analysis.m:28
-    
-    #disp(A{2})
-    subplot(3,1,1)
-    plot(A[2])
-    subplot(3,1,2)
-    plot(A[3])
-    subplot(3,1,3)
-    plot(A[4])
-    
-    fprintf('Average X Reading: %.3f\n',avgX)
-    fprintf('Average Y Reading: %.3f\n',avgY)
-    fprintf('Average Z Reading: %.3f\n',avgZ)
-    
-    return Y
-    
-    
-def makeArraySameSize(A):
-    maxLength=len(A[1])
-    incompleteTest=0
+plt.subplot(1, 1, 1)
+plt.plot(xf[1:], 2.0/N * np.abs(yf[0:int(N/2)])[1:])
 
-    for i in arange(2,len(A)).reshape(-1):
-        lengthTemp=len(A[i])
-        if (lengthTemp < maxLength):
-            maxLength = lengthTemp
-            incompleteTest = 1    
-    
-    if (incompleteTest == 1):
-        for i in range(1, len(A)).reshape(-1):
-            if (len(A[i]) != maxLength):
-                A[i][maxLength + 1,arange()]=[]
-    return A
-    
-if __name__ == '__main__':
-    fftDataAnalysis("testdata.txt")
-    
+plt.show()
