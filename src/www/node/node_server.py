@@ -20,7 +20,7 @@ def index():
 @app.route("/settings", methods=["GET"])
 def settings_get():
     return jsonify(www.node.information.load_settings())
-
+"""
 # retrieves the current server history
 @app.route("/history", methods=["GET"])
 def history_get():
@@ -41,7 +41,7 @@ def logs_get():
     #print(files[-1])
     print("!!!!!")
     return #send_file("../../../logs/" + files[-1])
-
+"""
 # resets the server logs and classifier history
 @app.route("/reset", methods=["GET"])
 def reset_get():
