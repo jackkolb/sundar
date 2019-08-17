@@ -1,1 +1,1 @@
-pip install -U $(pip freeze | awk '{split($0, a, "=="); print a[1]}')
+pip3 install -U $(pip freeze | awk '{split($0, a, "=="); print a[1]}')
