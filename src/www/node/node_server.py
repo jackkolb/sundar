@@ -36,11 +36,11 @@ def data_get():
 # retrieves the current server logs
 @app.route("/logs", methods=["GET"])
 def logs_get():
-    files = os.listdir("logs")
-    files.sort()
-    print(files[-1])
+    #files = os.listdir("logs")
+    #files.sort()
+    #print(files[-1])
     print("!!!!!")
-    return send_file("../../../logs/" + files[-1])
+    return #send_file("../../../logs/" + files[-1])
 
 # resets the server logs and classifier history
 @app.route("/reset", methods=["GET"])
