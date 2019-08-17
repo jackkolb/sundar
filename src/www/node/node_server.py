@@ -12,9 +12,9 @@ log = logging.getLogger('werkzeug')
 log.setLevel(logging.ERROR)
 
 # the index route, returns the base html page with the server information
-@app.route("/")
-def index():
-    return render_template("index.html", data=www.node.information.load_information())
+#@app.route("/")
+#def index():
+#    return render_template("index.html", data=www.node.information.load_information())
 
 # retrieves server settings
 @app.route("/settings", methods=["GET"])
@@ -77,4 +77,4 @@ def data_set():
 
 # starts the Flask app (0.0.0.0 indicates being able to use it with its visible IP address instead of localhost only)
 def start_server():
-    app.run(host="0.0.0.0")
+    app.run(host="0.0.0.0", debug=True)
