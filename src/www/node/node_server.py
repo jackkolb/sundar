@@ -29,12 +29,16 @@ def history_get():
 # retrieves the current server accelerometer data
 @app.route("/data", methods=["GET"])
 def data_get():
-    return send_file("../../../data/raw/" + os.listdir("data/raw")[-1])
+    files = os.listdir("data/raw")
+    files.sort()
+    return send_file("../../../data/raw/" + files[-1])
 
 # retrieves the current server logs
 @app.route("/logs", methods=["GET"])
 def logs_get():
-    return send_file("../../../logs/" + py.logs.generate_log_name())
+    files = os.listdir("logs")
+    files.sort()
+    return send_file("../../../logs/" + files[-1])
 
 # resets the server logs and classifier history
 @app.route("/reset", methods=["GET"])
