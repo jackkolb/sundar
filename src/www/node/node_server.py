@@ -40,7 +40,7 @@ def logs_get():
     files.sort()
     print(files[-1])
     print("!!!!!")
-    return #send_file("../../../logs/" + files[-1])
+    return send_file("../../../logs/" + files[-1])
 
 # resets the server logs and classifier history
 @app.route("/reset", methods=["GET"])
