@@ -75,4 +75,4 @@ def data_set():
 
 # starts the Flask app (0.0.0.0 indicates being able to use it with its visible IP address instead of localhost only)
 def start_server():
-    app.run(host="0.0.0.0" port=80)
+    app.run(host="0.0.0.0", port=80)
