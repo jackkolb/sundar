@@ -38,6 +38,7 @@ def data_get():
 def logs_get():
     files = os.listdir("logs")
     files.sort()
+    print(files[-1])
     return send_file("../../../logs/" + files[-1])
 
 # resets the server logs and classifier history
