@@ -100,8 +100,10 @@ def update():
         lcd.write_string(char_no_wifi + " " + "No WiFi!     ")
 
     # display collection information
+    with open("flags/collection", "r") as collection_flag_file:
+        collection_flag = collection_flag_file.readline()
     out_file = destination_file()
-    if out_file != "" and out_file != "empty":
+    if collection_flag == "true":
         lcd.cursor_pos = (1, 0)
         lcd.write_string(char_collecting + " " + out_file) # collecting
     else:

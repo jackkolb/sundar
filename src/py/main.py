@@ -42,6 +42,10 @@ def main():
     location_thread = threading.Thread(target=py.poll.location.manage_output_location)
     location_thread.start()
 
+    # set collection flag to false
+    with open("flags/collection", "w") as collection_flag:
+        collection_flag.write("false")
+
     # general loop: launches collection script, when it finishes relaunch it
     while True:
         # first check if the node should be collecting (set via the webserver)
@@ -57,10 +61,15 @@ def main():
                 destination = "data/"
             accelerometer_destination = "data/" + "accelerometer.data"  # creates the save path (ex: data/accelerometer.data)
             py.logs.log("main", "Starting accelerometer collection: " + accelerometer_destination)
+            # set collection flag to true
+            with open("flags/collection", "w") as collection_flag:
+                collection_flag.write("true")
             # the collect process is run given the sampling duration, sampling rate, and output destination
             sensor_process = subprocess.Popen(["./src/c/collect.o", py.settings.get_duration(), py.settings.get_rate(), accelerometer_destination])  # starts the collection process
             sensor_process.wait()  # wait for collection to finish
             py.logs.log("main", "Collection complete")
+            with open("flags/collection", "w") as collection_flag:
+                collection_flag.write("false")
             py.logs.log("main", "Starting classification")
             classifier_destination = destination + "classifier.data"
             ### RUN CLASSIFICATION FUNCTION HERE ###
