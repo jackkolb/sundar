@@ -9,8 +9,8 @@ import py.logs
 app = Flask(__name__)  # the overall Flask app
 
 # sets logging to only show errors (not logging each individual request)
-log = logging.getLogger('werkzeug')
-log.setLevel(logging.ERROR)
+#log = logging.getLogger('werkzeug')
+#log.setLevel(logging.ERROR)
 
 # the index route, returns the base html page with the server information
 @app.route("/")
