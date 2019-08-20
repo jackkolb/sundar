@@ -31,6 +31,7 @@ def history_get():
 def data_get():
     files = os.listdir("data/raw")
     files.sort()
+    print(files)
     return send_file("../../../data/raw/" + files[-1])
 
 # retrieves the current server logs
