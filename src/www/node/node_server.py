@@ -4,6 +4,7 @@ from flask import Flask, render_template, request, jsonify, send_file
 import www.node.information
 import logging
 import os
+import py.logs
 
 app = Flask(__name__)  # the overall Flask app
 
@@ -31,7 +32,7 @@ def history_get():
 def data_get():
     files = os.listdir("data/raw")
     files.sort()
-    print(files)
+    py.logs.log("files")
     return send_file("../../../data/raw/" + files[-1])
 
 # retrieves the current server logs
