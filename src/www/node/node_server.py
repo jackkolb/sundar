@@ -32,7 +32,7 @@ def history_get():
 def data_get():
     files = os.listdir("data/raw")
     files.sort()
-    py.logs.log("files")
+    py.logs.log("debug", str(files))
     return send_file("../../../data/raw/" + files[-1])
 
 # retrieves the current server logs
