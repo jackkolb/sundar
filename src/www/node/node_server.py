@@ -1,6 +1,6 @@
 # node_server.py: runs a Flask server to handle interfacing with the node
 
-from flask import Flask, render_template, request, jsonify, send_file
+from flask import Flask, render_template, request, jsonify, send_file, make_response
 import www.node.information
 import logging
 import os
