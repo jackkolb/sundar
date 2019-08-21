@@ -27,6 +27,8 @@ def settings_get():
 @app.route("/history", methods=["GET"])
 def history_get():
     response = make_response(send_file("../../../data/classifier.data"))
+    response.headers["Cache-Control"] = ["no-cache", "must-revalidate"]
+    response.headers["Expires"] = "Sat, 26 Jul 1997 05:00:00 GMT"
     return response
 
 # retrieves the current server accelerometer data
@@ -34,7 +36,6 @@ def history_get():
 def data_get():
     files = os.listdir("data/raw")
     files.sort()
-    py.logs.log("debug", str(files))
     response = make_response(send_file("../../../data/raw/" + files[-1]))
     response.headers["Cache-Control"] = ["no-cache", "must-revalidate"]
     response.headers["Expires"] = "Sat, 26 Jul 1997 05:00:00 GMT"
@@ -46,6 +47,8 @@ def logs_get():
     files = os.listdir("logs")
     files.sort()
     response = make_response(send_file("../../../logs/" + files[-1]))
+    response.headers["Cache-Control"] = ["no-cache", "must-revalidate"]
+    response.headers["Expires"] = "Sat, 26 Jul 1997 05:00:00 GMT"
     return response
 
 # resets the server logs and classifier history
