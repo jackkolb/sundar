@@ -20,12 +20,14 @@ def index():
 # retrieves server settings
 @app.route("/settings", methods=["GET"])
 def settings_get():
-    return jsonify(www.node.information.load_settings())
+    response = make_response(jsonify(www.node.information.load_settings()))
+    return response
 
 # retrieves the current server history
 @app.route("/history", methods=["GET"])
 def history_get():
-    return send_file("../../../data/classifier.data")
+    response = make_response(send_file("../../../data/classifier.data"))
+    return response
 
 # retrieves the current server accelerometer data
 @app.route("/data", methods=["GET"])
@@ -33,14 +35,18 @@ def data_get():
     files = os.listdir("data/raw")
     files.sort()
     py.logs.log("debug", str(files))
-    return send_file("../../../data/raw/" + files[-1])
+    response = make_response(send_file("../../../data/raw/" + files[-1]))
+    response.headers["Cache-Control"] = ["no-cache", "must-revalidate"]
+    response.headers["Expires"] = "Sat, 26 Jul 1997 05:00:00 GMT"
+    return response
 
 # retrieves the current server logs
 @app.route("/logs", methods=["GET"])
 def logs_get():
     files = os.listdir("logs")
     files.sort()
-    return send_file("../../../logs/" + files[-1])
+    response = make_response(send_file("../../../logs/" + files[-1]))
+    return response
 
 # resets the server logs and classifier history
 @app.route("/reset", methods=["GET"])
@@ -72,7 +78,6 @@ def data_set():
         www.node.information.reset_logs()
     elif key == "flashLED" and value == "true":
         www.node.information.flash_LED()
-
     return "good"
 
 # starts the Flask app (0.0.0.0 indicates being able to use it with its visible IP address instead of localhost only)
