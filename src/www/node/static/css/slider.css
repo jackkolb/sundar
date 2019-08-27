@@ -26,10 +26,10 @@
 .slider:before {
     position: absolute;
     content: "";
-    height: 15pt;
-    width: 15pt;
+    height: 14pt;
+    width: 14pt;
     left: 2pt;
-    bottom: 2.5pt;
+    bottom: 3pt;
     background-color: whitesmoke;
     transition: .4s;
     border-radius: 50%;
@@ -44,5 +44,5 @@ input:focus + .slider {
 }
 
 input:checked + .slider:before {
-    transform: translateX(20.75pt);
+    transform: translateX(20.5pt);
 }
