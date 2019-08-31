@@ -75,7 +75,7 @@ def main():
             ### RUN CLASSIFICATION FUNCTION HERE ###
 
             # move accelerometer data to storage, formatted as accelerometer_year_month_day_hour_minute.data
-            shutil.move("data/accelerometer.data", destination + "/raw/accelerometer_" + datetime.datetime.now().strftime("%Y_%m_%d_%H_%M_%S") + ".data")
+            shutil.move("data/accelerometer.data", destination + "raw/accelerometer_" + datetime.datetime.now().strftime("%Y_%m_%d_%H_%M_%S") + ".data")
             py.logs.log("main", "Classification completed")
 
         # check if the git flag indicated a reset
