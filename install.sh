@@ -11,4 +11,8 @@ sudo apt-get install lsop
 #   numpy (fft and machine learning)
 sudo pip3 install flask, RPLCD, numpy
 
+# create data/accelerometer.data
+touch data/accelerometer.data
 
+# create data/raw/ folder
+mkdir data/raw

@@ -26,6 +26,11 @@ def main():
     py.logs.log("main", "Starting LCD thread")
     lcd_thread = threading.Thread(target=py.poll.lcd.start_lcd)
     lcd_thread.start()
+    
+    # output IP address
+    ip, name = py.poll.lcd.get_ip_address()
+    py.logs.log("main", "WIFI Name: " + name)
+    py.logs.log("main", "IP Address: " + ip)
 
     # start LED thread: an LED that shows the current damage and flashes on command
     py.logs.log("main", "Starting LED thread")
@@ -59,7 +64,8 @@ def main():
             destination = py.poll.location.get_output_location()  # get the output location, default to the onboard "data/"
             if destination == "none":
                 destination = "data/"
-            accelerometer_destination = "data/" + "accelerometer.data"  # creates the save path (ex: data/accelerometer.data)
+            accelerometer_destination = "./data/" + "accelerometer.data"  # creates the save path (ex: data/accelerometer.data)
+            open(accelerometer_destination, 'w').close()
             py.logs.log("main", "Starting accelerometer collection: " + accelerometer_destination)
             # set collection flag to true
             with open("flags/collection", "w") as collection_flag:
@@ -75,7 +81,11 @@ def main():
             ### RUN CLASSIFICATION FUNCTION HERE ###
 
             # move accelerometer data to storage, formatted as accelerometer_year_month_day_hour_minute.data
-            shutil.move("data/accelerometer.data", destination + "raw/accelerometer_" + datetime.datetime.now().strftime("%Y_%m_%d_%H_%M_%S") + ".data")
+            try:
+                shutil.move("data/accelerometer.data", destination + "raw/accelerometer_" + datetime.datetime.now().strftime("%Y_%m_%d_%H_%M_%S") + ".data")
+            except:
+                py.logs.log("main", "Could not move accelerometer.data file")
+                continue
             py.logs.log("main", "Classification completed")
 
         # check if the git flag indicated a reset
