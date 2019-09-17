@@ -24,6 +24,31 @@ char_not_collecting = "\x03"
 
 charflag = "*"
 
+def dispip(ip):
+    GPIO.setup(6, GPIO.OUT)
+    GPIO.output(6, GPIO.HIGH)
+    time.sleep(10)
+    GPIO.output(6, GPIO.LOW)
+    time.sleep(1)
+
+    for c in ip:
+        time.sleep(5)
+        print(c)
+        i = -1
+        try:
+            i = int(c)
+        except:
+            pass
+        if i != -1:
+            if i == 0:
+                i = 11
+            for x in range(i):
+                GPIO.output(6, GPIO.HIGH)
+                time.sleep(.25)
+                GPIO.output(6, GPIO.LOW)
+                time.sleep(.25)
+ 
+
 # gets the Pi's current IP address
 def get_ip_address():
     ip_address = 'INITIAL'
@@ -37,7 +62,8 @@ def get_ip_address():
         (output, err) = p.communicate()
         p_status = p.wait()
         wifi_name = str(output).split('"')[1] + "      "
-        py.logs.log("wifi", wifi_name + " : " + ip_address)
+        print("wifi: " + wifi_name + " : " + ip_address)
+        
     except OSError:
         ip_address = "FAIL"
         wifi_name = "FAIL"
@@ -99,6 +125,8 @@ def update():
     else:
         lcd.cursor_pos = (0, 0)
         lcd.write_string(char_no_wifi + " " + "No WiFi!     ")
+
+    dispip(ip)
 
     # display collection information
     with open("flags/collection", "r") as collection_flag_file:
