@@ -126,7 +126,7 @@ def update():
         lcd.cursor_pos = (0, 0)
         lcd.write_string(char_no_wifi + " " + "No WiFi!     ")
 
-    dispip(ip)
+    #dispip(ip)  # blink the IP address
 
     # display collection information
     with open("flags/collection", "r") as collection_flag_file:
