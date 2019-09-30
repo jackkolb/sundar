@@ -55,7 +55,7 @@ def download_data_get():
 # the logs route, returns items to download from logs
 @app.route("/data")
 def data_get():
-    return render_template("data.html", logs=www.node.information.load_all_data())
+    return render_template("data.html", data=www.node.information.load_all_data())
 
 # retrieves the last server accelerometer data
 @app.route("/last-data", methods=["GET"])
