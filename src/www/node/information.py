@@ -125,10 +125,12 @@ def load_settings():
 
 # gets all the log file names
 def load_all_logs():
-    log_list = os.listdir("logs/").sort()
+    log_list = os.listdir("logs/")
+    log_list.sort()
     return log_list
 
 # gets all the log file names
 def load_all_data():
-    log_list = os.listdir("data/raw/").sort()
+    data_list = os.listdir("data/raw/")
+    data_list.sort()
     return log_list
