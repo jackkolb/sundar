@@ -99,8 +99,7 @@ function setRate() {
 }
 
 function downloadLogs() {
-    window.location.href = "/logs"
-    return;
+    window.location.href = "/logs";
 }
 
 function downloadHistory() {
@@ -121,8 +120,7 @@ function downloadHistory() {
 }
 
 function downloadData() {
-    window.location.href="/data"
-    return;
+    window.location.href="/data";
 }
 
 function flashLEDs() {
