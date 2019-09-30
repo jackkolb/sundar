@@ -99,6 +99,7 @@ function setRate() {
 }
 
 function downloadLogs() {
+    console.log("redirect to logs");
     window.location.href = "/logs";
 }
 
