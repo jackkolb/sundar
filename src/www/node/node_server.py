@@ -22,7 +22,7 @@ def index():
 def download_log_get():
     log_file_names = www.node.information.load_all_logs()
     log_file_index = int(request.args.get("id"))
-    response = make_response(send_file("logs/" + log_file_names[log_file_index], as_attachment=True, attachment_filename=log_file_names[log_file_index]))
+    response = make_response(send_file("../../../logs/" + log_file_names[log_file_index], as_attachment=True, attachment_filename=log_file_names[log_file_index]))
     response.headers["Cache-Control"] = ["no-cache", "must-revalidate"]
     response.headers["Expires"] = "Sat, 26 Jul 1997 05:00:00 GMT"
     return response
@@ -37,7 +37,7 @@ def logs_get():
 def lastlog_get():
     files = os.listdir("logs")
     files.sort()
-    response = make_response(send_file("logs/" + files[-1]))
+    response = make_response(send_file("../../../logs/" + files[-1]))
     response.headers["Cache-Control"] = ["no-cache", "must-revalidate"]
     response.headers["Expires"] = "Sat, 26 Jul 1997 05:00:00 GMT"
     return response
@@ -47,7 +47,7 @@ def lastlog_get():
 def download_data_get():
     data_file_names = www.node.information.load_all_data()
     data_file_index = int(request.args.get("id"))
-    response = make_response(send_file("data/raw/" + data_file_names[data_file_index], as_attachment=True, attachment_filename=data_file_names[data_file_index]))
+    response = make_response(send_file("../../../data/raw/" + data_file_names[data_file_index], as_attachment=True, attachment_filename=data_file_names[data_file_index]))
     response.headers["Cache-Control"] = ["no-cache", "must-revalidate"]
     response.headers["Expires"] = "Sat, 26 Jul 1997 05:00:00 GMT"
     return response
@@ -62,7 +62,7 @@ def data_get():
 def lastdata_get():
     files = os.listdir("data/raw")
     files.sort()
-    response = make_response(send_file("data/raw/" + files[-1]))
+    response = make_response(send_file("../../../data/raw/" + files[-1]))
     response.headers["Cache-Control"] = ["no-cache", "must-revalidate"]
     response.headers["Expires"] = "Sat, 26 Jul 1997 05:00:00 GMT"
     return response
