@@ -1,0 +1,55 @@
+<html>
+    <head>
+        <title>Sundar Research - Node Manager</title>
+    </head>
+
+    <body>
+
+        <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+        <link href="../static/css/styles.css" rel="stylesheet">
+        <link href="../static/css/title.css" rel="stylesheet">
+        <link href="../static/css/information.css" rel="stylesheet">
+        <link href="../static/css/slider.css" rel="stylesheet">
+        <link href="../static/css/numberbox.css" rel="stylesheet">
+        <link href="../static/css/buttons.css" rel="stylesheet">
+        <script src="../static/js/ChartJs/Chart.min.js"></script>
+        <script src="../static/js/ChartJs/ChartUtils.js"></script>
+        <script src="../static/js/information.js"></script>
+
+        <div class="title-bar">
+            <span>
+                <div class=title-main>
+                    Sundar Research
+                </div>
+                <div class=title-sub>
+                    Node Overview
+                </div>
+            </span>
+        </div>
+
+        
+
+        <br><br><br><br><br>
+        <div class="content" id="content">
+            <div class="node-overview" id="node">
+                <div class="clean-header">
+                    Logs:
+                </div>
+                {% for i in range(logs|length) %}
+                    <div class="selector">
+                        <a target="_blank" href="/download-log?id={{ i }}">
+                            <div class="node-attribute">
+                                {{ i }}: {{ logs[i] }}
+                            </div>
+                        </a>
+                    </div>
+                {% endfor %}
+                <br>
+            </div>
+        </div>
+        
+    </body>
+
+    <script>
+    </script>
+</html>

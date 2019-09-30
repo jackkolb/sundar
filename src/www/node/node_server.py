@@ -17,6 +17,56 @@ app = Flask(__name__)  # the overall Flask app
 def index():
     return render_template("index.html", data=www.node.information.load_information())
 
+# download logs
+@app.route("/download-log", methods=["GET"])
+def download_log_get():
+    log_file_names = www.node.information.load_all_logs()
+    log_file_index = int(request.args.get("id"))
+    response = make_response(send_file("../../../logs/" + log_file_names[log_file_index], as_attachment=True, attachment_filename=log_file_names[log_file_index]))
+    response.headers["Cache-Control"] = ["no-cache", "must-revalidate"]
+    response.headers["Expires"] = "Sat, 26 Jul 1997 05:00:00 GMT"
+    return response
+
+# the logs route, returns items to download from logs
+@app.route("/logs")
+def logs_get():
+    return render_template("logs.html", logs=www.node.information.load_all_logs())
+
+# retrieves the last server logs
+@app.route("/last-log", methods=["GET"])
+def lastlog_get():
+    files = os.listdir("logs")
+    files.sort()
+    response = make_response(send_file("../../../logs/" + files[-1]))
+    response.headers["Cache-Control"] = ["no-cache", "must-revalidate"]
+    response.headers["Expires"] = "Sat, 26 Jul 1997 05:00:00 GMT"
+    return response
+
+# download logs
+@app.route("/download-data", methods=["GET"])
+def download_data_get():
+    data_file_names = www.node.information.load_all_data()
+    data_file_index = int(request.args.get("id"))
+    response = make_response(send_file("../../../data/" + data_file_names[data_file_index], as_attachment=True, attachment_filename=data_file_names[data_file_index]))
+    response.headers["Cache-Control"] = ["no-cache", "must-revalidate"]
+    response.headers["Expires"] = "Sat, 26 Jul 1997 05:00:00 GMT"
+    return response
+
+# the logs route, returns items to download from logs
+@app.route("/data")
+def data_get():
+    return render_template("data.html", logs=www.node.information.load_all_data())
+
+# retrieves the last server accelerometer data
+@app.route("/last-data", methods=["GET"])
+def data_get():
+    files = os.listdir("data/raw")
+    files.sort()
+    response = make_response(send_file("../../../data/raw/" + files[-1]))
+    response.headers["Cache-Control"] = ["no-cache", "must-revalidate"]
+    response.headers["Expires"] = "Sat, 26 Jul 1997 05:00:00 GMT"
+    return response
+
 # retrieves server settings
 @app.route("/settings", methods=["GET"])
 def settings_get():
@@ -27,26 +77,6 @@ def settings_get():
 @app.route("/history", methods=["GET"])
 def history_get():
     response = make_response(send_file("../../../data/classifier.data"))
-    response.headers["Cache-Control"] = ["no-cache", "must-revalidate"]
-    response.headers["Expires"] = "Sat, 26 Jul 1997 05:00:00 GMT"
-    return response
-
-# retrieves the current server accelerometer data
-@app.route("/data", methods=["GET"])
-def data_get():
-    files = os.listdir("data/raw")
-    files.sort()
-    response = make_response(send_file("../../../data/raw/" + files[-1]))
-    response.headers["Cache-Control"] = ["no-cache", "must-revalidate"]
-    response.headers["Expires"] = "Sat, 26 Jul 1997 05:00:00 GMT"
-    return response
-
-# retrieves the current server logs
-@app.route("/logs", methods=["GET"])
-def logs_get():
-    files = os.listdir("logs")
-    files.sort()
-    response = make_response(send_file("../../../logs/" + files[-1]))
     response.headers["Cache-Control"] = ["no-cache", "must-revalidate"]
     response.headers["Expires"] = "Sat, 26 Jul 1997 05:00:00 GMT"
     return response

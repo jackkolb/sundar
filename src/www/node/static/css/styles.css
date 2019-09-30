@@ -23,3 +23,11 @@ canvas{
     font-size: 2em;
     color: darkslategray;
 }
+
+a {
+    text-decoration: none;
+}
+
+.selector:hover {
+    background-color: gainsboro;
+}

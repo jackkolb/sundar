@@ -1,6 +1,7 @@
 # information.py: contains functions to read/write to data and settings files and retrieve information
 
 import py.logs
+import os
 
 # reads from the expected life remaining file
 def load_life():
@@ -52,6 +53,11 @@ def load_flashdrive():
     with open("settings/flashdrive", "r") as flashdrive_file:
         state = flashdrive_file.read()
     return state
+
+# gets all the log file names
+def load_all_logs():
+    log_list = os.listdir("logs/")
+    return log_list
 
 # reads the log file
 def load_logs():
@@ -115,3 +121,14 @@ def load_settings():
     }
     reset_flash_LED()
     return settings
+
+
+# gets all the log file names
+def load_all_logs():
+    log_list = os.listdir("../../../logs/")
+    return log_list
+
+# gets all the log file names
+def load_all_data():
+    log_list = os.listdir("../../../data/raw")
+    return log_list

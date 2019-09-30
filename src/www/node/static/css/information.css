@@ -12,6 +12,12 @@
     justify-content: space-between;
 }
 
+.clean-header {
+    color: grey;
+    font-size: 30pt;
+    padding: 1% 5%;
+}
+
 .node-name {
     font-size: 40pt;
     color: dimgrey;
