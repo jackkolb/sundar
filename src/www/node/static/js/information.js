@@ -99,19 +99,7 @@ function setRate() {
 }
 
 function downloadLogs() {
-    fetch("/logs")
-    .then(resp=>resp.blob())
-    .then(blob => {
-      const url = window.URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      a.style.display = 'none';
-      a.href = url;
-      a.download = 'logs.txt';
-      document.body.appendChild(a);
-      a.click();
-      window.URL.revokeObjectURL(url);
-    })
-    .catch(() => alert('unable to download Logs'));
+    window.href = "/logs"
     return;
 }
 
@@ -133,19 +121,7 @@ function downloadHistory() {
 }
 
 function downloadData() {
-    fetch("/data")
-    .then(resp=>resp.blob())
-    .then(blob => {
-      const url = window.URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      a.style.display = 'none';
-      a.href = url;
-      a.download = 'data.txt';
-      document.body.appendChild(a);
-      a.click();
-      window.URL.revokeObjectURL(url);
-    })
-    .catch(() => alert('unable to download History'));
+    window.href="/data"
     return;
 }
 
