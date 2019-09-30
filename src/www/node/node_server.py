@@ -59,7 +59,7 @@ def data_get():
 
 # retrieves the last server accelerometer data
 @app.route("/last-data", methods=["GET"])
-def data_get():
+def lastdata_get():
     files = os.listdir("data/raw")
     files.sort()
     response = make_response(send_file("../../../data/raw/" + files[-1]))
