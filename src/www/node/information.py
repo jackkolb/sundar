@@ -133,4 +133,4 @@ def load_all_logs():
 def load_all_data():
     data_list = os.listdir("data/raw/")
     data_list.sort()
-    return log_list
+    return data_list
