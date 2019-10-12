@@ -109,8 +109,7 @@ function downloadHistory() {
       const url = window.URL.createObjectURL(blob);
       const a = document.createElement('a');
       a.style.display = 'none';
-      a.href = url;
-      a.download = 'history.data';
+      NOTSUREWHATTHISIS = 'history.data';
       document.body.appendChild(a);
       a.click();
       window.URL.revokeObjectURL(url);
@@ -153,6 +152,13 @@ function setDefaults() {
     document.getElementById("flashdriveToggle").checked = save_flashdrive;
     setFlashdrive();
     return;
+}
+
+function restartNode() {
+    var url = "restart";
+    var xmlHttp = new XMLHttpRequest();
+    xmlHttp.open("GET", url, true);
+    xmlHttp.send(null);
 }
 
 function sendUpdate(key, value) {

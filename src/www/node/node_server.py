@@ -86,6 +86,13 @@ def history_get():
 def reset_get():
     www.node.information.reset_logs()
     www.node.information.reset_data()
+
+
+# restarts the device
+@app.route("/restart", methods=["GET"])
+def restart_node():
+    py.logs.log("SERVER", "Restarting Node")
+    os.system("sudo restart")
     
 # updates a system setting, used by the buttons displayed on the webpage. This handles one setting change per request.
 @app.route("/update", methods=["GET"])
