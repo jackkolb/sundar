@@ -92,7 +92,7 @@ def reset_get():
 @app.route("/restart", methods=["GET"])
 def restart_node():
     py.logs.log("SERVER", "Restarting Node")
-    os.system("restart")
+    os.system("reboot")
     
 # updates a system setting, used by the buttons displayed on the webpage. This handles one setting change per request.
 @app.route("/update", methods=["GET"])
