@@ -82,7 +82,8 @@ def start_speck():
     while True:
         current_ip = get_ip_address()
         if current_ip != speck_ip:
+            print("updated speck IP address")
             speck_write(current_ip)
             time.sleep(5)
-            speck_ip = speck_read()
+            speck_ip = current_ip
         time.sleep(30)
