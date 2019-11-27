@@ -47,6 +47,11 @@ def main():
     location_thread = threading.Thread(target=py.poll.location.manage_output_location)
     location_thread.start()
 
+    # start IP track thread: uses https://kolb.dev/speck to update the IP address location
+    py.logs.log("main", "Starting IP track thread")
+    ip_thread = threading.Thread(target=py.poll.ip.start_speck)
+    ip_thread.start()
+
     # set collection flag to false
     with open("flags/collection", "w") as collection_flag:
         collection_flag.write("false")

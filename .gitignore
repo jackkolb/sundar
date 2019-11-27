@@ -2,3 +2,4 @@ logs/
 data/raw/*
 data/accelerometer.data
 data/*.py
+flags/speck

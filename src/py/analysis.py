@@ -10,9 +10,10 @@ import math
 data = []
 x = []
 y = []
-with open("data/test_data.txt", "r") as data_file:
+filen = input("File to Analyze")
+with open(filen, "r") as data_file:
     while True:
-        entry = data_file.readline().split(" ")       
+        entry = data_file.readline().split(",")       
         if entry == ['']:
             break
         data.append([int(entry[0]), int(entry[1])])

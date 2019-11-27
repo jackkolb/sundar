@@ -1,0 +1,724 @@
+10.28.0.0/24
+10.28.2.0/24
+10.28.8.0/24
+10.28.1.0/24
+10.28.4.0/24
+10.28.11.0/24
+10.28.5.0/24
+10.28.17.0/24
+10.28.10.0/24
+10.28.22.0/24
+10.28.16.0/24
+10.28.7.0/24
+10.28.20.0/24
+10.28.15.0/24
+10.28.18.0/24
+10.28.24.0/24
+10.28.3.0/24
+10.28.33.0/24
+10.28.14.0/24
+10.28.27.0/24
+10.28.39.0/24
+10.28.12.0/24
+10.28.9.0/24
+10.28.6.0/24
+10.28.38.0/24
+10.28.13.0/24
+10.28.23.0/24
+10.28.30.0/24
+10.28.26.0/24
+10.28.28.0/24
+10.28.31.0/24
+10.28.41.0/24
+10.28.34.0/24
+10.28.29.0/24
+10.28.19.0/24
+10.28.37.0/24
+10.28.32.0/24
+10.28.43.0/24
+10.28.55.0/24
+10.28.50.0/24
+10.28.35.0/24
+10.28.48.0/24
+10.28.46.0/24
+10.28.54.0/24
+10.28.63.0/24
+10.28.52.0/24
+10.28.49.0/24
+10.28.25.0/24
+10.28.44.0/24
+10.28.42.0/24
+10.28.68.0/24
+10.28.67.0/24
+10.28.51.0/24
+10.28.73.0/24
+10.28.74.0/24
+10.28.56.0/24
+10.28.81.0/24
+10.28.57.0/24
+10.28.47.0/24
+10.28.58.0/24
+10.28.21.0/24
+10.28.62.0/24
+10.28.69.0/24
+10.28.65.0/24
+10.28.60.0/24
+10.28.64.0/24
+10.28.36.0/24
+10.28.66.0/24
+10.28.85.0/24
+10.28.93.0/24
+10.28.71.0/24
+10.28.40.0/24
+10.28.61.0/24
+10.28.59.0/24
+10.28.53.0/24
+10.28.99.0/24
+10.28.45.0/24
+10.28.77.0/24
+10.28.78.0/24
+10.28.79.0/24
+10.28.91.0/24
+10.28.72.0/24
+10.28.92.0/24
+10.28.83.0/24
+10.28.82.0/24
+10.28.94.0/24
+10.28.70.0/24
+10.28.90.0/24
+10.28.89.0/24
+10.28.96.0/24
+10.28.113.0/24
+10.28.101.0/24
+10.28.88.0/24
+10.28.98.0/24
+10.28.110.0/24
+10.28.87.0/24
+10.28.100.0/24
+10.28.75.0/24
+10.28.95.0/24
+10.28.111.0/24
+10.28.97.0/24
+10.28.117.0/24
+10.28.102.0/24
+10.28.103.0/24
+10.28.105.0/24
+10.28.86.0/24
+10.28.76.0/24
+10.28.107.0/24
+10.28.80.0/24
+10.28.118.0/24
+10.28.108.0/24
+10.28.114.0/24
+10.28.109.0/24
+10.28.115.0/24
+10.28.112.0/24
+10.28.84.0/24
+10.28.127.0/24
+10.28.130.0/24
+10.28.106.0/24
+10.28.124.0/24
+10.28.128.0/24
+10.28.122.0/24
+10.28.104.0/24
+10.28.121.0/24
+10.28.116.0/24
+10.28.125.0/24
+10.28.119.0/24
+10.28.132.0/24
+10.28.133.0/24
+10.28.131.0/24
+10.28.123.0/24
+10.28.141.0/24
+10.28.129.0/24
+10.28.126.0/24
+10.28.139.0/24
+10.28.135.0/24
+10.28.137.0/24
+10.28.138.0/24
+10.28.150.0/24
+10.28.149.0/24
+10.28.120.0/24
+10.28.134.0/24
+10.28.155.0/24
+10.28.152.0/24
+10.28.153.0/24
+10.28.143.0/24
+10.28.157.0/24
+10.28.154.0/24
+10.28.156.0/24
+10.28.144.0/24
+10.28.140.0/24
+10.28.147.0/24
+10.28.146.0/24
+10.28.162.0/24
+10.28.148.0/24
+10.28.158.0/24
+10.28.136.0/24
+10.28.151.0/24
+10.28.166.0/24
+10.28.142.0/24
+10.28.161.0/24
+10.28.145.0/24
+10.28.165.0/24
+10.28.164.0/24
+10.28.175.0/24
+10.28.168.0/24
+10.28.167.0/24
+10.28.160.0/24
+10.28.176.0/24
+10.28.180.0/24
+10.28.182.0/24
+10.28.159.0/24
+10.28.184.0/24
+10.28.189.0/24
+10.28.174.0/24
+10.28.171.0/24
+10.28.179.0/24
+10.28.197.0/24
+10.28.170.0/24
+10.28.196.0/24
+10.28.163.0/24
+10.28.199.0/24
+10.28.183.0/24
+10.28.202.0/24
+10.28.195.0/24
+10.28.178.0/24
+10.28.172.0/24
+10.28.201.0/24
+10.28.173.0/24
+10.28.177.0/24
+10.28.186.0/24
+10.28.204.0/24
+10.28.187.0/24
+10.28.193.0/24
+10.28.185.0/24
+10.28.181.0/24
+10.28.191.0/24
+10.28.194.0/24
+10.28.209.0/24
+10.28.205.0/24
+10.28.198.0/24
+10.28.206.0/24
+10.28.192.0/24
+10.28.208.0/24
+10.28.207.0/24
+10.28.203.0/24
+10.28.190.0/24
+10.28.200.0/24
+10.28.169.0/24
+10.28.212.0/24
+10.28.220.0/24
+10.28.210.0/24
+10.28.188.0/24
+10.28.221.0/24
+10.28.218.0/24
+10.28.216.0/24
+10.28.211.0/24
+10.28.223.0/24
+10.28.215.0/24
+10.28.217.0/24
+10.28.214.0/24
+10.28.228.0/24
+10.28.222.0/24
+10.28.226.0/24
+10.28.213.0/24
+10.28.232.0/24
+10.28.230.0/24
+10.28.231.0/24
+10.28.235.0/24
+10.28.224.0/24
+10.28.225.0/24
+10.28.219.0/24
+10.28.236.0/24
+10.28.227.0/24
+10.28.234.0/24
+10.28.229.0/24
+10.28.233.0/24
+10.28.240.0/24
+10.28.241.0/24
+10.28.239.0/24
+10.28.238.0/24
+10.28.237.0/24
+10.28.249.0/24
+10.28.248.0/24
+10.28.245.0/24
+10.28.243.0/24
+10.28.250.0/24
+10.28.244.0/24
+10.28.242.0/24
+10.28.247.0/24
+10.28.252.0/24
+10.28.246.0/24
+10.28.254.0/24
+10.28.253.0/24
+10.28.251.0/24
+10.28.255.0/24
+Nmap scan report for dhcp-10-28-76-64.wdynp.ucr.edu (10.28.76.64)
+Nmap scan report for amazon-61be7f46d.wdynp.ucr.edu (10.28.248.98)
+Nmap scan report for amazon-b3b497de7.wdynp.ucr.edu (10.28.248.127)
+Nmap scan report for celinas-iphone.wdynp.ucr.edu (10.28.83.91)
+Nmap scan report for dhcp-10-28-83-199.wdynp.ucr.edu (10.28.83.199)
+Nmap scan report for jennifers-mbp.wdynp.ucr.edu (10.28.83.224)
+Nmap scan report for c-some-5-v524.wnet.ucr.edu (10.28.92.1)
+Nmap scan report for wlc-some-5-v524.wnet.ucr.edu (10.28.92.2)
+Nmap scan report for hamandcheese.wdynp.ucr.edu (10.28.92.12)
+Nmap scan report for raspberrypi.wdynp.ucr.edu (10.28.92.34)
+Nmap scan report for maddysiphone6s.wdynp.ucr.edu (10.28.92.38)
+Nmap scan report for maaliel.wdynp.ucr.edu (10.28.92.40)
+Nmap scan report for galaxy-j7-v.wdynp.ucr.edu (10.28.92.41)
+Nmap scan report for mchenlabimac1.wdynp.ucr.edu (10.28.92.42)
+Nmap scan report for oneplus7pro.wdynp.ucr.edu (10.28.92.80)
+Nmap scan report for amrawits-air.wdynp.ucr.edu (10.28.92.101)
+Nmap scan report for dhcp-10-28-92-103.wdynp.ucr.edu (10.28.92.103)
+Nmap scan report for jacquelines-air.wdynp.ucr.edu (10.28.92.107)
+Nmap scan report for lidongweideipad.wdynp.ucr.edu (10.28.92.112)
+Nmap scan report for xius-mbp-2.wdynp.ucr.edu (10.28.92.118)
+Nmap scan report for dhcp-10-28-92-152.wdynp.ucr.edu (10.28.92.152)
+Nmap scan report for macbook.wdynp.ucr.edu (10.28.92.156)
+Nmap scan report for sm-j337a.wdynp.ucr.edu (10.28.92.160)
+Nmap scan report for android-b7a47adc8cc154ab.wdynp.ucr.edu (10.28.92.162)
+Nmap scan report for marias-mbp.wdynp.ucr.edu (10.28.92.165)
+Nmap scan report for caseys-air.wdynp.ucr.edu (10.28.92.180)
+Nmap scan report for nargess-mbp.wdynp.ucr.edu (10.28.92.186)
+Nmap scan report for dhcp-10-28-92-197.wdynp.ucr.edu (10.28.92.197)
+Nmap scan report for michelles-air.wdynp.ucr.edu (10.28.92.219)
+Nmap scan report for carloss-iphone.wdynp.ucr.edu (10.28.92.223)
+Nmap scan report for kelleys-air-2.wdynp.ucr.edu (10.28.92.238)
+Nmap scan report for dhcp-10-28-92-239.wdynp.ucr.edu (10.28.92.239)
+Nmap scan report for fengxinyidembp2.wdynp.ucr.edu (10.28.92.248)
+Nmap scan report for olimpias-air.wdynp.ucr.edu (10.28.92.255)
+Nmap scan report for alyssas-iphone.wdynp.ucr.edu (10.28.220.61)
+Nmap scan report for nickiis-iphone.wdynp.ucr.edu (10.28.220.67)
+Nmap scan report for huawei_p30_pro-3a2b85e073.wdynp.ucr.edu (10.28.220.100)
+Nmap scan report for amenas-mbp.wdynp.ucr.edu (10.28.220.102)
+Nmap scan report for camillas-iphone.wdynp.ucr.edu (10.28.220.103)
+Nmap scan report for arturo-martinez.wdynp.ucr.edu (10.28.220.106)
+Nmap scan report for windowsmobile94.wdynp.ucr.edu (10.28.220.132)
+Nmap scan report for dhcp-10-28-220-149.wdynp.ucr.edu (10.28.220.149)
+Nmap scan report for acbookdembp.wdynp.ucr.edu (10.28.220.172)
+Nmap scan report for kenny.wdynp.ucr.edu (10.28.220.179)
+Nmap scan report for macintosh.wdynp.ucr.edu (10.28.220.225)
+Nmap scan report for jaquelynsiphone.wdynp.ucr.edu (10.28.220.248)
+Nmap scan report for myphone.wdynp.ucr.edu (10.28.220.250)
+Nmap scan report for am-wrq-nbbbb.wdynp.ucr.edu (10.28.222.1)
+Nmap scan report for android-cfa70fcf8105d0f8.wdynp.ucr.edu (10.28.222.24)
+Nmap scan report for jayleenasiphone.wdynp.ucr.edu (10.28.222.29)
+Nmap scan report for daddy-angel.wdynp.ucr.edu (10.28.222.38)
+Nmap scan report for dhcp-10-28-222-46.wdynp.ucr.edu (10.28.222.46)
+Nmap scan report for android-546dce348bd18f27.wdynp.ucr.edu (10.28.222.61)
+Nmap scan report for android-998ccbb4999d829e.wdynp.ucr.edu (10.28.222.104)
+Nmap scan report for kailins-mbp.wdynp.ucr.edu (10.28.222.110)
+Nmap scan report for toms-iphone.wdynp.ucr.edu (10.28.222.123)
+Nmap scan report for kamran.wdynp.ucr.edu (10.28.222.133)
+Nmap scan report for iphone.wdynp.ucr.edu (10.28.222.145)
+Nmap scan report for emukhansiphone.wdynp.ucr.edu (10.28.222.147)
+Nmap scan report for jason-xps-13-9360.wdynp.ucr.edu (10.28.222.184)
+Nmap scan report for arias-mbp.wdynp.ucr.edu (10.28.222.186)
+Nmap scan report for dhcp-10-28-222-224.wdynp.ucr.edu (10.28.222.224)
+Nmap scan report for trucs-iphone.wdynp.ucr.edu (10.28.222.231)
+Nmap scan report for abrahams-iphone.wdynp.ucr.edu (10.28.222.235)
+Nmap scan report for mi9-xiaomishouji.wdynp.ucr.edu (10.28.222.249)
+Nmap scan report for android-c2d08344652edc32.wdynp.ucr.edu (10.28.79.82)
+Nmap scan report for nikas-air.wdynp.ucr.edu (10.28.79.182)
+Nmap scan report for yeonsuui-iphone.wdynp.ucr.edu (10.28.79.252)
+Nmap scan report for duanjunemacbook.wdynp.ucr.edu (10.28.77.20)
+Nmap scan report for abuls-ipad.wdynp.ucr.edu (10.28.77.34)
+Nmap scan report for hugos-macbook.wdynp.ucr.edu (10.28.77.43)
+Nmap scan report for dhcp-10-28-77-121.wdynp.ucr.edu (10.28.77.121)
+Nmap scan report for dhcp-10-28-77-144.wdynp.ucr.edu (10.28.77.144)
+Nmap scan report for jz.wdynp.ucr.edu (10.28.77.151)
+Nmap scan report for jonathans-mbp.wdynp.ucr.edu (10.28.77.213)
+Nmap scan report for liams-mbp.wdynp.ucr.edu (10.28.77.241)
+Nmap scan report for ipad-pro.wdynp.ucr.edu (10.28.219.25)
+Nmap scan report for shouji.wdynp.ucr.edu (10.28.219.54)
+Nmap scan report for zanas-iphone.wdynp.ucr.edu (10.28.219.64)
+Nmap scan report for who-u.wdynp.ucr.edu (10.28.219.72)
+Nmap scan report for emilys-air.wdynp.ucr.edu (10.28.219.83)
+Nmap scan report for galaxy-note9.wdynp.ucr.edu (10.28.219.94)
+Nmap scan report for android-30955d378eb16b6.wdynp.ucr.edu (10.28.219.121)
+Nmap scan report for ginas-air.wdynp.ucr.edu (10.28.219.141)
+Nmap scan report for dhcp-10-28-219-143.wdynp.ucr.edu (10.28.219.143)
+Nmap scan report for nova_5i_pro-95bd60f531be1.wdynp.ucr.edu (10.28.219.144)
+Nmap scan report for android-6225755541b7854f.wdynp.ucr.edu (10.28.219.151)
+Nmap scan report for xsasukimatoha.wdynp.ucr.edu (10.28.219.157)
+Nmap scan report for anthonydembp.wdynp.ucr.edu (10.28.219.159)
+Nmap scan report for monicas-air.wdynp.ucr.edu (10.28.219.160)
+Nmap scan report for dhcp-10-28-219-184.wdynp.ucr.edu (10.28.219.184)
+Nmap scan report for iris.wdynp.ucr.edu (10.28.219.203)
+Nmap scan report for dhcp-10-28-219-207.wdynp.ucr.edu (10.28.219.207)
+Nmap scan report for garys-mbp.wdynp.ucr.edu (10.28.219.217)
+Nmap scan report for dhcp-10-28-219-225.wdynp.ucr.edu (10.28.219.225)
+Nmap scan report for abhilasasiphone.wdynp.ucr.edu (10.28.219.228)
+Nmap scan report for yessicas-air.wdynp.ucr.edu (10.28.219.235)
+Nmap scan report for shan-wens-air.wdynp.ucr.edu (10.28.217.6)
+Nmap scan report for dhcp-10-28-217-14.wdynp.ucr.edu (10.28.217.14)
+Nmap scan report for ramiros-iphone.wdynp.ucr.edu (10.28.217.20)
+Nmap scan report for ananyas-iphone.wdynp.ucr.edu (10.28.217.23)
+Nmap scan report for jayleens-mbp.wdynp.ucr.edu (10.28.217.25)
+Nmap scan report for marias-air.wdynp.ucr.edu (10.28.217.29)
+Nmap scan report for kanahas-air.wdynp.ucr.edu (10.28.217.50)
+Nmap scan report for huawei_p20-aa4748cd8a72c4.wdynp.ucr.edu (10.28.217.78)
+Nmap scan report for dhcp-10-28-217-100.wdynp.ucr.edu (10.28.217.100)
+Nmap scan report for sts-ltk-fvfzf1b6l413.wdynp.ucr.edu (10.28.217.123)
+Nmap scan report for dhcp-10-28-217-129.wdynp.ucr.edu (10.28.217.129)
+Nmap scan report for huawei_p20_pro-e85f9e25ad.wdynp.ucr.edu (10.28.217.137)
+Nmap scan report for ruths-air.wdynp.ucr.edu (10.28.217.138)
+Nmap scan report for pans-iphone.wdynp.ucr.edu (10.28.217.151)
+Nmap scan report for brandons-iphone.wdynp.ucr.edu (10.28.217.157)
+Nmap scan report for nathalies-air.wdynp.ucr.edu (10.28.217.165)
+Nmap scan report for dhcp-10-28-217-169.wdynp.ucr.edu (10.28.217.169)
+Nmap scan report for stephanies-mbp.wdynp.ucr.edu (10.28.217.180)
+Nmap scan report for davids-air-3.wdynp.ucr.edu (10.28.217.184)
+Nmap scan report for stephanie-liu.wdynp.ucr.edu (10.28.217.193)
+Nmap scan report for jesses-mbp.wdynp.ucr.edu (10.28.217.194)
+Nmap scan report for 1demacbook-air.wdynp.ucr.edu (10.28.217.196)
+Nmap scan report for marcel.wdynp.ucr.edu (10.28.217.197)
+Nmap scan report for jessicas-iphone.wdynp.ucr.edu (10.28.217.208)
+Nmap scan report for aymans-mbp.wdynp.ucr.edu (10.28.217.218)
+Nmap scan report for jennifersiphone.wdynp.ucr.edu (10.28.217.220)
+Nmap scan report for gordon-qi.wdynp.ucr.edu (10.28.217.229)
+Nmap scan report for oneplus5.wdynp.ucr.edu (10.28.217.252)
+Nmap scan report for oneplus5tnm.wdynp.ucr.edu (10.28.217.254)
+Nmap scan report for traviss-mbp.wdynp.ucr.edu (10.28.89.17)
+Nmap scan report for dhcp-10-28-89-20.wdynp.ucr.edu (10.28.89.20)
+Nmap scan report for huawei_mate_9-a508a178449.wdynp.ucr.edu (10.28.89.26)
+Nmap scan report for hoas-mbp.wdynp.ucr.edu (10.28.89.29)
+Nmap scan report for adams-air.wdynp.ucr.edu (10.28.89.32)
+Nmap scan report for dhcp-10-28-89-33.wdynp.ucr.edu (10.28.89.33)
+Nmap scan report for cmt-osx-03.wdynp.ucr.edu (10.28.89.42)
+Nmap scan report for nickmenssiphone.wdynp.ucr.edu (10.28.89.44)
+Nmap scan report for atropos.wdynp.ucr.edu (10.28.89.64)
+Nmap scan report for galaxy-tab-a-80-2019.wdynp.ucr.edu (10.28.89.88)
+Nmap scan report for redmik20pro-redmi.wdynp.ucr.edu (10.28.89.97)
+Nmap scan report for android-27352204cbb2fbee.wdynp.ucr.edu (10.28.89.100)
+Nmap scan report for skyrocket.wdynp.ucr.edu (10.28.89.108)
+Nmap scan report for galaxy-s10e.wdynp.ucr.edu (10.28.89.109)
+Nmap scan report for dhcp-10-28-89-110.wdynp.ucr.edu (10.28.89.110)
+Nmap scan report for iphone-22.wdynp.ucr.edu (10.28.89.117)
+Nmap scan report for dhcp-10-28-89-118.wdynp.ucr.edu (10.28.89.118)
+Nmap scan report for android-4e6c8ba92d04cf62.wdynp.ucr.edu (10.28.89.137)
+Nmap scan report for dhcp-10-28-89-139.wdynp.ucr.edu (10.28.89.139)
+Nmap scan report for omondinhos-ipad.wdynp.ucr.edu (10.28.89.140)
+Nmap scan report for leenas-iphone.wdynp.ucr.edu (10.28.89.156)
+Nmap scan report for emmas-ipad.wdynp.ucr.edu (10.28.89.178)
+Nmap scan report for mimix2s-xiaomishouji.wdynp.ucr.edu (10.28.89.183)
+Nmap scan report for oneplus_6t.wdynp.ucr.edu (10.28.89.195)
+Nmap scan report for christis-iphone.wdynp.ucr.edu (10.28.89.197)
+Nmap scan report for asmas-mbp-2.wdynp.ucr.edu (10.28.89.205)
+Nmap scan report for guti.wdynp.ucr.edu (10.28.89.232)
+Nmap scan report for cindys-air.wdynp.ucr.edu (10.28.89.239)
+Nmap scan report for android-4d26307d472a1319.wdynp.ucr.edu (10.28.89.246)
+Nmap scan report for huawei_mate_9-364f5f53c90.wdynp.ucr.edu (10.28.89.252)
+Nmap scan report for c-some-5-v523.wnet.ucr.edu (10.28.88.1)
+Nmap scan report for wlc-some-5-v523.wnet.ucr.edu (10.28.88.2)
+Nmap scan report for samsung-sm-g930v.wdynp.ucr.edu (10.28.88.13)
+Nmap scan report for huawei_p10_plus-6a3197e9c.wdynp.ucr.edu (10.28.88.21)
+Nmap scan report for gsoeadminsmbp3.wdynp.ucr.edu (10.28.88.31)
+Nmap scan report for dhcp-10-28-88-42.wdynp.ucr.edu (10.28.88.42)
+Nmap scan report for squelchdroid.wdynp.ucr.edu (10.28.88.44)
+Nmap scan report for corinas-air.wdynp.ucr.edu (10.28.88.46)
+Nmap scan report for dhcp-10-28-88-47.wdynp.ucr.edu (10.28.88.47)
+Nmap scan report for nessas-iphone.wdynp.ucr.edu (10.28.88.55)
+Nmap scan report for ipadteki-ipad.wdynp.ucr.edu (10.28.88.59)
+Nmap scan report for wonder-bread.wdynp.ucr.edu (10.28.88.67)
+Nmap scan report for sgil-ipad.wdynp.ucr.edu (10.28.88.74)
+Nmap scan report for honor_8-f70287b12366ff2f.wdynp.ucr.edu (10.28.88.92)
+Nmap scan report for brittanysiphone.wdynp.ucr.edu (10.28.88.101)
+Nmap scan report for walters-iphone.wdynp.ucr.edu (10.28.88.108)
+Nmap scan report for bumille.wdynp.ucr.edu (10.28.88.112)
+Nmap scan report for dhcp-10-28-88-117.wdynp.ucr.edu (10.28.88.117)
+Nmap scan report for android-3fcf9923b020483b.wdynp.ucr.edu (10.28.88.127)
+Nmap scan report for jingde.wdynp.ucr.edu (10.28.88.136)
+Nmap scan report for galaxy-a10e.wdynp.ucr.edu (10.28.88.143)
+Nmap scan report for qiaoshikiiphone.wdynp.ucr.edu (10.28.88.152)
+Nmap scan report for neils-mbp-2.wdynp.ucr.edu (10.28.88.153)
+Nmap scan report for android-1d26d4418c0d8c13.wdynp.ucr.edu (10.28.88.154)
+Nmap scan report for machines-have-feelings-too.wdynp.ucr.edu (10.28.88.170)
+Nmap scan report for naels-imac.wdynp.ucr.edu (10.28.88.171)
+Nmap scan report for dhcp-10-28-88-182.wdynp.ucr.edu (10.28.88.182)
+Nmap scan report for dhcp-10-28-88-201.wdynp.ucr.edu (10.28.88.201)
+Nmap scan report for felips-air.wdynp.ucr.edu (10.28.88.207)
+Nmap scan report for jordans-iphone.wdynp.ucr.edu (10.28.88.209)
+Nmap scan report for camilaazsiphone.wdynp.ucr.edu (10.28.88.211)
+Nmap scan report for laurens-air.wdynp.ucr.edu (10.28.88.226)
+Nmap scan report for tessas-air-2.wdynp.ucr.edu (10.28.88.253)
+Nmap scan report for d-farma-116-1-v18.wnet.ucr.edu (10.28.249.1)
+Nmap scan report for roberts-mbp-2.wdynp.ucr.edu (10.28.249.193)
+Nmap scan report for dhcp-10-28-81-6.wdynp.ucr.edu (10.28.81.6)
+Nmap scan report for mallorys-air.wdynp.ucr.edu (10.28.81.26)
+Nmap scan report for connies-mbp.wdynp.ucr.edu (10.28.81.146)
+Nmap scan report for andrews-air-2.wdynp.ucr.edu (10.28.81.187)
+Nmap scan report for dhcp-10-28-218-4.wdynp.ucr.edu (10.28.218.4)
+Nmap scan report for phone.wdynp.ucr.edu (10.28.218.5)
+Nmap scan report for williams-mbp.wdynp.ucr.edu (10.28.218.8)
+Nmap scan report for liyibo.wdynp.ucr.edu (10.28.218.9)
+Nmap scan report for lizs-mbp.wdynp.ucr.edu (10.28.218.50)
+Nmap scan report for jersonposiphone.wdynp.ucr.edu (10.28.218.54)
+Nmap scan report for bos-iphone.wdynp.ucr.edu (10.28.218.59)
+Nmap scan report for dhcp-10-28-218-61.wdynp.ucr.edu (10.28.218.61)
+Nmap scan report for dhcp-10-28-218-71.wdynp.ucr.edu (10.28.218.71)
+Nmap scan report for huawei_p20_pro-ef375972d4.wdynp.ucr.edu (10.28.218.80)
+Nmap scan report for aldos-mbp.wdynp.ucr.edu (10.28.218.89)
+Nmap scan report for kelly-wus-ipad.wdynp.ucr.edu (10.28.218.105)
+Nmap scan report for paolas-mbp.wdynp.ucr.edu (10.28.218.127)
+Nmap scan report for tinas-mbp.wdynp.ucr.edu (10.28.218.138)
+Nmap scan report for jennys-air.wdynp.ucr.edu (10.28.218.155)
+Nmap scan report for huawei_p20_pro-23db22b3de.wdynp.ucr.edu (10.28.218.161)
+Nmap scan report for android-eb05bdfe689324ed.wdynp.ucr.edu (10.28.218.162)
+Nmap scan report for galaxy-a50.wdynp.ucr.edu (10.28.218.179)
+Nmap scan report for android-595b98805d98b4e.wdynp.ucr.edu (10.28.218.184)
+Nmap scan report for barryteki-ipad.wdynp.ucr.edu (10.28.218.186)
+Nmap scan report for dhcp-10-28-218-187.wdynp.ucr.edu (10.28.218.187)
+Nmap scan report for sunnys-mbp.wdynp.ucr.edu (10.28.218.191)
+Nmap scan report for neftalis-iphone.wdynp.ucr.edu (10.28.218.193)
+Nmap scan report for cambrias-mbp.wdynp.ucr.edu (10.28.218.196)
+Nmap scan report for chibimankochan.wdynp.ucr.edu (10.28.218.199)
+Nmap scan report for dhcp-10-28-218-213.wdynp.ucr.edu (10.28.218.213)
+Nmap scan report for mami.wdynp.ucr.edu (10.28.218.217)
+Nmap scan report for galaxy-s8.wdynp.ucr.edu (10.28.218.220)
+Nmap scan report for dhcp-10-28-218-229.wdynp.ucr.edu (10.28.218.229)
+Nmap scan report for geysis-air.wdynp.ucr.edu (10.28.218.238)
+Nmap scan report for andys-iphone.wdynp.ucr.edu (10.28.218.243)
+Nmap scan report for jocelynes-air.wdynp.ucr.edu (10.28.218.254)
+Nmap scan report for c-tele-3-v614.wnet.ucr.edu (10.28.204.1)
+Nmap scan report for android-24b54c3ad0b04e7c.wdynp.ucr.edu (10.28.223.23)
+Nmap scan report for jassyde-ipad.wdynp.ucr.edu (10.28.223.37)
+Nmap scan report for zhangbodeiphone.wdynp.ucr.edu (10.28.223.38)
+Nmap scan report for dae-daes-iphone.wdynp.ucr.edu (10.28.223.44)
+Nmap scan report for qqt-2.wdynp.ucr.edu (10.28.223.52)
+Nmap scan report for wesleys-air.wdynp.ucr.edu (10.28.223.63)
+Nmap scan report for maryams-mbp.wdynp.ucr.edu (10.28.223.64)
+Nmap scan report for syntheas-mbp.wdynp.ucr.edu (10.28.223.75)
+Nmap scan report for cindys-mbp.wdynp.ucr.edu (10.28.223.76)
+Nmap scan report for arturos-mbp.wdynp.ucr.edu (10.28.223.82)
+Nmap scan report for dhcp-10-28-223-100.wdynp.ucr.edu (10.28.223.100)
+Nmap scan report for berry.wdynp.ucr.edu (10.28.223.103)
+Nmap scan report for arsanis-mbp-10.wdynp.ucr.edu (10.28.223.112)
+Nmap scan report for christizsiphone.wdynp.ucr.edu (10.28.223.145)
+Nmap scan report for l.wdynp.ucr.edu (10.28.223.160)
+Nmap scan report for gulnarateliyeva.wdynp.ucr.edu (10.28.223.173)
+Nmap scan report for dhcp-10-28-223-188.wdynp.ucr.edu (10.28.223.188)
+Nmap scan report for graces-iphone.wdynp.ucr.edu (10.28.223.190)
+Nmap scan report for hannahs-air-2.wdynp.ucr.edu (10.28.223.191)
+Nmap scan report for mattwinhsiphone.wdynp.ucr.edu (10.28.223.198)
+Nmap scan report for joseagursiphone.wdynp.ucr.edu (10.28.223.225)
+Nmap scan report for dhcp-10-28-223-240.wdynp.ucr.edu (10.28.223.240)
+Nmap scan report for dhcp-10-28-223-244.wdynp.ucr.edu (10.28.223.244)
+Nmap scan report for android-9deb5f3f8e7ee832.wdynp.ucr.edu (10.28.221.12)
+Nmap scan report for ivans-air.wdynp.ucr.edu (10.28.221.22)
+Nmap scan report for android-4da9a732fa89198e.wdynp.ucr.edu (10.28.221.25)
+Nmap scan report for chayushs-mbp.wdynp.ucr.edu (10.28.221.50)
+Nmap scan report for ur-mom.wdynp.ucr.edu (10.28.221.55)
+Nmap scan report for oppo-reno-10x-zoom.wdynp.ucr.edu (10.28.221.64)
+Nmap scan report for samsung-sm-g950u.wdynp.ucr.edu (10.28.221.70)
+Nmap scan report for sutoritosamurai.wdynp.ucr.edu (10.28.221.78)
+Nmap scan report for iphone-230.wdynp.ucr.edu (10.28.221.104)
+Nmap scan report for android-e7f25756faace9c3.wdynp.ucr.edu (10.28.221.111)
+Nmap scan report for leslies-mbp.wdynp.ucr.edu (10.28.221.112)
+Nmap scan report for roxanas-iphone.wdynp.ucr.edu (10.28.221.115)
+Nmap scan report for gert-i.wdynp.ucr.edu (10.28.221.119)
+Nmap scan report for anaswariphonexs.wdynp.ucr.edu (10.28.221.121)
+Nmap scan report for iphonevnschruff.wdynp.ucr.edu (10.28.221.130)
+Nmap scan report for janessas-air.wdynp.ucr.edu (10.28.221.141)
+Nmap scan report for yuujinoiphone.wdynp.ucr.edu (10.28.221.152)
+Nmap scan report for dhcp-10-28-221-172.wdynp.ucr.edu (10.28.221.172)
+Nmap scan report for oscars-mbp-4.wdynp.ucr.edu (10.28.221.196)
+Nmap scan report for honor_10-7f4ad572ff9ed012.wdynp.ucr.edu (10.28.221.207)
+Nmap scan report for maxs-iphone.wdynp.ucr.edu (10.28.221.208)
+Nmap scan report for maksi64.wdynp.ucr.edu (10.28.221.233)
+Nmap scan report for sprprodwsiphone.wdynp.ucr.edu (10.28.221.243)
+Nmap scan report for dhcp-10-28-221-252.wdynp.ucr.edu (10.28.221.252)
+Nmap scan report for isuas-air.wdynp.ucr.edu (10.28.78.40)
+Nmap scan report for marielas-mbp.wdynp.ucr.edu (10.28.78.123)
+Nmap scan report for dhcp-10-28-78-165.wdynp.ucr.edu (10.28.78.165)
+Nmap scan report for abuls-iphone.wdynp.ucr.edu (10.28.78.168)
+Nmap scan report for heenas-mbp.wdynp.ucr.edu (10.28.78.195)
+Nmap scan report for thuan.wdynp.ucr.edu (10.28.216.31)
+Nmap scan report for marianne-iphone.wdynp.ucr.edu (10.28.216.54)
+Nmap scan report for jenny.wdynp.ucr.edu (10.28.216.56)
+Nmap scan report for esmeraldas-air.wdynp.ucr.edu (10.28.216.67)
+Nmap scan report for steven.wdynp.ucr.edu (10.28.216.69)
+Nmap scan report for nova_4-5f842997a16220a1.wdynp.ucr.edu (10.28.216.81)
+Nmap scan report for dhcp-10-28-216-83.wdynp.ucr.edu (10.28.216.83)
+Nmap scan report for jillians-mbp.wdynp.ucr.edu (10.28.216.106)
+Nmap scan report for android-d580c6a74e371190.wdynp.ucr.edu (10.28.216.108)
+Nmap scan report for android-dee3ba7d91ac301d.wdynp.ucr.edu (10.28.216.123)
+Nmap scan report for eunice-j.wdynp.ucr.edu (10.28.216.127)
+Nmap scan report for yushi-iphone.wdynp.ucr.edu (10.28.216.131)
+Nmap scan report for neemas-mbp.wdynp.ucr.edu (10.28.216.136)
+Nmap scan report for vanessas-air.wdynp.ucr.edu (10.28.216.146)
+Nmap scan report for lil-bitch.wdynp.ucr.edu (10.28.216.155)
+Nmap scan report for lg-style.wdynp.ucr.edu (10.28.216.160)
+Nmap scan report for guoyuruemacbook.wdynp.ucr.edu (10.28.216.166)
+Nmap scan report for lius-iphone.wdynp.ucr.edu (10.28.216.178)
+Nmap scan report for thelastword.wdynp.ucr.edu (10.28.216.184)
+Nmap scan report for vinces-mbp.wdynp.ucr.edu (10.28.216.196)
+Nmap scan report for galaxy-s10.wdynp.ucr.edu (10.28.216.204)
+Nmap scan report for masterchief.wdynp.ucr.edu (10.28.216.209)
+Nmap scan report for kealanis-mbp.wdynp.ucr.edu (10.28.216.227)
+Nmap scan report for roger-teki-ipad.wdynp.ucr.edu (10.28.216.234)
+Nmap scan report for no-9.wdynp.ucr.edu (10.28.216.246)
+Nmap scan report for guoduoduodeair.wdynp.ucr.edu (10.28.216.247)
+Nmap scan report for edwardde-mbp.wdynp.ucr.edu (10.28.216.252)
+Nmap scan report for cnc157appletv.wdynp.ucr.edu (10.28.85.211)
+Nmap scan report for purpleair-381a.wdynp.ucr.edu (10.28.85.245)
+Nmap scan report for esp_a477c5.wdynp.ucr.edu (10.28.87.219)
+Nmap scan report for hind-3117.wdynp.ucr.edu (10.28.87.224)
+Nmap scan report for purpleair-3815.wdynp.ucr.edu (10.28.87.238)
+Nmap scan report for purpleair-c960.wdynp.ucr.edu (10.28.87.244)
+Nmap scan report for hind-4127.wdynp.ucr.edu (10.28.87.247)
+Nmap scan report for c-some-5-v522.wnet.ucr.edu (10.28.84.1)
+Nmap scan report for wlc-some-5-v522.wnet.ucr.edu (10.28.84.2)
+Nmap scan report for nishaths-air.wdynp.ucr.edu (10.28.80.121)
+Nmap scan report for meghans-galaxy-s10e.wdynp.ucr.edu (10.28.95.9)
+Nmap scan report for g8-thinq.wdynp.ucr.edu (10.28.95.23)
+Nmap scan report for dhcp-10-28-95-31.wdynp.ucr.edu (10.28.95.31)
+Nmap scan report for wess-phone.wdynp.ucr.edu (10.28.95.36)
+Nmap scan report for mengs-mbp.wdynp.ucr.edu (10.28.95.42)
+Nmap scan report for device.wdynp.ucr.edu (10.28.95.46)
+Nmap scan report for itsyoboi.wdynp.ucr.edu (10.28.95.53)
+Nmap scan report for dhcp-10-28-95-54.wdynp.ucr.edu (10.28.95.54)
+Nmap scan report for hodogenasiphone.wdynp.ucr.edu (10.28.95.56)
+Nmap scan report for xiaos-mbp.wdynp.ucr.edu (10.28.95.63)
+Nmap scan report for nutpommbp.wdynp.ucr.edu (10.28.95.64)
+Nmap scan report for janessas-mbp.wdynp.ucr.edu (10.28.95.78)
+Nmap scan report for kaitlyns-iphone.wdynp.ucr.edu (10.28.95.80)
+Nmap scan report for lorenas-iphone.wdynp.ucr.edu (10.28.95.81)
+Nmap scan report for kenneths-iphone.wdynp.ucr.edu (10.28.95.83)
+Nmap scan report for silver.wdynp.ucr.edu (10.28.95.90)
+Nmap scan report for ashley.wdynp.ucr.edu (10.28.95.93)
+Nmap scan report for lore.wdynp.ucr.edu (10.28.95.95)
+Nmap scan report for allisons-iphone.wdynp.ucr.edu (10.28.95.100)
+Nmap scan report for galaxy-s8-gerry.wdynp.ucr.edu (10.28.95.111)
+Nmap scan report for princess-e.wdynp.ucr.edu (10.28.95.125)
+Nmap scan report for mi8-xiaomishouji.wdynp.ucr.edu (10.28.95.135)
+Nmap scan report for jacs-ipad.wdynp.ucr.edu (10.28.95.138)
+Nmap scan report for warm-juice.wdynp.ucr.edu (10.28.95.143)
+Nmap scan report for spencers-mbp.wdynp.ucr.edu (10.28.95.151)
+Nmap scan report for lz.wdynp.ucr.edu (10.28.95.160)
+Nmap scan report for senate-conf-1.wdynp.ucr.edu (10.28.95.161)
+Nmap scan report for dhcp-10-28-95-165.wdynp.ucr.edu (10.28.95.165)
+Nmap scan report for dhcp-10-28-95-168.wdynp.ucr.edu (10.28.95.168)
+Nmap scan report for jianhous-mbp.wdynp.ucr.edu (10.28.95.176)
+Nmap scan report for raistlins-samsung.wdynp.ucr.edu (10.28.95.178)
+Nmap scan report for dork.wdynp.ucr.edu (10.28.95.208)
+Nmap scan report for mimax2-mimax2.wdynp.ucr.edu (10.28.95.230)
+Nmap scan report for yuchengtekiipad.wdynp.ucr.edu (10.28.95.234)
+Nmap scan report for etchis-mbp-2.wdynp.ucr.edu (10.28.95.248)
+Nmap scan report for chenqiadeiphone.wdynp.ucr.edu (10.28.82.22)
+Nmap scan report for claudias-mbp.wdynp.ucr.edu (10.28.82.92)
+Nmap scan report for android-595ed4288cfdd2bd.wdynp.ucr.edu (10.28.82.129)
+Nmap scan report for iriss-air-2.wdynp.ucr.edu (10.28.82.159)
+Nmap scan report for android-8a4e59f3acd3b6fd.wdynp.ucr.edu (10.28.82.163)
+Nmap scan report for juans-s9.wdynp.ucr.edu (10.28.82.217)
+Nmap scan report for purpleair-ff78.wdynp.ucr.edu (10.28.215.228)
+Nmap scan report for purpleair-326a.wdynp.ucr.edu (10.28.215.237)
+Nmap scan report for ruthias-air.wdynp.ucr.edu (10.28.90.21)
+Nmap scan report for macbook-pro-5.wdynp.ucr.edu (10.28.90.25)
+Nmap scan report for vivo-x27-8g-128g.wdynp.ucr.edu (10.28.90.31)
+Nmap scan report for robs-mbp.wdynp.ucr.edu (10.28.90.33)
+Nmap scan report for sams-hung-8.wdynp.ucr.edu (10.28.90.55)
+Nmap scan report for yang.wdynp.ucr.edu (10.28.90.66)
+Nmap scan report for air-de-gerald.wdynp.ucr.edu (10.28.90.68)
+Nmap scan report for dhcp-10-28-90-84.wdynp.ucr.edu (10.28.90.84)
+Nmap scan report for npg-gpu-server.wdynp.ucr.edu (10.28.90.103)
+Nmap scan report for simrajs-galaxy.wdynp.ucr.edu (10.28.90.108)
+Nmap scan report for hamutahls-mbp.wdynp.ucr.edu (10.28.90.120)
+Nmap scan report for bills-mbp.wdynp.ucr.edu (10.28.90.129)
+Nmap scan report for kolb.wdynp.ucr.edu (10.28.90.147)
+Nmap scan report for dhcp-10-28-90-150.wdynp.ucr.edu (10.28.90.150)
+Nmap scan report for melissas-iphone.wdynp.ucr.edu (10.28.90.169)
+Nmap scan report for nematolinesimac.wdynp.ucr.edu (10.28.90.175)
+Nmap scan report for naveenrddysmbp2.wdynp.ucr.edu (10.28.90.184)
+Nmap scan report for kenneths-air.wdynp.ucr.edu (10.28.90.201)
+Nmap scan report for darren-iphone.wdynp.ucr.edu (10.28.90.209)
+Nmap scan report for csongs-iphone.wdynp.ucr.edu (10.28.90.212)
+Nmap scan report for galaxy-tab-s6.wdynp.ucr.edu (10.28.90.215)
+Nmap scan report for tinas-air-2.wdynp.ucr.edu (10.28.90.216)
+Nmap scan report for dhcp-10-28-90-217.wdynp.ucr.edu (10.28.90.217)
+Nmap scan report for dhcp-10-28-90-223.wdynp.ucr.edu (10.28.90.223)
+Nmap scan report for huawei_p30_pro-a65948bf81.wdynp.ucr.edu (10.28.90.224)
+Nmap scan report for boba.wdynp.ucr.edu (10.28.90.228)
+Nmap scan report for melanies-iphone.wdynp.ucr.edu (10.28.90.229)
+Nmap scan report for dhcp-10-28-90-230.wdynp.ucr.edu (10.28.90.230)
+Nmap scan report for julies-iphone.wdynp.ucr.edu (10.28.90.243)
+Nmap scan report for elizabehsiphone.wdynp.ucr.edu (10.28.90.246)
+Nmap scan report for h-101.wdynp.ucr.edu (10.28.213.189)
+Nmap scan report for android-62772fbba79492a.wdynp.ucr.edu (10.28.93.30)
+Nmap scan report for pop-os.wdynp.ucr.edu (10.28.93.59)
+Nmap scan report for dhcp-10-28-93-63.wdynp.ucr.edu (10.28.93.63)
+Nmap scan report for dhcp-10-28-93-65.wdynp.ucr.edu (10.28.93.65)
+Nmap scan report for yinyirandembp.wdynp.ucr.edu (10.28.93.81)
+Nmap scan report for rebeccas2ndmbp.wdynp.ucr.edu (10.28.93.91)
+Nmap scan report for francescas-air.wdynp.ucr.edu (10.28.93.93)
+Nmap scan report for bryan-iphone.wdynp.ucr.edu (10.28.93.109)
+Nmap scan report for dhcp-10-28-93-112.wdynp.ucr.edu (10.28.93.112)
+Nmap scan report for iphone11-wolin.wdynp.ucr.edu (10.28.93.135)
+Nmap scan report for imac.wdynp.ucr.edu (10.28.93.136)
+Nmap scan report for dhcp-10-28-93-146.wdynp.ucr.edu (10.28.93.146)
+Nmap scan report for dhcp-10-28-93-150.wdynp.ucr.edu (10.28.93.150)
+Nmap scan report for android-e3c4d61f163d0db4.wdynp.ucr.edu (10.28.93.160)
+Nmap scan report for qiaodembp.wdynp.ucr.edu (10.28.93.161)
+Nmap scan report for dhcp-10-28-93-168.wdynp.ucr.edu (10.28.93.168)
+Nmap scan report for bahrams-mbp.wdynp.ucr.edu (10.28.93.173)
+Nmap scan report for justins-iphone.wdynp.ucr.edu (10.28.93.178)
+Nmap scan report for nasers-mbp.wdynp.ucr.edu (10.28.93.183)
+Nmap scan report for joseph-iphone.wdynp.ucr.edu (10.28.93.197)
+Nmap scan report for dhcp-10-28-93-203.wdynp.ucr.edu (10.28.93.203)
+Nmap scan report for antonios-mbp.wdynp.ucr.edu (10.28.93.209)
+Nmap scan report for tests-air-157.wdynp.ucr.edu (10.28.93.214)
+Nmap scan report for mi8-xiaomi8.wdynp.ucr.edu (10.28.93.216)
+Nmap scan report for athena.wdynp.ucr.edu (10.28.93.224)
+Nmap scan report for irlwaifu.wdynp.ucr.edu (10.28.93.226)
+Nmap scan report for johns-iphone-2.wdynp.ucr.edu (10.28.93.232)
+Nmap scan report for kris.wdynp.ucr.edu (10.28.93.248)
+Nmap scan report for shuangwisiphone.wdynp.ucr.edu (10.28.93.252)
+Nmap scan report for briannas-iphone.wdynp.ucr.edu (10.28.93.254)
+Nmap scan report for kyles-phone.wdynp.ucr.edu (10.28.94.10)
+Nmap scan report for hazels-iphone.wdynp.ucr.edu (10.28.94.13)
+Nmap scan report for doubletipadpro.wdynp.ucr.edu (10.28.94.28)
+Nmap scan report for farhaahdsiphone.wdynp.ucr.edu (10.28.94.31)
+Nmap scan report for spencermeiphone.wdynp.ucr.edu (10.28.94.36)
+Nmap scan report for galaxy-tab-s3.wdynp.ucr.edu (10.28.94.47)
+Nmap scan report for gabrielas-mbp.wdynp.ucr.edu (10.28.94.57)
+Nmap scan report for huawei_mate_20-5c39b20c13.wdynp.ucr.edu (10.28.94.61)
+Nmap scan report for sydneys-iphone.wdynp.ucr.edu (10.28.94.72)
+Nmap scan report for dhcp-10-28-94-86.wdynp.ucr.edu (10.28.94.86)
+Nmap scan report for galaxy-a30.wdynp.ucr.edu (10.28.94.91)
+Nmap scan report for android-3fe2e17956134e4.wdynp.ucr.edu (10.28.94.93)
+Nmap scan report for dhcp-10-28-94-105.wdynp.ucr.edu (10.28.94.105)
+Nmap scan report for jeremys-mbp-3.wdynp.ucr.edu (10.28.94.110)
+Nmap scan report for k-21.wdynp.ucr.edu (10.28.94.121)
+Nmap scan report for wendydameinv.wdynp.ucr.edu (10.28.94.133)
+Nmap scan report for dhcp-10-28-94-139.wdynp.ucr.edu (10.28.94.139)
+Nmap scan report for junaids-mbp.wdynp.ucr.edu (10.28.94.160)
+Nmap scan report for kathrines-xs.wdynp.ucr.edu (10.28.94.194)
+Nmap scan report for richis-air.wdynp.ucr.edu (10.28.94.199)
+Nmap scan report for shirins-mbp-3.wdynp.ucr.edu (10.28.94.202)
+Nmap scan report for kes-macbook-pro.wdynp.ucr.edu (10.28.94.218)
+Nmap scan report for tardis.wdynp.ucr.edu (10.28.94.224)
+Nmap scan report for almighty-jesus.wdynp.ucr.edu (10.28.94.235)
+Nmap scan report for samsung-galaxy-amp-prime.wdynp.ucr.edu (10.28.94.244)
+Nmap scan report for android-68be41502e15d1a9.wdynp.ucr.edu (10.28.91.14)
+Nmap scan report for android-e0d9630e7dbc621f.wdynp.ucr.edu (10.28.91.19)
+Nmap scan report for mbp-de-igor.wdynp.ucr.edu (10.28.91.30)
+Nmap scan report for huys-iphone.wdynp.ucr.edu (10.28.91.34)
+Nmap scan report for xb.wdynp.ucr.edu (10.28.91.58)
+Nmap scan report for navapols-mbp.wdynp.ucr.edu (10.28.91.72)
+Nmap scan report for dhcp-10-28-91-84.wdynp.ucr.edu (10.28.91.84)
+Nmap scan report for nikkis-air.wdynp.ucr.edu (10.28.91.94)
+Nmap scan report for dhcp-10-28-91-106.wdynp.ucr.edu (10.28.91.106)
+Nmap scan report for camilas-air.wdynp.ucr.edu (10.28.91.149)
+Nmap scan report for vitamins-iphone.wdynp.ucr.edu (10.28.91.155)
+Nmap scan report for margariasiphone.wdynp.ucr.edu (10.28.91.162)
+Nmap scan report for huawei_p30-bf13252d8f198f.wdynp.ucr.edu (10.28.91.185)
+Nmap scan report for lg-q7.wdynp.ucr.edu (10.28.91.186)
+Nmap scan report for huawei_mate_20_pro-9da524.wdynp.ucr.edu (10.28.91.199)
+Nmap scan report for huawei_mate_10_pro-2ef2d8.wdynp.ucr.edu (10.28.91.213)
+Nmap scan report for elpidias-mbp.wdynp.ucr.edu (10.28.91.214)
+Nmap scan report for dhcp-10-28-91-217.wdynp.ucr.edu (10.28.91.217)
+Nmap scan report for elishas-air.wdynp.ucr.edu (10.28.91.226)
+Nmap scan report for marcos-iphone.wdynp.ucr.edu (10.28.91.227)
+Nmap scan report for dhcp-10-28-91-232.wdynp.ucr.edu (10.28.91.232)
+Nmap scan report for gabriels-mbp.wdynp.ucr.edu (10.28.91.240)
