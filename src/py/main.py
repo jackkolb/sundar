@@ -6,6 +6,7 @@ import py.logs
 import py.settings
 import RPi.GPIO as GPIO
 import os
+import py.poll.ip
 import py.poll.lcd
 import py.poll.led
 import py.poll.location
