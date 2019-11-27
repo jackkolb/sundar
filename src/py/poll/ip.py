@@ -69,7 +69,7 @@ def speck_write(text):
         "key": speck_key,
         "data": text
     }
-    r.requests.get(url=url, params=params)
+    r = requests.get(url=url, params=params)
     if r.text == "success":
         return True
     else:
