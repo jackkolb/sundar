@@ -14,6 +14,7 @@ import py.poll.gitcheck
 import www.node.node_server
 import shutil
 import datetime
+import time
 
 def main():
     GPIO.setmode(GPIO.BCM)  # sets the GPIO pins to BCM
@@ -93,6 +94,7 @@ def main():
                 py.logs.log("main", "Could not move accelerometer.data file")
                 continue
             py.logs.log("main", "Classification completed")
+            time.sleep(1800)
 
         # check if the git flag indicated a reset
         if py.poll.gitcheck.check_flag_file() == "RESET":
