@@ -94,6 +94,16 @@
                     </div>
                 </div>
 
+                <!-- Sampling Delay -->
+                <div class="option">
+                    <div class="option-left node-attribute">
+                        Sampling Delay (sec)
+                    </div>
+                    <div class="option-right">
+                        <input id="delay-entry" type="number" class="numberbox" onchange="setDelay();" />
+                    </div>
+                </div>
+
                 <!-- Autosave to Flashdrive Toggle -->
                 <div class="option">
                     <div class="option-left node-attribute">
@@ -170,5 +180,6 @@
         document.getElementById("flashdriveToggle").checked = {{ data["flashdrive"] }};
         document.getElementById("duration-entry").value = {{ data["duration"] }};
         document.getElementById("rate-entry").value = {{ data["rate"] }};
+        document.getElementById("delay-entry").value = {{ data["delay"] }};
     </script>
 </html>

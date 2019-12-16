@@ -98,6 +98,17 @@ function setRate() {
     return;
 }
 
+function setDelay() {
+    var value = document.getElementById("delay-entry").value;
+    if (value == "" || value <= 0) {
+        value = 3600;
+    }
+    console.log("set delay to " + value);
+    sendUpdate("delay", value);
+    return;
+}
+
+
 function downloadLogs() {
     window.location.href = "/logs";
 }

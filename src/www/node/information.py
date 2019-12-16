@@ -1,6 +1,9 @@
 # information.py: contains functions to read/write to data and settings files and retrieve information
 
-import py.logs
+try:
+    import py.logs as logs
+except:
+    import dev_logs as logs
 import os
 
 # reads from the expected life remaining file
@@ -42,6 +45,12 @@ def load_rate():
         rate = rate_file.read()
     return rate
 
+# reads from the sampling delay file
+def load_delay():
+    with open("settings/delay", "r") as rate_file:
+        rate = rate_file.read()
+    return rate
+
 # reads from the sampling duration file
 def load_duration():
     with open("settings/duration", "r") as duration_file:
@@ -61,7 +70,7 @@ def load_all_logs():
 
 # reads the log file
 def load_logs():
-    with open("logs/" + py.logs.generate_log_name(), "r") as logs_file:
+    with open("logs/" + logs.generate_log_name(), "r") as logs_file:
         logs = logs_file.read()
     return logs
 
@@ -95,7 +104,7 @@ def load_flash_led():
 def updateSettings(file, value):
     with open("settings/" + file, "w") as data_file:
         data_file.write(value)
-        py.logs.log("webserver", file.upper() + " setting has been set to " + value)
+        logs.log("webserver", file.upper() + " setting has been set to " + value)
 
 # loads information displayed to the webserver's viewer
 def load_information():
@@ -106,7 +115,8 @@ def load_information():
         "flashdrive": load_flashdrive(),
         "history": load_history(),
         "duration": load_duration(),
-        "rate": load_rate()
+        "rate": load_rate(),
+        "delay": load_delay()
     }
     return information
 
@@ -117,7 +127,8 @@ def load_settings():
         "rate": load_rate(),
         "duration": load_duration(),
         "flashLED": load_flash_led(),
-        "flashdrive": load_flashdrive()
+        "flashdrive": load_flashdrive(),
+        "delay": load_delay()
     }
     reset_flash_LED()
     return settings

@@ -94,7 +94,10 @@ def main():
                 py.logs.log("main", "Could not move accelerometer.data file")
                 continue
             py.logs.log("main", "Classification completed")
-            time.sleep(1800)
+            # delay the next collection by the set amount
+            with open("settings/delay", r) as delay_setting_file:
+                sampling_delay = delay_setting_file.readline()
+            time.sleep(sampling_delay)
 
         # check if the git flag indicated a reset
         if py.poll.gitcheck.check_flag_file() == "RESET":
