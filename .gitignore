@@ -3,3 +3,4 @@ data/raw/*
 data/accelerometer.data
 data/*.py
 flags/speck
+src/py/gmail_password

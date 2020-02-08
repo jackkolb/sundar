@@ -1,4 +1,19 @@
 import datetime
+import smtplib, ssl
+
+
+def send_email(to, subject, message):
+    port = 465  # For SSL
+    smtp_server = "smtp.gmail.com"
+    sender_email = "sundarlabucr@gmail.com"  # Enter your address
+    receiver_email = to  # Enter receiver address
+    password = open("src/py/gmail_password", "r").read()
+    message = "Subject: " + subject + "\n\n" + message
+
+context = ssl.create_default_context()
+with smtplib.SMTP_SSL(smtp_server, port, context=context) as server:
+    server.login(sender_email, password)
+    server.sendmail(sender_email, receiver_email, message)
 
 
 def get_date():

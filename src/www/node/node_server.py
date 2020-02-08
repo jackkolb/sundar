@@ -11,6 +11,7 @@ try:
     import py.logs
 except:
     import dev_logs
+import zipfile
 
 app = Flask(__name__)  # the overall Flask app
 
@@ -57,6 +58,21 @@ def download_data_get():
     response.headers["Cache-Control"] = ["no-cache", "must-revalidate"]
     response.headers["Expires"] = "Sat, 26 Jul 1997 05:00:00 GMT"
     return response
+
+# download all data
+@app.route("/download-all-data", methods=["GET"])
+def download_all_data_get():
+    # use the built-in zipfile to zip the data folder
+    zipf = zipfile.ZipFile('sundarlab_data.zip', 'w', zipfile.ZIP_DEFLATED)
+    for root, dirs, files in os.walk("./data/"):
+        for file in files:
+            zipf.write(os.path.join(root, file))
+    zipf.close()
+
+    response = make_response(send_file("sundarlab_data.zip", as_attachment=True, attachment_filename=data_file_names[data_file_index]))
+    response.headers["Cache-Control"] = ["no-cache", "must-revalidate"]
+    response.headers["Expires"] = "Sat, 26 Jul 1997 05:00:00 GMT"
+    return 
 
 # the logs route, returns items to download from logs
 @app.route("/data")
