@@ -117,7 +117,7 @@ def main():
 
             # delay the next collection by the set amount
             with open("settings/delay", "r") as delay_setting_file:
-                sampling_delay = delay_setting_file.readline()
+                sampling_delay = int(delay_setting_file.readline())
             time.sleep(sampling_delay)
 
         # check if the git flag indicated a reset
