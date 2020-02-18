@@ -10,10 +10,10 @@ def send_email(to, subject, message):
     password = open("src/py/gmail_password", "r").read()
     message = "Subject: " + subject + "\n\n" + message
 
-context = ssl.create_default_context()
-with smtplib.SMTP_SSL(smtp_server, port, context=context) as server:
-    server.login(sender_email, password)
-    server.sendmail(sender_email, receiver_email, message)
+    context = ssl.create_default_context()
+    with smtplib.SMTP_SSL(smtp_server, port, context=context) as server:
+        server.login(sender_email, password)
+        server.sendmail(sender_email, receiver_email, message)
 
 
 def get_date():
