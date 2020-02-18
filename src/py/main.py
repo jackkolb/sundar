@@ -63,7 +63,9 @@ def main():
     while ip == "FAIL" or ip == None:
         ip, name = py.poll.lcd.get_ip_address()
 
-    py.logs.send_email("sundarlabucr@gmail.com", "Node Registration at " + ip, "Activation of node on network " + name + "at IP " + ip)
+    py.logs.send_email("sundarlabucr@gmail.com", "Node Registration at " + ip, "Activation of node on network " + name + " at IP " + ip)
+
+    capacity_filled = False  # bool for when the device is at max capacity
 
     # general loop: launches collection script, when it finishes relaunch it after a set delay
     while True:
@@ -77,8 +79,11 @@ def main():
         # if the node should be collecting, collect!
         if status == "true":
             # check is storage used is 80%+
-            if int(py.poll.lcd.get_disk_usage()) > 70:
+            if int(py.poll.lcd.get_disk_usage()[:-1]) > 70:
                 print(py.poll.lcd.get_disk_usage())
+                if not capacity_filled:
+                    logs.send_email("sundarlabucr@gmail.com", "Node is at max capacity at " + ip, "The node on network " + name + " at IP " + ip + " is at max capacity.")
+                    capacity_filled = True
                 continue
 
             destination = py.poll.location.get_output_location()  # get the output location, default to the onboard "data/"
