@@ -64,6 +64,7 @@ def main():
         ip, name = py.poll.lcd.get_ip_address()
 
     py.logs.send_email("sundarlabucr@gmail.com", "Node Registration at " + ip, "Activation of node on network " + name + " at IP " + ip)
+    py.logs.log("Sent activation email")
 
     capacity_filled = False  # bool for when the device is at max capacity
 
@@ -113,8 +114,9 @@ def main():
                 py.logs.log("main", "Could not move accelerometer.data file")
                 continue
             py.logs.log("main", "Classification completed")
+            
             # delay the next collection by the set amount
-            with open("settings/delay", r) as delay_setting_file:
+            with open("settings/delay", "r") as delay_setting_file:
                 sampling_delay = delay_setting_file.readline()
             time.sleep(sampling_delay)
 
