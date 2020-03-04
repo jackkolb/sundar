@@ -1,5 +1,5 @@
 # Sundar's Lab
-Our Codebase for Sundar's Lab
+Our Codebase for Sundar's Lab project
 
 ## Overview:
 
