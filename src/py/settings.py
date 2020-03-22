@@ -14,3 +14,9 @@ def get_flashdrive():
             return True
         else:
             return False
+
+def get_serial():
+    with open("/proc/cpuinfo", "r") as cpu_info_file:
+        lines = cpu_info_file.readlines()
+        serial = [x for x in lines if "Serial" in x][0].split(":")[1][1:-1]
+    return serial

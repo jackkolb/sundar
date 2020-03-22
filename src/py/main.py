@@ -49,11 +49,6 @@ def main():
     location_thread = threading.Thread(target=py.poll.location.manage_output_location)
     location_thread.start()
 
-    # start IP track thread: uses https://kolb.dev/speck to update the IP address location
-    py.logs.log("main", "Starting IP track thread")
-    ip_thread = threading.Thread(target=py.poll.ip.start_speck)
-    ip_thread.start()
-
     # set collection flag to false, collection flag used by the LCD display
     with open("flags/collection", "w") as collection_flag:
         collection_flag.write("false")
@@ -63,8 +58,15 @@ def main():
     while ip == "FAIL" or ip == None:
         ip, name = py.poll.lcd.get_ip_address()
 
-    py.logs.send_email("sundarlabucr@gmail.com", "Node Registration at " + ip, "Activation of node on network " + name + " at IP " + ip)
+    # send email to manager email
+    serial = py.settings.get_serial()
+    py.logs.send_email("sundarlabucr@gmail.com", "Node Registration for S\N " + serial, "Activation of node on network " + name + " at IP " + ip)
     py.logs.log("main", "Sent activation email")
+
+    # start IP track thread: uses https://kolb.dev/speck to update the IP address location
+    py.logs.log("main", "Starting IP track thread")
+    ip_thread = threading.Thread(target=py.poll.ip.start_speck)
+    ip_thread.start()
 
     capacity_filled = False  # bool for when the device is at max capacity
 
@@ -83,7 +85,7 @@ def main():
             if int(py.poll.lcd.get_disk_usage()[:-1]) > 70:
                 print(py.poll.lcd.get_disk_usage())
                 if not capacity_filled:
-                    logs.send_email("sundarlabucr@gmail.com", "Node is at max capacity at " + ip, "The node on network " + name + " at IP " + ip + " is at max capacity.")
+                    logs.send_email("sundarlabucr@gmail.com", "Node is at max capacity, S\N " + serial, "The node on network " + name + " at IP " + ip + " is at max capacity.")
                     capacity_filled = True
                 continue
 
