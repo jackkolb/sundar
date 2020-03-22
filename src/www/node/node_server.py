@@ -97,8 +97,11 @@ def delete_raw_data():
     raw_data_filenames = info.get_raw_data_filenames()
     id_to_delete = int(request.args.get("id"))
 
+    zero_point = request.args.get("zero")
+    id_adjustment = raw_data_filenames.index(zero_point)
+
     this_directory = os.path.abspath(os.getcwd())
-    os.remove(this_directory + "/data/raw/" + raw_data_filenames[id_to_delete])
+    os.remove(this_directory + "/data/raw/" + raw_data_filenames[id_to_delete + id_adjustment])
     return "success"
 
 
@@ -108,8 +111,11 @@ def delete_daily_data():
     daily_data_filenames = info.get_daily_data_filenames()
     id_to_delete = int(request.args.get("id"))
 
+    zero_point = request.args.get("zero")
+    id_adjustment = raw_data_filenames.index(zero_point)
+
     this_directory = os.path.abspath(os.getcwd())
-    os.remove(this_directory + "/data/daily/" + daily_data_filenames[id_to_delete])
+    os.remove(this_directory + "/data/daily/" + daily_data_filenames[id_to_delete + id_adjustment])
     return "success"
 
 
