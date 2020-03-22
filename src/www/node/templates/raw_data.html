@@ -32,8 +32,13 @@
         <br><br><br><br><br>
         <div class="content" id="content">
             <div class="node-overview" id="node">
-                <div class="clean-header">
-                    Today's Data:
+                <div style="display: flex; justify-content: space-between;">
+                    <div class="clean-header">
+                        Today's Data:
+                    </div>
+                    <div onClick="deleteFiles();">
+                        Delete
+                    </div>
                 </div>
                 {% for i in range(data|length) %}
                     <div class="selector" onmouseenter="showX(this)" onmouseleave="hideX(this)">
@@ -41,7 +46,7 @@
                             {{ i }}: {{ data[i] }}
                         </a>
                         
-                        <div onClick="deleteFile({{ i }}, this);" style="visibility: hidden; color: red; align-self: center; padding: 0 10pt">
+                        <div onClick="addDeleteFile({{ i }}, this);" style="visibility: hidden; color: red; align-self: center; padding: 0 10pt">
                             x
                         </div>
                     </div>
@@ -61,11 +66,20 @@
             element.children[1].style.visibility = 'hidden';
         }
 
-        function deleteFile(id, element) {
-            var delete_confirm = confirm('Are you sure you wish to delete the file?');
-            if (delete_confirm == true) {
-                fetch("/delete-raw-data?id=" + id + "&zero={{ data[0] }}");
-                element.parentElement.style.visibility = 'hidden'
+        var ids = [];
+
+        function deleteFiles() {
+            fetch("/delete-raw-data?id=" + id + "&zero={{ data[0] }}");
+        }
+
+        function addDeleteFile(id, element) {
+            var i = ids.indexOf(id);
+            if (i == -1) {
+                ids.push(id);
+                element.parentElement.style.textDecoration = 'line-through';
+            }
+            else {
+                ids.splice(i,1);
             }
             return;
         }
