@@ -93,7 +93,7 @@ def daily_data_get():
 
 # delete a file from the raw data directory
 @app.route("/delete-raw-data")
-def delete_daily_data():
+def delete_raw_data():
     raw_data_filenames = info.get_raw_data_filenames()
     id_to_delete = request.args.get("id")
 
