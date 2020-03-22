@@ -60,7 +60,7 @@ def main():
 
     # send email to manager email
     serial = py.settings.get_serial()
-    py.logs.send_email("sundarlabucr@gmail.com", "Node Registration for S\N " + serial, "Activation of node on network " + name + " at IP " + ip)
+    py.logs.send_email("sundarlabucr@gmail.com", "Node Registration for S\\N " + serial, "Activation of node on network " + name + " at IP " + ip)
     py.logs.log("main", "Sent activation email")
 
     # start IP track thread: uses https://kolb.dev/speck to update the IP address location
@@ -85,7 +85,7 @@ def main():
             if int(py.poll.lcd.get_disk_usage()[:-1]) > 70:
                 print(py.poll.lcd.get_disk_usage())
                 if not capacity_filled:
-                    logs.send_email("sundarlabucr@gmail.com", "Node is at max capacity, S\N " + serial, "The node on network " + name + " at IP " + ip + " is at max capacity.")
+                    logs.send_email("sundarlabucr@gmail.com", "Node is at max capacity, S\\N " + serial, "The node on network " + name + " at IP " + ip + " is at max capacity.")
                     capacity_filled = True
                 continue
 
