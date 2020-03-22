@@ -98,9 +98,8 @@ def delete_raw_data():
     id_to_delete = int(request.args.get("id"))
 
     this_directory = os.path.abspath(os.getcwd())
-    print(this_directory)
     os.remove(this_directory + "/data/raw/" + raw_data_filenames[id_to_delete])
-    return
+    return "success"
 
 
 # delete a file from the daily data (zipped) directory
@@ -111,7 +110,7 @@ def delete_daily_data():
 
     this_directory = os.path.abspath(os.getcwd())
     os.remove(this_directory + "/data/daily/" + daily_data_filenames[id_to_delete])
-    return
+    return "success"
 
 
 # retrieves the last server accelerometer data
