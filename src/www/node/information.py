@@ -149,7 +149,7 @@ def load_raw_data():
     return data_list
 
 # gets all the daily data file names
-def load_raw_data():
+def load_daily_data():
     data_list = os.listdir("data/daily/")
     data_list.sort()
     data_list.reverse()
