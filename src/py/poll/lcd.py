@@ -8,6 +8,7 @@ import RPi.GPIO as GPIO
 import time
 import socket
 import subprocess
+import py.logs
 
 
 lcd = "PLACEHOLDER"
@@ -209,3 +210,4 @@ def start_lcd():
         update()
         time.sleep(.25)
     GPIO.cleanup()
+    py.logs.log("lcd", "finished LCD module")
