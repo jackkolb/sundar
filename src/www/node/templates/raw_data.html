@@ -65,7 +65,7 @@
             var delete_confirm = confirm('Are you sure you wish to delete the file?');
             if (delete_confirm == true) {
                 fetch("/delete-raw-data?id=" + id + "&zero={{ data[0] }}");
-                //location.reload();
+                location.reload();
             }
             return;
         }
