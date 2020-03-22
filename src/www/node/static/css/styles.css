@@ -31,6 +31,7 @@ a {
 .selector {
     display: flex;
     justify-content: space-between;
+    flex-wrap: nowrap;
 }
 
 .selector:hover {
