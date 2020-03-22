@@ -41,7 +41,7 @@
                             {{ i }}: {{ data[i] }}
                         </a>
                         
-                        <div onClick="deleteFile({{ i }}); this.parent.style.visibility = 'hidden'" style="visibility: hidden; color: red; align-self: center; padding: 0 10pt">
+                        <div onClick="deleteFile({{ i }}, this);" style="visibility: hidden; color: red; align-self: center; padding: 0 10pt">
                             x
                         </div>
                     </div>
@@ -61,10 +61,11 @@
             element.children[1].style.visibility = 'hidden';
         }
 
-        function deleteFile(id) {
+        function deleteFile(id, element) {
             var delete_confirm = confirm('Are you sure you wish to delete the file?');
             if (delete_confirm == true) {
                 fetch("/delete-raw-data?id=" + id + "&zero={{ data[0] }}");
+                this.parentNode.style.visibility = 'hidden'
             }
             return;
         }
