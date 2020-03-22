@@ -11,6 +11,7 @@ import py.poll.lcd
 import py.poll.led
 import py.poll.location
 import py.poll.gitcheck
+import py.poll.compress
 import www.node.node_server
 import shutil
 import datetime
@@ -121,6 +122,9 @@ def main():
             with open("settings/delay", "r") as delay_setting_file:
                 sampling_delay = int(delay_setting_file.readline())
             time.sleep(sampling_delay)
+
+        # compress any old data and store it in the daily data folder
+        py.poll.comress.compress_data()
 
         # check if the git flag indicated a reset
         if py.poll.gitcheck.check_flag_file() == "RESET":
