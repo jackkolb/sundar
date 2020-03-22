@@ -124,7 +124,7 @@ def main():
             time.sleep(sampling_delay)
 
         # compress any old data and store it in the daily data folder
-        py.poll.comress.compress_data()
+        py.poll.compress.compress_data()
 
         # check if the git flag indicated a reset
         if py.poll.gitcheck.check_flag_file() == "RESET":
