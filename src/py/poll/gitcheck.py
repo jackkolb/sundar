@@ -11,10 +11,15 @@ def check_flag_file():
     
     if data == "ERROR":
         py.logs.log("[Git Check] Could not open file: flags/git_flag")
-    if data == "RESET":
-        with open("flags/git_flag", "w") as git_flag_file:
-            git_flag_file.write("GOOD")
     return data
+
+
+# set the git check flag to GOOD
+def set_gitcheck_flag_good():
+    with open("flags/git_flag", "w") as git_flag_file:
+        git_flag_file.write("GOOD")
+    return
+    
     
 # checks for new code every 10 minutes, if there is an update, pull it and restart processes
 def git_check_loop():

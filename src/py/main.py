@@ -124,4 +124,5 @@ def main():
 
         # check if the git flag indicated a reset
         if py.poll.gitcheck.check_flag_file() == "RESET":
+            py.poll.gitcheck.set_gitcheck_flag_good()
             os._exit(1)
