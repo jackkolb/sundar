@@ -2,22 +2,24 @@
 
 import subprocess
 import threading
-import py.logs
-import py.settings
 import RPi.GPIO as GPIO
 import os
-import py.poll.ip
-import py.poll.lcd
-import py.poll.led
-import py.poll.location
-import py.poll.gitcheck
-import py.poll.compress
-import www.node.node_server
 import shutil
 import datetime
 import time
 
 def main():
+    # import files
+    import py.poll.ip
+    import py.poll.lcd
+    import py.poll.led
+    import py.poll.location
+    import py.poll.gitcheck
+    import py.poll.compress
+    import www.node.node_server    
+    import py.logs
+    import py.settings         
+
     GPIO.setmode(GPIO.BCM)  # sets the GPIO pins to BCM, used for the sensors etc to work
 
     # start git check thread: checks if there are code updates, if there are it sets a flag to restart the program
@@ -128,6 +130,6 @@ def main():
 
         # check if the git flag indicated a reset
         if py.poll.gitcheck.check_flag_file() == "RESET":
-            py.logs.log("main", "Resetting")
+            py.logs.log("main", "Resetting system due to GitCheck flag")
             py.poll.gitcheck.set_gitcheck_flag_good()
             os._exit(1)

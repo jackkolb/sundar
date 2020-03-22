@@ -33,7 +33,7 @@ def git_check_loop():
 
         if "Updating" in result:  # new code on GitHub
             py.logs.log("Git", ">>" + result + "<<")
-            py.logs.log("Git", "New build found on GitHub, resetting")
+            py.logs.log("Git", "New build found on GitHub, resetting at next cycle")
             with open("flags/git_flag", "w") as git_flag_file:  # exits the program (including the thread)
                 git_flag_file.write("RESET")
         time.sleep(10)  # waits 10 seconds

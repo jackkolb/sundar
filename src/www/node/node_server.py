@@ -1,16 +1,10 @@
 # node_server.py: runs a Flask server to handle interfacing with the node
 
 from flask import Flask, render_template, request, jsonify, send_file, make_response
-try:
-    import www.node.information as info
-except:
-    import information as info
+import www.node.information as info
 import logging
 import os
-try:
-    import py.logs
-except:
-    import dev_logs
+import py.logs
 import zipfile
 
 app = Flask(__name__)  # the overall Flask app
