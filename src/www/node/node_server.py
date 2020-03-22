@@ -95,13 +95,14 @@ def daily_data_get():
 @app.route("/delete-raw-data")
 def delete_raw_data():
     raw_data_filenames = info.get_raw_data_filenames()
-    id_to_delete = int(request.args.get("id"))
+    ids_to_delete = request.args.get("id").split(",")
 
     zero_point = request.args.get("zero")
     id_adjustment = raw_data_filenames.index(zero_point)
 
     this_directory = os.path.abspath(os.getcwd())
-    os.remove(this_directory + "/data/raw/" + raw_data_filenames[id_to_delete + id_adjustment])
+    for i in ids_to_delete:
+        os.remove(this_directory + "/data/raw/" + raw_data_filenames[int(i) + id_adjustment])
     return "success"
 
 
