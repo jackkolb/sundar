@@ -19,7 +19,7 @@ def set_gitcheck_flag_good():
     with open("flags/git_flag", "w") as git_flag_file:
         git_flag_file.write("GOOD")
     return
-    
+
     
 # checks for new code every 10 minutes, if there is an update, pull it and restart processes
 def git_check_loop():
@@ -28,6 +28,8 @@ def git_check_loop():
         out, err = git_process.communicate()
         result = str(out)
         result = result[2:-3]
+
+        print("!>" + result + "<!")
 
         if "Unpacking" in result:  # new code on GitHub
             py.logs.log("Git", ">>" + result + "<<")

@@ -35,7 +35,7 @@ def compress_data():
         date_check_day = (date_check[2] == str(now.day) or date_check[2] == "0" + str(now.day))
         if not (date_check_year and date_check_month and date_check_day):  # if the dates are different
             # compress it
-            with zipfile.ZipFile("data/daily/compressed_" + date + ".zip", mode="w") as zf:
+            with zipfile.ZipFile("data/daily/compressed_" + date + ".zip", "w", zipfile.ZIP_DEFLATED) as zf:
                 [zf.write("data/raw/" + f) for f in files if date in f]
 
             # add date to the zipped date list

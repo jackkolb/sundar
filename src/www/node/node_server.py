@@ -54,7 +54,7 @@ def lastlog_get():
 def download_data_get():
     data_file_names = info.load_all_data()
     data_file_index = int(request.args.get("id"))
-    response = make_response(send_file("../../../data/raw/" + data_file_names[data_file_index], as_attachment=True, attachment_filename=data_file_names[data_file_index]))
+    response = make_response(send_file("../../../data/daily/" + data_file_names[data_file_index], as_attachment=True, attachment_filename=data_file_names[data_file_index]))
     response.headers["Cache-Control"] = ["no-cache", "must-revalidate"]
     response.headers["Expires"] = "Sat, 26 Jul 1997 05:00:00 GMT"
     return response

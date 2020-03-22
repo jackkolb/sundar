@@ -141,9 +141,9 @@ def load_all_logs():
     log_list.reverse()
     return log_list
 
-# gets all the log file names
+# gets all the data file names
 def load_all_data():
-    data_list = os.listdir("data/raw/")
+    data_list = os.listdir("data/daily/")
     data_list.sort()
     data_list.reverse()
     return data_list
