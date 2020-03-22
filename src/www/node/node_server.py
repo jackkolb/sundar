@@ -46,7 +46,7 @@ def lastlog_get():
 # download a raw data file
 @app.route("/download-raw-data", methods=["GET"])
 def download_raw_data_get():
-    data_file_names = info.load_all_data()
+    data_file_names = info.get_raw_data_filenames()
     data_file_index = int(request.args.get("id"))
     response = make_response(send_file("../../../data/raw/" + data_file_names[data_file_index], as_attachment=True, attachment_filename=data_file_names[data_file_index]))
     response.headers["Cache-Control"] = ["no-cache", "must-revalidate"]
@@ -56,7 +56,7 @@ def download_raw_data_get():
 # download logs
 @app.route("/download-daily-data", methods=["GET"])
 def download_daily_data_get():
-    data_file_names = info.load_all_data()
+    data_file_names = info.get_daily_data_filenames()
     data_file_index = int(request.args.get("id"))
     response = make_response(send_file("../../../data/daily/" + data_file_names[data_file_index], as_attachment=True, attachment_filename=data_file_names[data_file_index]))
     response.headers["Cache-Control"] = ["no-cache", "must-revalidate"]
@@ -81,13 +81,13 @@ def download_all_data_get():
 # the logs route, returns items to download from logs
 @app.route("/raw-data")
 def raw_data_get():
-    return render_template("raw_data.html", data=info.load_raw_data())
+    return render_template("raw_data.html", data=info.get_raw_data_filenames())
 
 
 # the logs route, returns items to download from logs
 @app.route("/daily-data")
 def daily_data_get():
-    return render_template("daily_data.html", data=info.load_daily_data())
+    return render_template("daily_data.html", data=info.get_daily_data_filenames())
 
 
 # retrieves the last server accelerometer data

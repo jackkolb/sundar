@@ -135,21 +135,21 @@ def load_settings():
 
 
 # gets all the log file names
-def load_all_logs():
+def get_logs_filenames():
     log_list = os.listdir("logs/")
     log_list.sort()
     log_list.reverse()
     return log_list
 
 # gets all the raw data file names
-def load_raw_data():
+def get_raw_data_filenames():
     data_list = os.listdir("data/raw/")
     data_list.sort()
     data_list.reverse()
     return data_list
 
 # gets all the daily data file names
-def load_daily_data():
+def get_daily_data_filenames():
     data_list = os.listdir("data/daily/")
     data_list.sort()
     data_list.reverse()
