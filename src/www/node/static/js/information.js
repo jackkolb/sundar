@@ -129,8 +129,12 @@ function downloadHistory() {
     return;
 }
 
-function downloadData() {
-    window.location.href="/data";
+function downloadRawData() {
+    window.location.href="/raw-data";
+}
+
+function downloadDailyData() {
+    window.location.href="/daily-data";
 }
 
 function flashLEDs() {

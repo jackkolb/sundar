@@ -141,8 +141,15 @@ def load_all_logs():
     log_list.reverse()
     return log_list
 
-# gets all the data file names
-def load_all_data():
+# gets all the raw data file names
+def load_raw_data():
+    data_list = os.listdir("data/raw/")
+    data_list.sort()
+    data_list.reverse()
+    return data_list
+
+# gets all the daily data file names
+def load_raw_data():
     data_list = os.listdir("data/daily/")
     data_list.sort()
     data_list.reverse()

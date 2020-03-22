@@ -49,9 +49,19 @@ def lastlog_get():
     response.headers["Expires"] = "Sat, 26 Jul 1997 05:00:00 GMT"
     return response
 
+# download a raw data file
+@app.route("/download-raw-data", methods=["GET"])
+def download_raw_data_get():
+    data_file_names = info.load_all_data()
+    data_file_index = int(request.args.get("id"))
+    response = make_response(send_file("../../../data/raw/" + data_file_names[data_file_index], as_attachment=True, attachment_filename=data_file_names[data_file_index]))
+    response.headers["Cache-Control"] = ["no-cache", "must-revalidate"]
+    response.headers["Expires"] = "Sat, 26 Jul 1997 05:00:00 GMT"
+    return response
+
 # download logs
-@app.route("/download-data", methods=["GET"])
-def download_data_get():
+@app.route("/download-daily-data", methods=["GET"])
+def download_daily_data_get():
     data_file_names = info.load_all_data()
     data_file_index = int(request.args.get("id"))
     response = make_response(send_file("../../../data/daily/" + data_file_names[data_file_index], as_attachment=True, attachment_filename=data_file_names[data_file_index]))
@@ -75,13 +85,20 @@ def download_all_data_get():
     return 
 
 # the logs route, returns items to download from logs
-@app.route("/data")
-def data_get():
-    return render_template("data.html", data=info.load_all_data())
+@app.route("/raw-data")
+def raw_data_get():
+    return render_template("raw_data.html", data=info.load_raw_data())
+
+
+# the logs route, returns items to download from logs
+@app.route("/daily-data")
+def daily_data_get():
+    return render_template("daily_data.html", data=info.load_daily_data())
+
 
 # retrieves the last server accelerometer data
 @app.route("/last-data", methods=["GET"])
-def lastdata_get():
+def last_data_get():
     files = os.listdir("data/raw")
     files.sort()
     response = make_response(send_file("../../../data/raw/" + files[-1]))
@@ -118,7 +135,7 @@ def restart_node():
     
 # updates a system setting, used by the buttons displayed on the webpage. This handles one setting change per request.
 @app.route("/update", methods=["GET"])
-def data_set():
+def update_get():
     valid_keys = ["active", "duration", "rate", "delay", "name", "flashLED", "flashdrive", "reset"]  # prevents changing settings beyond the valid keys
     key = request.args.get("key")
     value = request.args.get("value")

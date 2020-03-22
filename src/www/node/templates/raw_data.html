@@ -33,11 +33,11 @@
         <div class="content" id="content">
             <div class="node-overview" id="node">
                 <div class="clean-header">
-                    Data:
+                    Today's Data:
                 </div>
                 {% for i in range(data|length) %}
                     <div class="selector">
-                        <a target="_blank" href="/download-data?id={{ i }}">
+                        <a target="_blank" href="/download-raw-data?id={{ i }}">
                             <div class="node-attribute">
                                 {{ i }}: {{ data[i] }}
                             </div>
