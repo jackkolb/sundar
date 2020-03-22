@@ -35,19 +35,17 @@
                 <div class="clean-header">
                     Historical Data:
                 </div>
-                {% for i in range(data|length) %}
 
-                    <div class="selector" onmouseenter="showX(this)" onmouseleave="hideX(this)">
-                        <a target="_blank" href="/download-daily-data?id={{ i }}" class="node-attribute">
-                            {{ i }}: {{ data[i] }}e
+                    <div class="selector">
+                        <a target="_blank" href="/download-daily-data?id={{ i }}">
+                            <div class="node-attribute">
+                                Some data file name
+                            </div>
                         </a>
                         
-                        <div onClick="deleteFile({{ i }})" style="visibility:hidden; color: red; align-self: center; padding: 0 10pt">
-                            x
-                        </div>
                     </div>
-            
-                {% endfor %}
+
+
                 <br>
             </div>
         </div>
@@ -55,23 +53,5 @@
     </body>
 
     <script>
-        function showX(element) {
-            element.children[1].style.visibility = 'visible';
-        }
-        
-        function hideX(element) {
-            element.children[1].style.visibility = 'hidden';
-        }
-
-        function deleteFile(id) {
-            var delete_confirm = confirm('Are you sure you wish to delete the file?');
-            if (delete_confirm == true) {
-                fetch("/delete-daily-data?id=" + id)
-                .then(resp=>resp.blob())
-                .catch(() => alert('Unable to access webserver'));
-                location.reload();
-            }
-            return;
-        }
     </script>
 </html>

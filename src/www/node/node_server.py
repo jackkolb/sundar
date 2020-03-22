@@ -6,6 +6,7 @@ import logging
 import os
 import py.logs
 import zipfile
+import shutil
 
 app = Flask(__name__)  # the overall Flask app
 
@@ -88,6 +89,29 @@ def raw_data_get():
 @app.route("/daily-data")
 def daily_data_get():
     return render_template("daily_data.html", data=info.get_daily_data_filenames())
+
+
+# delete a file from the raw data directory
+@app.route("/delete-raw-data")
+def delete_daily_data():
+    raw_data_filenames = info.get_raw_data_filenames()
+    id_to_delete = request.args.get("id")
+
+    this_directory = os.path.abspath(os.getcwd())
+    print(this_directory)
+    os.remove(this_directory + "/data/raw/" + raw_data_filenames[id_to_delete])
+    return
+
+
+# delete a file from the daily data (zipped) directory
+@app.route("/delete-daily-data")
+def delete_daily_data():
+    daily_data_filenames = info.get_daily_data_filenames()
+    id_to_delete = request.args.get("id")
+
+    this_directory = os.path.abspath(os.getcwd())
+    os.remove(this_directory + "/data/daily/" + daily_data_filenames[id_to_delete])
+    return
 
 
 # retrieves the last server accelerometer data

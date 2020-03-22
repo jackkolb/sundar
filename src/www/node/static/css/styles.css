@@ -28,6 +28,11 @@ a {
     text-decoration: none;
 }
 
+.selector {
+    display: flex;
+    justify-content: space-between;
+}
+
 .selector:hover {
     background-color: gainsboro;
 }
