@@ -22,6 +22,9 @@ def main():
 
     GPIO.setmode(GPIO.BCM)  # sets the GPIO pins to BCM, used for the sensors etc to work
 
+    # scan settings and flag files, if they don't exist make them
+    py.settings.check_settings()
+
     # start git check thread: checks if there are code updates, if there are it sets a flag to restart the program
     py.logs.log("main", "Starting GitHub check thread")
     git_check_thread = threading.Thread(target=py.poll.gitcheck.git_check_loop)
@@ -31,11 +34,6 @@ def main():
     py.logs.log("main", "Starting LCD thread")
     lcd_thread = threading.Thread(target=py.poll.lcd.start_lcd)
     lcd_thread.start()
-    
-    # output IP address to console
-    ip, name = py.poll.lcd.get_ip_address()
-    py.logs.log("main", "WIFI Name: " + name)
-    py.logs.log("main", "IP Address: " + ip)
 
     # start LED thread: an LED that shows the current damage and flashes on command (not currently implemented in hardware)
     py.logs.log("main", "Starting LED thread")
@@ -60,6 +58,11 @@ def main():
     ip = None
     while ip == "FAIL" or ip == None:
         ip, name = py.poll.lcd.get_ip_address()
+    
+    # output IP address to logs
+    ip, name = py.poll.lcd.get_ip_address()
+    py.logs.log("main", "WIFI Name: " + name)
+    py.logs.log("main", "IP Address: " + ip)
 
     # send email to manager email
     serial = py.settings.get_serial()
@@ -86,7 +89,7 @@ def main():
         if status == "true":
             # check is storage used is 80%+
             if int(py.poll.lcd.get_disk_usage()[:-1]) > 70:
-                print(py.poll.lcd.get_disk_usage())
+                
                 if not capacity_filled:
                     logs.send_email("sundarlabucr@gmail.com", "Node is at max capacity, S\\N " + serial, "The node on network " + name + " at IP " + ip + " is at max capacity.")
                     capacity_filled = True

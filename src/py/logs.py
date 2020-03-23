@@ -2,20 +2,6 @@ import datetime
 import smtplib, ssl
 
 
-def send_email(to, subject, message):
-    port = 465  # For SSL
-    smtp_server = "smtp.gmail.com"
-    sender_email = "sundarlabucr@gmail.com"  # Enter your address
-    receiver_email = to  # Enter receiver address
-    password = open("src/py/gmail_password", "r").read()
-    message = "Subject: " + subject + "\n\n" + message
-
-    context = ssl.create_default_context()
-    with smtplib.SMTP_SSL(smtp_server, port, context=context) as server:
-        server.login(sender_email, password)
-        server.sendmail(sender_email, receiver_email, message)
-
-
 def get_date():
     now = datetime.datetime.now()
     year = now.year
@@ -116,3 +102,24 @@ def log(module, message):
 
     print(entry)
     return
+
+
+def send_email(to, subject, message):
+    # get gmail information
+    with open("settings/gmail", "a+") as f:
+        f.seek(0)  # read from beginning of file
+        lines = f.readlines()
+        if len(lines) != 2:  # check if email file is well formed
+            log("logs", "Email information not set, must be two lines email / password")
+        else:
+            port = 465  # For SSL
+            smtp_server = "smtp.gmail.com"
+            sender_email = lines[0] # Sender email address
+            receiver_email = to  # Receiver email address
+            password = lines[1]
+            message = "Subject: " + subject + "\n\n" + message
+
+            context = ssl.create_default_context()
+            with smtplib.SMTP_SSL(smtp_server, port, context=context) as server:
+                server.login(sender_email, password)
+                server.sendmail(sender_email, receiver_email, message)
