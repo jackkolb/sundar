@@ -36,7 +36,7 @@
                     <div class="clean-header">
                         Today's Data:
                     </div>
-                    <div onClick="deleteFiles();" class="delete">
+                    <div onClick="deleteFiles();" class="delete" id="delete-button" style="visibility: hidden">
                         Delete
                     </div>
                 </div>
@@ -72,10 +72,10 @@
             var id_string = "";
             for (var i = 0; i < ids.length-1; i++) {
                 id_string = id_string + ids[i] + ",";
-                document.getElementById("node").children[i + 1].style.visibility = "hidden";
+                document.getElementById("node").children[i + 1].innerHTML = "(deleted)";
             }
             id_string = id_string + ids[ids.length-1];
-            document.getElementById("node").children[ids[ids.length-1] + 1].style.visibility = "hidden";
+            document.getElementById("node").children[ids[ids.length-1] + 1].innerHTML = "(deleted)";
 
             fetch("/delete-raw-data?id=" + id_string + "&zero={{ data[0] }}");
         }
@@ -85,10 +85,14 @@
             if (i == -1) {
                 ids.push(id);
                 element.parentElement.children[0].style.textDecoration = 'line-through';
+                document.getElementById("delete-button").style.visibility = "visible";
             }
             else {
                 ids.splice(i,1);
                 element.parentElement.children[0].style.textDecoration = 'none';
+                if (ids.length == 0) {
+                    document.getElementById("delete-button").style.visibility = "hidden";
+                }
             }
             return;
         }
