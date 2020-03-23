@@ -31,6 +31,20 @@
     padding: 5pt 5pt;
 }
 
+.back {
+    background-color: transparent;
+    border: 1pt solid #2196F3;
+    color: #2196F3;
+    border-radius: 5px;
+    margin: 2%;
+    font-size: 15pt;
+    padding: 5pt 5pt;
+}
+
+.back:hover {
+    border: 1pt solid blue;
+}
+
 .action-left {
     margin-left: 5%;
 }
