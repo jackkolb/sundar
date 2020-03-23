@@ -79,7 +79,7 @@
 
             ids = [];
 
-            fetch("/delete-daily-data?id=" + id_string + "&zero={{ data[0] }}");
+            fetch("/delete-daily-data?id=" + id_string + "&zero={{ data[0] }}").then(location.reload());
         }
 
         function addDeleteFile(id, element) {
