@@ -136,6 +136,10 @@ def update():
     else:
         lcd.write_string(char_not_collecting)
     # write the device name
+    if len(name) > 10:
+        name = name[:9]
+    elif len(name) < 10:
+        name = name + " " * (10 - len(name))
     lcd.write_string(" " + name)
 
     # display disk usage
