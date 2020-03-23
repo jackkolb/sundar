@@ -84,6 +84,7 @@ def device_name():
     try:
         with open("./settings/name", "r") as name_file:
             name = name_file.readline()
+            print("NAME", name)
     except Exception:
         name = "empty"
     return name
