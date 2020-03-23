@@ -31,9 +31,18 @@
         <div class="content" id="content">
             <div class="node-overview" id="node">
                 <div class="node-header">
-                    <div class="node-name" id="nodeName">
-                        {{ data["name"] }}
+                    <div style="display: flex; align-items: center; flex-wrap: nowrap; padding: 0% 3%" onmouseenter="showEditButton()" onmouseleave="hideEditButton()">
+                        <div class="edit" id="editButton">
+                            Edit
+                        </div>
+                        <input id="name-entry" type="text" class="node-name-entry" onchange="setName();" />
+                        <!--<div class="node-name" id="nodeName" style="flex-shrink: 0;">
+                            {{ data["name"] }}
+                        </div>
+
+                        -->
                     </div>
+                    <div id="empty" style="flex:1"></div>
                     <div class="node-circle" id="nodeCircle">
                     </div>
                 </div>
@@ -120,12 +129,16 @@
 
                 <!-- Button line along the bottom -->
                 <div class="buttons">
+                    <!-- Flash the LED (currently there is no LED) -->
+                    <!--
                     <button class="action" onclick="flashLEDs()">
                         <div class="text">
                             Flash LEDs
                         </div>
                     </button>
+                    -->
         
+                    <!-- Reset the node (delete data) -->
                     <button class="action" onclick="resetNode()">
                         <div class="text">
                             Reset Node
@@ -187,5 +200,16 @@
         document.getElementById("duration-entry").value = {{ data["duration"] }};
         document.getElementById("rate-entry").value = {{ data["rate"] }};
         document.getElementById("delay-entry").value = {{ data["delay"] }};
+
+        function showEditButton() {
+            document.getElementById("editButton").style.visibility = "display";
+        }
+
+        function hideEditButton() {
+            document.getElementById("editButton").style.visibility = "hidden";
+        }
+
+        document.getElementById("editButton").style.visibility = "hidden";
+
     </script>
 </html>

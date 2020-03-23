@@ -67,6 +67,12 @@ function generatePlot(name, x_data, y_data) {
     window.myLine = new Chart(ctx, config);
 }
 
+function setName() {
+    value = document.getElementById("name-entry").value;
+    console.log("set name to " + value)
+    sendUpdate("name", value)
+}
+
 function setActive() {
     value = document.getElementById("activeToggle").checked;
     console.log("set active to " + value)
