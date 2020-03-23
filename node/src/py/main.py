@@ -89,7 +89,6 @@ def main():
         if status == "true":
             # check is storage used is 80%+
             if int(py.poll.lcd.get_disk_usage()[:-1]) > 70:
-                
                 if not capacity_filled:
                     logs.send_email("sundarlabucr@gmail.com", "Node is at max capacity, S\\N " + serial, "The node on network " + name + " at IP " + ip + " is at max capacity.")
                     capacity_filled = True

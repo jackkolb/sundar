@@ -4,7 +4,6 @@
 #   lsop
 sudo apt-get install lsop
 
-
 # from python:
 #   flask (webserver)
 #   RPLCD (16x2 LCD display)
