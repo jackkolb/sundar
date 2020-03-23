@@ -72,7 +72,7 @@
             var id_string = "";
             for (var i = 0; i < ids.length-1; i++) {
                 id_string = id_string + ids[i] + ",";
-                document.getElementById("node").children[i + 1].style.visibility = "hidden";
+                document.getElementById("node").children[ids[i] + 1].style.visibility = "hidden";
             }
             id_string = id_string + ids[ids.length-1];
             document.getElementById("node").children[ids[ids.length-1] + 1].style.visibility = "hidden";
