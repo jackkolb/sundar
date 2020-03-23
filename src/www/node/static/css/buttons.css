@@ -11,6 +11,14 @@
     margin: 2%;
 }
 
+.delete {
+    background-color: transparent;
+    border: 1pt solid red;
+    color: red;
+    border-radius: 5px;
+    margin: 2%;
+}
+
 .action-left {
     margin-left: 5%;
 }
