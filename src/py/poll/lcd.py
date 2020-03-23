@@ -125,12 +125,18 @@ def update():
 
     #dispip(ip)  # blink the IP address
 
-    # display collection information
+    # display device name
     with open("flags/collection", "r") as collection_flag_file:
         collection_flag = collection_flag_file.readline()
     name = device_name()
     lcd.cursor_pos = (1, 0)
-    lcd.write_string(char_collecting + " " + name) # collecting
+    # write the collecting character
+    if collection_flag == "true":
+        lcd.write_string(char_collecting)
+    else:
+        lcd.write_string(char_not_collecting)
+    # write the device name
+    lcd.write_string(" " + name)
 
     # display disk usage
     disk_usage = get_disk_usage()
