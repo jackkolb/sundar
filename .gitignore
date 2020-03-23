@@ -1,7 +1,7 @@
-logs/
-data/raw/*
-data/accelerometer.data
-data/*.py
-flags/*
-src/py/gmail_password
-settings/*
+node/logs/*
+node/data/raw/*
+node/data/accelerometer.data
+node/data/*.py
+node/flags/*
+node/src/py/gmail_password
+node/settings/*
