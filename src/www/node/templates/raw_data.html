@@ -79,7 +79,7 @@
 
             ids = [];
 
-            fetch("/delete-raw-data?id=" + id_string + "&zero={{ data[0] }}").then(location.reload());
+            fetch("/delete-raw-data?id=" + id_string + "&zero={{ data[0] }}").then(function() {location.reload()});
         }
 
         function addDeleteFile(id, element) {
