@@ -84,7 +84,6 @@ def device_name():
     try:
         with open("./settings/name", "r") as name_file:
             name = name_file.readline()
-            print("NAME", name)
     except Exception:
         name = "empty"
     return name
@@ -131,7 +130,7 @@ def update():
         collection_flag = collection_flag_file.readline()
     name = device_name()
     lcd.cursor_pos = (1, 0)
-    lcd.write_string(char_collecting + " " + out_file) # collecting
+    lcd.write_string(char_collecting + " " + name) # collecting
 
     # display disk usage
     disk_usage = get_disk_usage()
