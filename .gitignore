@@ -2,6 +2,6 @@ logs/
 data/raw/*
 data/accelerometer.data
 data/*.py
-flags/speck
+flags/*
 src/py/gmail_password
 settings/*
