@@ -1,3 +1,5 @@
+import os
+
 def get_duration():
     with open("settings/duration", "r") as duration_file:
         duration = duration_file.read()
