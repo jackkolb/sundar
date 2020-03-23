@@ -113,7 +113,7 @@ def delete_daily_data():
     id_to_delete = request.args.get("id").split(",")
 
     zero_point = request.args.get("zero")
-    id_adjustment = raw_data_filenames.index(zero_point)
+    id_adjustment = daily_data_filenames.index(zero_point)
 
     this_directory = os.path.abspath(os.getcwd())
     for i in ids_to_delete:
