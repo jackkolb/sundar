@@ -63,6 +63,12 @@ def load_flashdrive():
         state = flashdrive_file.read()
     return state
 
+# gets the value of the speck file
+def load_speck():
+    with open("settings/speck", "r") as speck_file:
+        speck = speck_file.read()
+    return speck
+
 # gets all the log file names
 def load_all_logs():
     log_list = os.listdir("logs/")
@@ -116,7 +122,8 @@ def load_information():
         "history": load_history(),
         "duration": load_duration(),
         "rate": load_rate(),
-        "delay": load_delay()
+        "delay": load_delay(),
+        "speck": load_speck()
     }
     return information
 
@@ -128,7 +135,8 @@ def load_settings():
         "duration": load_duration(),
         "flashLED": load_flash_led(),
         "flashdrive": load_flashdrive(),
-        "delay": load_delay()
+        "delay": load_delay(),
+        "speck": load_speck()
     }
     reset_flash_LED()
     return settings
