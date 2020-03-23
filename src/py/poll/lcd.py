@@ -78,16 +78,12 @@ def charflag_flip():
     else:
         charflag = "-"
 
-# reads the destination flag, returns either "Flashdrive" or "Onboard" accordingly
-def destination_file():
+# returns the device name
+def device_name():
     name = "INITIAL"
     try:
-        with open("./flags/destination", "r") as out_file:
-            name = out_file.readline()
-            if "SUNDAR_RESEARCH" in name:
-                name = "Flashdrive"
-            else:
-                name = "Onboard   "
+        with open("./settings/name", "r") as name_file:
+            name = name_file.readline()
     except Exception:
         name = "empty"
     return name
@@ -132,7 +128,7 @@ def update():
     # display collection information
     with open("flags/collection", "r") as collection_flag_file:
         collection_flag = collection_flag_file.readline()
-    out_file = destination_file()
+    out_file = device_name()
     if collection_flag == "true":
         lcd.cursor_pos = (1, 0)
         lcd.write_string(char_collecting + " " + out_file) # collecting
