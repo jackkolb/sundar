@@ -32,21 +32,24 @@
         <br><br><br><br><br>
         <div class="content" id="content">
             <div class="node-overview" id="node">
-                <div class="clean-header">
-                    Historical Data:
+                <div style="display: flex; justify-content: space-between;">
+                    <div class="clean-header">
+                        Historical Data:
+                    </div>
+                    <div onClick="deleteFiles();" class="delete" id="delete-button" style="visibility: hidden">
+                        Delete
+                    </div>
                 </div>
                 {% for i in range(data|length) %}
-
                     <div class="selector" onmouseenter="showX(this)" onmouseleave="hideX(this)">
                         <a target="_blank" href="/download-daily-data?id={{ i }}" class="node-attribute">
                             {{ i }}: {{ data[i] }}
                         </a>
                         
-                        <div onClick="deleteFile({{ i }})" style="visibility:hidden; color: red; align-self: center; padding: 0 10pt">
+                        <div onClick="addDeleteFile({{ i }}, this);" style="visibility: hidden; color: red; align-self: center; padding: 0 10pt">
                             x
                         </div>
                     </div>
-            
                 {% endfor %}
                 <br>
             </div>
@@ -63,15 +66,36 @@
             element.children[1].style.visibility = 'hidden';
         }
 
-        function deleteFile(id) {
-            var delete_confirm = confirm('Are you sure you wish to delete the file?');
-            if (delete_confirm == true) {
-                fetch("/delete-daily-data?id=" + id + "&zero=" + {{ data[0] }} );
-                location.reload();
-            }
+        var ids = [];
 
-            
-            document.getElementById("node").children[id+1]
+        function deleteFiles() {
+            var id_string = "";
+            for (var i = 0; i < ids.length-1; i++) {
+                id_string = id_string + ids[i] + ",";
+                document.getElementById("node").children[i + 1].style.visibility = "hidden";
+            }
+            id_string = id_string + ids[ids.length-1];
+            document.getElementById("node").children[ids[ids.length-1] + 1].style.visibility = "hidden";
+
+            ids = [];
+
+            fetch("/delete-daily-data?id=" + id_string + "&zero={{ data[0] }}");
+        }
+
+        function addDeleteFile(id, element) {
+            var i = ids.indexOf(id);
+            if (i == -1) {
+                ids.push(id);
+                element.parentElement.children[0].style.textDecoration = 'line-through';
+                document.getElementById("delete-button").style.visibility = "visible";
+            }
+            else {
+                ids.splice(i,1);
+                element.parentElement.children[0].style.textDecoration = 'none';
+                if (ids.length == 0) {
+                    document.getElementById("delete-button").style.visibility = "hidden";
+                }
+            }
             return;
         }
     </script>
