@@ -129,13 +129,9 @@ def update():
     # display collection information
     with open("flags/collection", "r") as collection_flag_file:
         collection_flag = collection_flag_file.readline()
-    out_file = device_name()
-    if collection_flag == "true":
-        lcd.cursor_pos = (1, 0)
-        lcd.write_string(char_collecting + " " + out_file) # collecting
-    else:
-        lcd.cursor_pos = (1, 0)
-        lcd.write_string("\x03" + " " + "           ") # not collecting
+    name = device_name()
+    lcd.cursor_pos = (1, 0)
+    lcd.write_string(char_collecting + " " + out_file) # collecting
 
     # display disk usage
     disk_usage = get_disk_usage()
