@@ -92,8 +92,6 @@ def load_serial():
 
 # get the device LAN IP address
 def load_ip():
-# gets the Pi's current IP address
-def get_ip_address():
     try:
         s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
         s.connect(("8.8.8.8", 80))
