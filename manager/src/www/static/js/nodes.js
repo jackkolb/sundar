@@ -47,15 +47,30 @@ function generateNode(id, data) {
     nodeLife.className = "node-life";
     nodeLife.innerHTML = "Life Estimate: " + estimate_life + " weeks";
 
+    var nodeIP = document.createElement("div");
+    nodeIP.className = "node-life";
+    nodeIP.innerHTML = "IP Address: " + data[id].ip;
+
+    var nodeSerial = document.createElement("div");
+    nodeSerial.className = "node-life";
+    nodeSerial.innerHTML = "Serial: " + data[id].serial;
+
+    var nodeSpeck = document.createElement("div");
+    nodeSpeck.className = "node-life";
+    nodeSpeck.innerHTML = "Speck: " + data[id].speck;
+
     node.append(nodeName);
     node.append(nodeStatus);
         nodeStatus.append(nodeCircle);
     node.append(nodeInformation);
         nodeInformation.append(nodeDamage);
         nodeInformation.append(nodeLife);
+        nodeInformation.append(nodeSpeck);
+        nodeInformation.append(nodeIP);
+        nodeInformation.append(nodeSerial);
+        
 
-    node.setAttribute("onclick", "loadHistory(); loadSelectedItem(" + id + ")");
-
+    node.setAttribute("onclick", "window.location = 'http://" + data[id].ip + "'");
     return node;
 }
 
@@ -77,7 +92,7 @@ function loadNodes(data) {
     console.log(data);
     console.log("..");
     for (var key in data) {
-        console.log(key)
+        console.log(key);
         addUL(generateNode(key, data));
     }
 

@@ -1,5 +1,3 @@
-
-
 <html>
     <head>
         <title>Sundar Research - Node Manager</title>
@@ -31,7 +29,7 @@
                     Sundar Research
                 </div>
                 <div class=title-sub>
-                    Nodes Overview
+                    Manager Overview
                 </div>
             </span>
         </div>
@@ -44,13 +42,10 @@
             <a onclick="loadSettings()" id="settings">Settings</a>
         </div>
 
-        <div class="content" id="content">
-            <br><br>
-
-        </div>
+        <div class="content" id="content"><br><br></div>
 
         <script>
-            var data = {{ data | safe }};
+            var data = {'00000000c505c12d': {'active': 'true', 'delay': '3600\n', 'duration': '20', 'flashdrive': 'false', 'history': [['12345', '1'], ['12346', '1'], ['12347', '1'], ['12348', '1'], ['12349', '1'], ['12350', '1'], ['12351', '1'], ['12352', '1'], ['12353', '1'], ['12354', '2'], ['12355', '2'], ['12356', '2'], ['12357', '2'], ['12358', '2'], ['12359', '2'], ['12360', '3'], ['12361', '3'], ['12362', '3'], ['12363', '3'], ['12364', '3'], ['12365', '4'], ['12366', '4'], ['12367', '4']], 'ip': '10.28.89.7', 'life': '43', 'name': 'Fume Hood A', 'rate': '1001', 'serial': '00000000c505c12d', 'speck': 'swjolqah z0HxlQ98Vy', 'last_contact': '1585164996'}}//{{ data | safe }};
             console.log("!!");
             loadOverview(data);
             console.log("<<");
