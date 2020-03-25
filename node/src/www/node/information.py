@@ -6,6 +6,7 @@ except:
     import dev_logs as logs
 import os
 import socket
+import subprocess
 
 
 # reads from the expected life remaining file
