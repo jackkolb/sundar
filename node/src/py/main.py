@@ -56,7 +56,7 @@ def main():
 
     # wait until connected to WiFi
     ip = None
-    while ip == None:
+    while ip == None or ip == "FAIL":
         ip, name = py.poll.lcd.get_ip_address()
     
     # output IP address to logs
