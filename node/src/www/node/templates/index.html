@@ -181,11 +181,10 @@
 
     <script>
         var data_x = []; var data_y = [];
-        var data = {{ data['history'] }};
+        var data = {{ data['history'] | safe }};
         for (var i = 0; i < data.length; i++) {
-            var point = data[i].split(" ");
-            data_x.push(point[0]);
-            data_y.push(point[1]);
+            data_x.push(data[i][0]);
+            data_y.push(data[i][1]);
         };
         last_damage = data_y[data_y.length-1];
 
