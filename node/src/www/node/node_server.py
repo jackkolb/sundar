@@ -139,7 +139,7 @@ def settings_get():
 
 # retrieves server information
 @app.route("/information", methods=["GET"])
-def settings_get():
+def information_get():
     response = make_response(jsonify(info.load_information()))
     return response
 
