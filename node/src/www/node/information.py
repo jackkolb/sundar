@@ -5,6 +5,8 @@ try:
 except:
     import dev_logs as logs
 import os
+import socket
+
 
 # reads from the expected life remaining file
 def load_life():
@@ -80,6 +82,18 @@ def load_logs():
         logs = logs_file.read()
     return logs
 
+# gets the device serial number
+def load_serial():
+    with open("/proc/cpuinfo", "r") as cpu_info_file:
+        lines = cpu_info_file.readlines()
+        serial = [x for x in lines if "Serial" in x][0].split(":")[1][1:-1]
+    return serial
+
+
+# get the device LAN IP address
+def load_ip():
+    return socket.gethostbyname(socket.gethostname())
+
 # clears the log file
 def reset_logs():
     with open("data/logs", "w") as logs_file:
@@ -123,7 +137,9 @@ def load_information():
         "duration": load_duration(),
         "rate": load_rate(),
         "delay": load_delay(),
-        "speck": load_speck()
+        "speck": load_speck(),
+        "serial": load_serial(),
+        "ip": load_ip()
     }
     return information
 

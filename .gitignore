@@ -5,3 +5,8 @@ node/data/*.py
 node/flags/*
 node/src/py/gmail_password
 node/settings/*
+
+manager/logs/*
+manager/data/settings/*
+manager/data/flags/*
+manager/data/nodes/*

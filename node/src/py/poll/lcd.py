@@ -63,7 +63,6 @@ def get_ip_address():
         (output, err) = p.communicate()
         p_status = p.wait()
         wifi_name = str(output).split('"')[1] + "      "
-        #print("wifi: " + wifi_name + " : " + ip_address)
         
     except OSError:
         ip_address = "FAIL"

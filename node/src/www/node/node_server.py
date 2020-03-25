@@ -137,6 +137,12 @@ def settings_get():
     response = make_response(jsonify(info.load_settings()))
     return response
 
+# retrieves server information
+@app.route("/information", methods=["GET"])
+def settings_get():
+    response = make_response(jsonify(info.load_information()))
+    return response
+
 # retrieves the current server history
 @app.route("/history", methods=["GET"])
 def history_get():
@@ -150,7 +156,6 @@ def history_get():
 def reset_get():
     info.reset_logs()
     info.reset_data()
-
 
 # restarts the device
 @app.route("/restart", methods=["GET"])
