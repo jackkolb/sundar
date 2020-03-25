@@ -37,7 +37,6 @@ def generate_scan_range(low, high):
 # ping the node for its data
 def get_node_information(ip):
     response = requests.get("http://" + ip + "/information")
-    print(response.json())
     if response.status_code == 200:
         return response.json()
     else:

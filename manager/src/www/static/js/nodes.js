@@ -1,8 +1,14 @@
 function generateNode(id, data) {
     console.log("TEST");
-    var node_name = data[id].settings.name;
-    console.log(data[id]["data"][1][1]);
-    var bearing_status = data[id]["data"][data[id]["data"].length-1][1];
+    var node_name = data[id].name;
+    
+    if ("history" in data[id]) {
+        console.log(data[id]["history"][1][1]);
+        var bearing_status = data[id]["history"][data[id]["history"].length-1][1];
+    }
+    else {
+        var bearing_status = NaN;
+    }
     var estimate_life = data[id].life;
 
     var node = document.createElement("div");

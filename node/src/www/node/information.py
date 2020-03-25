@@ -33,7 +33,7 @@ def load_active():
 # reads from the classifier results file (shows damage level vs. time)
 def load_history():
     with open("data/classifier.data", "r") as data_file:
-        data = data_file.read()
+        data = [x.split(" ") for x in data_file.read().split("\n")]
     return data
 
 # writes the input as the classifier results file (overwrites everything)

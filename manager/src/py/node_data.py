@@ -5,7 +5,7 @@ node_data = {}
 
 def read_node_data():
     global node_data
-    node_data = json.loads(open('data/nodes/nodes.data').read())
+    node_data = json.loads(open('data/nodes/nodes.data').read().replace("'", '"'))
     return
 
 

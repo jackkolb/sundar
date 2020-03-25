@@ -8,7 +8,6 @@ import www.master_server
 import json
 import threading
 import time
-import multiprocessing
 
 
 def main():
@@ -20,10 +19,16 @@ def main():
     # read the node data file
     py.node_data.read_node_data()
 
+    # start node data autosave thread
+    autosave_thread = threading.Thread(target=py.node_data.autosave_loop)
+    autosave_thread.start()
+
     # start webserver thread: a webserver to control the device remotely
     py.logs.log("main", "Starting Webserver thread")
     webserver_thread = threading.Thread(target=www.master_server.start_server)
     webserver_thread.start()
+
+    
 
     # wait until connected to WiFi
     ip = None
@@ -46,11 +51,9 @@ def main():
         
         # for each scanned ip, get its node information
         scanned_nodes = {}
-        print(py.node_data.node_data)
         for node in py.node_data.node_data.keys():
             ip = py.node_data.node_data[node]["ip"]
             scanned_node_data = py.networks.get_node_information(ip)
-            print("ss", scanned_node_data)
             if scanned_node_data != {}:
                 scanned_nodes[scanned_node_data["serial"]] = scanned_node_data
                 scanned_nodes[scanned_node_data["serial"]]["last_contact"] = str(int(time.time()))
