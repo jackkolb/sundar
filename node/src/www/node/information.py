@@ -92,7 +92,21 @@ def load_serial():
 
 # get the device LAN IP address
 def load_ip():
-    return socket.gethostbyname(socket.gethostname())
+# gets the Pi's current IP address
+def get_ip_address():
+    try:
+        s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+        s.connect(("8.8.8.8", 80))
+        ip_address = s.getsockname()[0]
+        s.close()
+
+        p = subprocess.Popen("iwgetid", stdout=subprocess.PIPE, shell=True)
+        (output, err) = p.communicate()
+        p_status = p.wait()
+        
+    except OSError:
+        ip_address = "FAIL"
+    return ip_address
 
 # clears the log file
 def reset_logs():
