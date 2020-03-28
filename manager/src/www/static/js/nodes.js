@@ -1,5 +1,4 @@
 function generateNode(id, data) {
-    console.log("TEST");
     var node_name = data[id].name;
     
     if ("history" in data[id]) {
@@ -14,12 +13,12 @@ function generateNode(id, data) {
     var node = document.createElement("div");
     node.className = "node-overview";
 
-    var nodeName = document.createElement("div");
-    nodeName.className = "node-name";
-    nodeName.innerHTML = node_name;
-
     var nodeStatus = document.createElement("div");
     nodeStatus.className = "node-status";
+
+    var nodeName = document.createElement("div");
+    nodeName.className = "node-name";
+    nodeName.innerHTML = node_name + "<br>";
 
     var nodeCircle = document.createElement("div");
     nodeCircle.className = "node-circle";
@@ -40,37 +39,61 @@ function generateNode(id, data) {
     nodeInformation.className = "node-information";
 
     var nodeDamage = document.createElement("div");
-    nodeDamage.className = "node-damage";
+    nodeDamage.className = "node-detail";
     nodeDamage.innerHTML = "Bearing Damage: " + bearing_status;
 
     var nodeLife = document.createElement("div");
-    nodeLife.className = "node-life";
+    nodeLife.className = "node-detail";
     nodeLife.innerHTML = "Life Estimate: " + estimate_life + " weeks";
 
+    var nodeBreak = document.createElement("br");
+    nodeBreak.className = "node-detail";
+
     var nodeIP = document.createElement("div");
-    nodeIP.className = "node-life";
+    nodeIP.className = "node-detail";
     nodeIP.innerHTML = "IP Address: " + data[id].ip;
 
     var nodeSerial = document.createElement("div");
-    nodeSerial.className = "node-life";
+    nodeSerial.className = "node-detail";
     nodeSerial.innerHTML = "Serial: " + data[id].serial;
 
     var nodeSpeck = document.createElement("div");
-    nodeSpeck.className = "node-life";
+    nodeSpeck.className = "node-detail";
     nodeSpeck.innerHTML = "Speck: " + data[id].speck;
 
-    node.append(nodeName);
-    node.append(nodeStatus);
-        nodeStatus.append(nodeCircle);
-    node.append(nodeInformation);
-        nodeInformation.append(nodeDamage);
-        nodeInformation.append(nodeLife);
-        nodeInformation.append(nodeSpeck);
-        nodeInformation.append(nodeIP);
-        nodeInformation.append(nodeSerial);
-        
+    var nodeTimestamp = document.createElement("div");
+    nodeTimestamp.className = "node-detail";
+    var timeStamp = Math.floor(Date.now() / 1000);
+    nodeTimestamp.innerHTML = "Last Sync: " + String(timeStamp - Number(data[id].last_contact)) + " sec";
 
-    node.setAttribute("onclick", "window.location = 'http://" + data[id].ip + "'");
+    
+    node.appendChild(nodeStatus);
+        nodeStatus.appendChild(nodeName);
+        nodeStatus.appendChild(nodeCircle);
+    node.appendChild(nodeInformation);
+        if (getCookie("displayDamage") == "true") {
+            nodeInformation.appendChild(nodeDamage);
+        }
+        if (getCookie("displayEstimate") == "true") {
+            nodeInformation.appendChild(nodeLife);
+        }
+        nodeInformation.appendChild(nodeBreak);
+
+        if (getCookie("displayAddress") == "true") {
+            nodeInformation.appendChild(nodeIP);
+        }
+        if (getCookie("displaySerial") == "true") {
+            nodeInformation.appendChild(nodeSerial);
+        }
+        if (getCookie("displaySpeck") == "true") {
+            nodeInformation.appendChild(nodeSpeck);
+        }
+        if (getCookie("displaySync") == "true") {
+            nodeInformation.appendChild(nodeTimestamp);
+        }
+
+    node.setAttribute("onclick", "window.open('http://" + data[id].ip + "');");
+    node.setAttribute("target", "_blank");
     return node;
 }
 
@@ -86,11 +109,9 @@ function loadNodes(data) {
     var ul = document.createElement("ul");
         ul.id = "node-tiles";
         ul.className = "tile-list";
-    document.getElementById("content").append(ul);
+    document.getElementById("content").appendChild(ul);
 
-    console.log("Hello");
     console.log(data);
-    console.log("..");
     for (var key in data) {
         console.log(key);
         addUL(generateNode(key, data));

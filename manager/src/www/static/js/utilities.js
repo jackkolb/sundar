@@ -6,7 +6,6 @@ function unhighlightMenu(name) {
 function resetMenu() {
     console.log("reset menu");
     unhighlightMenu("overview");
-    unhighlightMenu("history");
     unhighlightMenu("settings");
 }
 

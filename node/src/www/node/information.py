@@ -88,6 +88,12 @@ def load_serial():
     with open("/proc/cpuinfo", "r") as cpu_info_file:
         lines = cpu_info_file.readlines()
         serial = [x for x in lines if "Serial" in x][0].split(":")[1][1:-1]
+        start_index = 0
+        for i in range(len(serial)):
+            if serial[i] != '0':
+                start_index = i
+                break
+        serial = serial[i:]
     return serial
 
 

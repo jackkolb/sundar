@@ -1,0 +1,34 @@
+.textentry {
+    width: 30pt;
+    float: right;
+    border: 0 solid transparent;
+    border-bottom: 1pt solid lightskyblue;
+    height: 20pt;
+    font-size: 15;
+}
+
+.textentry:hover {
+    border-bottom: 1pt solid lightsteelblue;
+}
+
+.textentry:focus {
+    border: 2px solid transparent;
+    box-shadow: none;
+    outline: none;
+}
+
+.new-node-entry {
+    border: 0 solid green;
+
+    font-size: 20pt;
+    color: dimgrey;
+    padding: 1% 0%;
+
+    flex-shrink: 0;
+}
+
+.new-node-entry:focus {
+    border-bottom: 2px solid #2196F3;
+    box-shadow: none;
+    outline: none;
+}

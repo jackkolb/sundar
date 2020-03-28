@@ -51,18 +51,27 @@ def main():
         
         # for each scanned ip, get its node information
         scanned_nodes = {}
-        for node in py.node_data.node_data.keys():
-            ip = py.node_data.node_data[node]["ip"]
-            scanned_node_data = py.networks.get_node_information(ip)
-            if scanned_node_data != {}:
-                scanned_nodes[scanned_node_data["serial"]] = scanned_node_data
-                scanned_nodes[scanned_node_data["serial"]]["last_contact"] = str(int(time.time()))
+        try:
+            for node in py.node_data.node_data.keys():
+                ip = py.node_data.node_data[node]["ip"]
+                scanned_node_data = py.networks.get_node_information(ip)
+                if scanned_node_data != {}:
+                    scanned_nodes[scanned_node_data["serial"]] = scanned_node_data
+                    scanned_nodes[scanned_node_data["serial"]]["last_contact"] = str(int(time.time()))
+                elif "speck" in py.node_data.node_data[node].keys():
+                    speck = py.node_data.node_data[node]["speck"].split(" ")
+                    ip = py.networks.get_speck(speck[0], speck[1])
+                    if ip != "FAIL":
+                        py.node_data.node_data[node]["ip"] = ip
+
+        except RuntimeError:
+            py.logs.log("main", "Dictionary changed during iteration, likely because a node tracker was deleted")
 
         # write the current json to the file
         py.node_data.sync_data(scanned_nodes)
 
         py.logs.log("main", "Updated node data with " + str(len(scanned_nodes.keys())) + " nodes")
-        time.sleep(5)
+        time.sleep(py.node_data.sync_timer)
         
 
 if __name__ == "__main__":

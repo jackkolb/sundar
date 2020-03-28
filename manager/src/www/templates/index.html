@@ -10,16 +10,20 @@
         <link href="static/css/title.css" rel="stylesheet">
         <link href="static/css/sidebar.css" rel="stylesheet">
         <link href="static/css/overview.css" rel="stylesheet">
-        <link href="static/css/history.css" rel="stylesheet">
-        <link href="static/css/history_select.css" rel="stylesheet">
+        <link href="static/css/settings.css" rel="stylesheet">
+        <link href="static/css/numberbox.css" rel="stylesheet">
+        <link href="static/css/slider.css" rel="stylesheet">
+        <link href="static/css/textentry.css" rel="stylesheet">
+        <!-- <link href="static/css/history_select.css" rel="stylesheet"> -->
         
         <script src="static/js/ChartJs/Chart.min.js"></script>
         <script src="static/js/ChartJs/ChartUtils.js"></script>
-        <script src="static/js/history.js"></script>
+        <!-- <script src="static/js/history.js"></script> -->
         <script src="static/js/menus.js"></script>
-        <script src="static/js/history_select.js"></script>
+        <!-- <script src="static/js/history_select.js"></script> -->
         <script src="static/js/content.js"></script>
         <script src="static/js/utilities.js"></script>
+        <script src="static/js/settings.js"></script>
         
         <script src="static/js/nodes.js"></script>
 
@@ -38,17 +42,14 @@
         <div class="sidenav">
             <br>
             <a onclick="loadOverview()" id="overview">Overview</a>
-            <a onclick="loadHistory()" id="history">History</a>
+            <!-- <a onclick="loadHistory()" id="history">History</a> -->
             <a onclick="loadSettings()" id="settings">Settings</a>
         </div>
 
         <div class="content" id="content"><br><br></div>
 
         <script>
-            var data = {'00000000c505c12d': {'active': 'true', 'delay': '3600\n', 'duration': '20', 'flashdrive': 'false', 'history': [['12345', '1'], ['12346', '1'], ['12347', '1'], ['12348', '1'], ['12349', '1'], ['12350', '1'], ['12351', '1'], ['12352', '1'], ['12353', '1'], ['12354', '2'], ['12355', '2'], ['12356', '2'], ['12357', '2'], ['12358', '2'], ['12359', '2'], ['12360', '3'], ['12361', '3'], ['12362', '3'], ['12363', '3'], ['12364', '3'], ['12365', '4'], ['12366', '4'], ['12367', '4']], 'ip': '10.28.89.7', 'life': '43', 'name': 'Fume Hood A', 'rate': '1001', 'serial': '00000000c505c12d', 'speck': 'swjolqah z0HxlQ98Vy', 'last_contact': '1585164996'}}//{{ data | safe }};
-            console.log("!!");
-            loadOverview(data);
-            console.log("<<");
+            loadOverview();
         </script>
     
     </body>

@@ -36,11 +36,26 @@ def generate_scan_range(low, high):
 
 # ping the node for its data
 def get_node_information(ip):
-    response = requests.get("http://" + ip + "/information")
-    if response.status_code == 200:
+    try:
+        response = requests.get("http://" + ip + "/information")
+    except:
+        response = "FAIL"
+
+    if response == "FAIL":
+        return {}
+    elif response.status_code == 200:
         return response.json()
     else:
         return {}
+
+
+# uses a given speck id and key to get the ip address
+def get_speck(id, key):
+    try:
+        response = requests.get("http://kolb.dev/speck?id=" + id + "&key=" + key).text
+    except:
+        response = "FAIL"
+    return response
 
 
 # gets this device's IP address

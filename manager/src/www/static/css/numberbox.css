@@ -1,0 +1,34 @@
+.numberbox {
+    width: 50pt;
+    float: right;
+    border: 0 solid transparent;
+    border-bottom: 1pt solid lightskyblue;
+    height: 20pt;
+    font-size: 15;
+}
+
+.numberbox:hover {
+    border-bottom: 1pt solid lightsteelblue;
+}
+
+.numberbox:focus {
+    border: 2px solid transparent;
+    box-shadow: none;
+    outline: none;
+}
+
+.node-name-entry {
+    border: 0 solid green;
+
+    font-size: 40pt;
+    color: dimgrey;
+    padding: 1% 0%;
+
+    flex-shrink: 0;
+}
+
+.node-name-entry:focus {
+    border: 2px solid transparent;
+    box-shadow: none;
+    outline: none;
+}
