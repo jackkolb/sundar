@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, make_response, jsonify
 import py.node_data
 import py.networks
+import py.logs
 
 
 app = Flask(__name__)
@@ -25,8 +26,10 @@ def add_ip_get():
     node_info = py.networks.get_node_information(ip)
     if node_info != {}:
         py.node_data.node_data[node_info["serial"]] = node_info
+        py.logs.log("server", "Added node at ip " + ip)
         return make_response(jsonify({"result": "success"}))
     else:
+        py.logs.log("server", "Failed to add node at ip " + ip)
         return make_response(jsonify({"result": "failure"}))
 
 

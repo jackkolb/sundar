@@ -63,8 +63,11 @@ def main():
                     ip = py.networks.get_speck(speck[0], speck[1])
                     if ip != "FAIL":
                         py.node_data.node_data[node]["ip"] = ip
+                        py.logs.log("main", "Updated ip for node " + node)
+                else:
+                    py.logs.log("main", "Failed to contact node at ip " + ip)
 
-        except RuntimeError:
+        except:
             py.logs.log("main", "Dictionary changed during iteration, likely because a node tracker was deleted")
 
         # write the current json to the file

@@ -230,25 +230,55 @@ function errorAddNode() {
     button.style.color = "red";
     button.style.borderColor = "red";
     button.innerHTML = "Invalid address";
-
     window.setTimeout(function() {
-        button.style.color = "#2196F3";
-        button.style.borderColor = "#2196F3";
-        button.innerHTML = "(+) Add Node";
+        resetAddNodeButton();
     }, 1000);
 }
 
+function resetAddNodeButton() {
+    var button = document.getElementById("add-node-button");
+    button.style.color = "#2196F3";
+    button.style.borderColor = "#2196F3";
+    button.innerHTML = "(+) Add Node";
+}
+
+function loadingAddNodeButton() {
+    var button = document.getElementById("add-node-button");
+    button.style.color = "purple";
+    button.style.borderColor = "purple";
+    button.innerHTML = "Connecting to Node";
+}
+
+function successAddNodeButton() {
+    var button = document.getElementById("add-node-button");
+    button.style.color = "green";
+    button.style.borderColor = "green";
+    button.innerHTML = "Success!";
+}
+
 function addNodeIP() {
+    console.log("adding node");
     var ip = document.getElementById("node-text-entry").value;
     document.getElementById("node-text-entry").value = "";
+    loadingAddNodeButton();
     fetch("/add-node?ip=" + ip).then(response => response.json())
     .then(data => {
+        console.log(data["result"]);
         if (data["result"] == "failure") {
             errorAddNode();
+            hideNewNodeEntry();
         }
-    })
-    hideNewNodeEntry();
-    window.setTimeout(function() {loadNodeSeries();}, 250);
+        else {
+            successAddNodeButton();
+            window.setTimeout(function() {loadNodeSeries(); resetAddNodeButton();}, 250);
+        }
+    }).catch(error => {
+        console.log(error);
+        errorAddNode();
+        hideNewNodeEntry();
+        window.setTimeout(function() {loadNodeSeries();}, 250);
+    });
+    
 }
 
 function generateNodeListing(serial, name, ip) {

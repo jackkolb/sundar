@@ -37,14 +37,19 @@ def generate_scan_range(low, high):
 # ping the node for its data
 def get_node_information(ip):
     try:
-        response = requests.get("http://" + ip + "/information")
+        print("pinging node")
+        response = requests.get("http://" + ip + "/information", timeout=2)
+        print("got info")
     except:
         response = "FAIL"
 
     if response == "FAIL":
         return {}
     elif response.status_code == 200:
-        return response.json()
+        if "serial" in response.json().keys():
+            return response.json()
+        else:
+            return {}
     else:
         return {}
 
