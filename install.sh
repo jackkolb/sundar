@@ -1,4 +1,4 @@
-# installs the requirements (assumes the GitHub has been cloned)
+# install.sh: installs the system requirements (assumes the GitHub has been cloned)
 
 # from package manager:
 #   lsop

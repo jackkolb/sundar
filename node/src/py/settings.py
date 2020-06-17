@@ -1,15 +1,22 @@
-import os
+# settings.py: contains functions for the node settings
 
+import os  # used to check if file paths exist
+
+# get_duration: gets the sampling duration
 def get_duration():
     with open("settings/duration", "r") as duration_file:
         duration = duration_file.read()
     return duration
 
+
+# get_rate: sets the sampling rate
 def get_rate():
     with open("settings/rate", "r") as rate_file:
         rate = rate_file.read()
     return rate
 
+
+# get_flashdrive: gets the flashdrive toggle (whether the data is written to a connected flashdrive)
 def get_flashdrive():
     with open("settings/flashdrive", "r") as flashdrive_file:
         if flashdrive_file.read() == "true":
@@ -17,13 +24,18 @@ def get_flashdrive():
         else:
             return False
 
+
+# get_serial: gets the serial # of the device
 def get_serial():
     with open("/proc/cpuinfo", "r") as cpu_info_file:
         lines = cpu_info_file.readlines()
         serial = [x for x in lines if "Serial" in x][0].split(":")[1][1:-1]
     return serial
 
+
+# check_settings: checks the existence of the settings files/flags, if they don't exist they are generated
 def check_settings():
+    # check settings files
     if not os.path.exists("settings/active"):
         with open("settings/active", "w") as f:
             f.write("false")
@@ -46,6 +58,7 @@ def check_settings():
         with open("settings/active", "w") as f:
             f.write("")
 
+    # check flag files
     if not os.path.exists("flags/collection"):
         with open("settings/collection", "w") as f:
             f.write("false")
@@ -62,4 +75,4 @@ def check_settings():
         with open("settings/collection", "w") as f:
             f.write("false")
 
-    # The email system handles the gmail setting (in py.logs)
+    # the email system handles the gmail setting (in py.logs)

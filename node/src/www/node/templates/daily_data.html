@@ -1,3 +1,4 @@
+<!-- daily_data.html: displays only the day's raw data -->
 <html>
     <head>
         <title>Sundar Research - Node Manager</title>
@@ -26,8 +27,6 @@
                 </div>
             </span>
         </div>
-
-        
 
         <br><br><br><br><br>
         <div class="content" id="content">
@@ -59,16 +58,19 @@
     </body>
 
     <script>
+        // showX: shows the delete "x" button
         function showX(element) {
             element.children[1].style.visibility = 'visible';
         }
         
+        // hideX: hides the delete "x" button
         function hideX(element) {
             element.children[1].style.visibility = 'hidden';
         }
 
         var ids = [];
 
+        // deleteFiles: sends a request to the webserver to delete the selected files
         function deleteFiles() {
             var id_string = "";
             for (var i = 0; i < ids.length-1; i++) {
@@ -83,6 +85,7 @@
             fetch("/delete-daily-data?id=" + id_string + "&zero={{ data[0] }}").then(function() {location.reload()});
         }
 
+        // addDeleteFile: adds a file to the list of files to delete
         function addDeleteFile(id, element) {
             var i = ids.indexOf(id);
             if (i == -1) {

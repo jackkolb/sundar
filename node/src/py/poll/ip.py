@@ -1,13 +1,10 @@
-"""
-IP Module: updates the current IP address via Speck
-"""
+# ip.py: IP Module, updates the device's current IP address via Speck
 
-import socket
-import subprocess
-import requests
-import time
+import socket  # used to get the device's IP address
+import requests  # used to send GET requests to Speck
+import time  # used to add a time delay
 
-# gets the Pi's current IP address
+# get_ip_address: gets the device's current IP address
 def get_ip_address():
     ip_address = 'INITIAL'
     try:
@@ -15,12 +12,12 @@ def get_ip_address():
         s.connect(("8.8.8.8", 80))
         ip_address = s.getsockname()[0]
         s.close()
-        
     except OSError:
         ip_address = "FAIL"
     return ip_address
 
-# get speck credentials
+
+# get_speck_credentials: gets the speck credentials from the speck settings file
 def get_speck_credentials():
     speck_id = ""
     speck_key = ""
@@ -31,7 +28,8 @@ def get_speck_credentials():
             speck_key = words[1]
     return speck_id, speck_key
 
-# create a new speck
+
+# speck_create: create a new speck, writes the credentials to a settings file
 def speck_create():
     url = "https://kolb.dev/speck"
     params = { "id": "new" }
@@ -43,7 +41,8 @@ def speck_create():
         speck_credentials.write(speck_id + " " + speck_key)
     return speck_id, speck_key
 
-# read the speck IP address
+
+# speck_read: read the speck IP address
 def speck_read():
     url = "https://kolb.dev/speck"
     speck_id, speck_key = get_speck_credentials()  # if credentials do not exists, make a new speck
@@ -58,7 +57,7 @@ def speck_read():
     return ip_address
 
 
-# write the speck IP address
+# speck_write: write the speck IP address
 def speck_write(text):
     url = "https://kolb.dev/speck"
     speck_id, speck_key = get_speck_credentials()
@@ -76,13 +75,13 @@ def speck_write(text):
         return False
 
 
-# continuously update IP address on change
+# start_speck: continuously update IP address on the IP change
 def start_speck():
     speck_ip = speck_read()
     while True:
         current_ip = get_ip_address()
         if current_ip != speck_ip:
-            print("updated speck IP address")
+            py.logs("SPECK", "updated speck IP address")
             speck_write(current_ip)
             time.sleep(5)
             speck_ip = current_ip

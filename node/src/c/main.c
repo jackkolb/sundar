@@ -43,7 +43,7 @@ int main(int argc, char * argv[])
     fprintf(fp, "%d,", acc.x);
     fprintf(fp, "%d,", acc.y);
     fprintf(fp, "%d\n", acc.z);
-    usleep((1.0 / sample_rate) * 1000000 - 185);  // 185 microseconds was found to be the processing delay for the hard disk, "good enough" for flashdrive
+    usleep((1.0 / sample_rate) * 1000000 - 185);  // 185 microseconds was found to be a "good enough" processing speed for flashdrive
   }
 
   fclose(fp);

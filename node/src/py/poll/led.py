@@ -1,50 +1,59 @@
 # led.py: manages the LEDs. To start the module, run start_led()
 
-import time
-import RPi.GPIO as GPIO
-import py.logs
+# NOTE: the v1.1 iteration of the PCB does NOT have a multicolored LED!!! But the code is set up for one
+
+import time  # used to set time delays
+import RPi.GPIO as GPIO  # used to get GPIO pins
+import py.logs  # used for logging
 
 # board pins for each LED
 LED_DAMAGE_PIN_R = 17  # Board: 11
 LED_DAMAGE_PIN_G = 27  # Board: 13
 LED_DAMAGE_PIN_B = 22  # Board: 15
 
-# turn on the green LED
+# leds_green: turn the LED green
 def leds_green():
     GPIO.output(LED_DAMAGE_PIN_R, 0)
     GPIO.output(LED_DAMAGE_PIN_G, 1)
     GPIO.output(LED_DAMAGE_PIN_B, 0)
 
-# turn on the yellow LED
+
+# leds_yellow: turn the LED yellow
 def leds_yellow():
     GPIO.output(LED_DAMAGE_PIN_R, 1)
     GPIO.output(LED_DAMAGE_PIN_G, 1)
     GPIO.output(LED_DAMAGE_PIN_B, 0)
 
-# turn on the red LED
+
+# leds_red: turn the LED red
 def leds_red():
     GPIO.output(LED_DAMAGE_PIN_R, 1)
     GPIO.output(LED_DAMAGE_PIN_G, 0)
     GPIO.output(LED_DAMAGE_PIN_B, 0)
 
-# turns on the blue LED
+
+# leds_blue: turn the LED blue
 def leds_blue():
     GPIO.output(LED_DAMAGE_PIN_R, 0)
     GPIO.output(LED_DAMAGE_PIN_G, 0)
     GPIO.output(LED_DAMAGE_PIN_B, 1)
 
+
+# leds_off: turn the LED off
 def leds_off():
     GPIO.output(LED_DAMAGE_PIN_R, 0)
     GPIO.output(LED_DAMAGE_PIN_G, 0)
     GPIO.output(LED_DAMAGE_PIN_B, 0)
 
-# LOOP: reads from the damage flag, turns on the appropriate LED
+
+# start_led: reads from the damage flag, turns on the appropriate LED
 def start_led():
     GPIO.setwarnings(False)
     GPIO.setup(LED_DAMAGE_PIN_R, GPIO.OUT)
     GPIO.setup(LED_DAMAGE_PIN_G, GPIO.OUT)
     GPIO.setup(LED_DAMAGE_PIN_B, GPIO.OUT)
 
+    # loops to read the damage flag and turn on the corresponding LED
     while True:
         with open("flags/damage", "r") as damage_flag:
             status = damage_flag.readline()
@@ -65,6 +74,8 @@ def start_led():
 
         time.sleep(1)
 
+
+# flash_blue_led: flashes the LED blue
 def flash_blue_led():
     py.logs.log("led", "Flashing blue LEDs")
     for i in range(10):

@@ -1,4 +1,6 @@
-# performs an FFT
+# analysis.py: performs an FFT (Fast Fourier Transform) of the data
+# NOTE: This is not done autonomously, but this script can be run by a user
+# the script asks for the name of a data file (relative to current working directory) to read
 
 import numpy as np
 import numpy.fft as npfft

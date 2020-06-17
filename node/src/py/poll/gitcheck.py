@@ -1,9 +1,10 @@
-import subprocess
-import time
-import sys
-import py.logs
+# gitcheck.py: contains functions for syncing the codebase with GitHub
 
-# checks the git flag, returns its contents. If the flag is "RESET", writes it to "GOOD"
+import subprocess  # used to run git commands
+import time  # used to set a time delay
+import py.logs  # used for logging
+
+# check_flag_file: checks the git flag, returns its contents. If the flag is "RESET", writes it to "GOOD"
 def check_flag_file():
     data = "ERROR"
     with open("flags/git_flag", "r") as git_flag_file:
@@ -14,14 +15,14 @@ def check_flag_file():
     return data
 
 
-# set the git check flag to GOOD
+# set_gitcheck_flag_good: set the git check flag to GOOD
 def set_gitcheck_flag_good():
     with open("flags/git_flag", "w") as git_flag_file:
         git_flag_file.write("GOOD")
     return
 
     
-# checks for new code every 10 minutes, if there is an update, pull it and restart processes
+# git_check_loop: checks for new code every 10 minutes, if there is an update, pull it and restart processes
 def git_check_loop():
     while True:
         git_process = subprocess.Popen(["git","pull"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
@@ -34,3 +35,4 @@ def git_check_loop():
             with open("flags/git_flag", "w") as git_flag_file:  # exits the program (including the thread)
                 git_flag_file.write("RESET")
         time.sleep(10)  # waits 10 seconds
+    return

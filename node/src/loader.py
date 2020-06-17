@@ -1,7 +1,7 @@
 # loader.py: a small script that manages the system: it simply keeps the main process running. It is expected that this file will never be changed.
 
-import multiprocessing, importlib
-import py.main, py.logs
+import multiprocessing, importlib  # used to run script simultaneously and import files
+import py.main, py.logs  # used to run the main script and for logging
 
 if __name__ == "__main__":
     # infinite loop to keep the main process alive

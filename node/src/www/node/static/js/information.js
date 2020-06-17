@@ -1,3 +1,6 @@
+// information.js: contains functions for getting, setting, and displaying node information
+
+// generatePlot: create a new canvas plot for plotting the damage history
 function generatePlot(name, x_data, y_data) {
     // generate the plot
     var config = {
@@ -67,24 +70,28 @@ function generatePlot(name, x_data, y_data) {
     window.myLine = new Chart(ctx, config);
 }
 
+// setName: sets the node name
 function setName() {
     value = document.getElementById("name-entry").value;
     console.log("set name to " + value)
     sendUpdate("name", value)
 }
 
+// setActive: sets whether the node is collecting data
 function setActive() {
     value = document.getElementById("activeToggle").checked;
     console.log("set active to " + value)
     sendUpdate("active", value)
 }
 
+// setFlashdrive: sets whether the node defaults to saving to a flashdrive
 function setFlashdrive() {
     value = document.getElementById("flashdriveToggle").checked;
     console.log("set flashdrive to " + value);
     sendUpdate("flashdrive", value);
 }
 
+// setDuration: sets the node's sampling duration
 function setDuration() {
     var value = document.getElementById("duration-entry").value;
     if (value == "" || value <= 0) {
@@ -94,6 +101,7 @@ function setDuration() {
     sendUpdate("duration", value);
 }
 
+// setRate: sets the node's sampling rate
 function setRate() {
     var value = document.getElementById("rate-entry").value;
     if (value == "" || value <= 0) {
@@ -104,6 +112,7 @@ function setRate() {
     return;
 }
 
+// setDelay: sets the node's sampling delay
 function setDelay() {
     var value = document.getElementById("delay-entry").value;
     if (value == "" || value <= 0) {
@@ -114,11 +123,12 @@ function setDelay() {
     return;
 }
 
-
+// downloadLogs: redirects to the /logs route
 function downloadLogs() {
     window.location.href = "/logs";
 }
 
+// downloadHistory: gets the node's damage history
 function downloadHistory() {
     fetch("/history")
     .then(resp=>resp.blob())
@@ -135,29 +145,34 @@ function downloadHistory() {
     return;
 }
 
+// downloadRawData: redirects to the /raw-data route
 function downloadRawData() {
     window.location.href="/raw-data";
 }
 
+// downloadDailyData: redirects to the /daily-data route
 function downloadDailyData() {
     window.location.href="/daily-data";
 }
 
+// flashLEDs: flashes the LED
 function flashLEDs() {
     console.log("Flashing LEDs");
     sendUpdate("flashLED", "true");
     return;
 }
 
+// resetNode: confirms twice, then resets the node to the default setting and clears data
 function resetNode() {
     if (confirm("Are you sure you wish to reset the node? This will delete logs, history, and cannot be reversed!")) {
-        if (confirm("Are you completely sure you wish to reset the node? This is the last confirmation.")) {
+        if (confirm("Are you absolutely sure you wish to reset the node? This is the last confirmation.")) {
             setDefaults();
             sendUpdate("reset", "true");
         }
     }
 }
 
+// setDefaults: sets the node settings to their default values
 function setDefaults() {
     var active_node = false;
     var default_duration = 20;
@@ -175,6 +190,7 @@ function setDefaults() {
     return;
 }
 
+// restartNode: shutdown / reboot the node device
 function restartNode() {
     var url = "restart";
     var xmlHttp = new XMLHttpRequest();
@@ -182,6 +198,7 @@ function restartNode() {
     xmlHttp.send(null);
 }
 
+// sendUpdate: sends a GET request to the webserver to update settings values
 function sendUpdate(key, value) {
     var url = "update?key=" + key + "&value=" + value;
     var xmlHttp = new XMLHttpRequest();
@@ -189,6 +206,7 @@ function sendUpdate(key, value) {
     xmlHttp.send(null);
 }
 
+// getDamageColor: gets the corresponding indicator color given a damage level 
 function getDamageColor(damage) {
     var color = "grey";
     if (damage == 5) {

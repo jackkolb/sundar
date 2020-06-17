@@ -1,3 +1,6 @@
+# drive.py: contains functions for interacting with Google Drive
+# this currently DOES NOT WORK!!! however would be an ideal feature
+
 import os
 from pydrive.auth import GoogleAuth
 from pydrive.drive import GoogleDrive
@@ -47,6 +50,5 @@ def upload_file(filename, folder):
         print("upload failed: " + str(e))
         return 0
 
-
-# upload_file("./data/accelerometer/accelerometer_2018_05_30.data", "'Sundar Lab'/data/accelerometer")
+# as a test, upload settings.py
 upload_file("./src/settings.py",  "'Sundar Lab'")

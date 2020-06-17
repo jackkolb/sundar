@@ -1,13 +1,14 @@
 # main.py: starts the various threads (github check, lcd, webserver, etc) and then collects accelerometer data infinitely
+import subprocess  # used to run the collection code
+import threading  # used to run multiple scripts simultaneously
+import RPi.GPIO as GPIO  # used to set the GPIO pin mode
+import os  # used to end the program
+import shutil  # used to move files
+import datetime  # used to get the current date and time
+import time  # used to set a timer delay
 
-import subprocess
-import threading
-import RPi.GPIO as GPIO
-import os
-import shutil
-import datetime
-import time
 
+# main: starts the modules and indefinitely collects data
 def main():
     # import files
     import py.poll.ip
@@ -112,7 +113,10 @@ def main():
             py.logs.log("main", "Starting classification")
             classifier_destination = destination + "classifier.data"
 
-            ### RUN CLASSIFICATION FUNCTION HERE ###
+            ########################################
+            ### WHEN THE CLASSIFICATION IS DONE, ###
+            ### RUN THE RESULTING FUNCTION HERE  ###
+            ########################################
 
             # move accelerometer data to storage, formatted as accelerometer_year_month_day_hour_minute.data
             try:
@@ -135,3 +139,4 @@ def main():
             py.logs.log("main", "Resetting system due to GitCheck flag")
             py.poll.gitcheck.set_gitcheck_flag_good()
             os._exit(1)
+    return

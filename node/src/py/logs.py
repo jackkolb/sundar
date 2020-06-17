@@ -1,7 +1,8 @@
-import datetime
-import smtplib, ssl
+# logs.py: contains functions for logging system messages
+import datetime  # used to get the current date and time
+import smtplib, ssl  # used to send emails
 
-
+# get_date: gets the current date in the form YYYY_MM_DD
 def get_date():
     now = datetime.datetime.now()
     year = now.year
@@ -29,34 +30,13 @@ def get_date():
     return str(year) + "_" + str(month) + "_" + str(day)
 
 
-# uses the current date to determine the log file name
+# generate_log_name: uses the current date to determine the log file name
 def generate_log_name():
-    now = datetime.datetime.now()
-    year = now.year
-
-    month = now.month
-    if month < 10:
-        month = "0" + str(month)
-
-    day = now.day
-    if day < 10:
-        day = "0" + str(day)
-
-    hour = now.hour
-    if hour < 10:
-        hour = "0" + str(hour)
-
-    minute = now.minute
-    if minute < 10:
-        minute = "0" + str(minute)
-
-    second = now.second
-    if second < 10:
-        second = "0" + str(second)
-
-    filename = "log_" + "pi" "_" + str(year) + "_" + str(month) + "_" + str(day)    
+    filename = "log_" + "pi" "_" + get_date()
     return filename
 
+
+# generate_log_variables: gets the current year, month, day, hour, minute, and second
 def generate_log_variables():
     now = datetime.datetime.now()
     year = now.year
@@ -84,7 +64,7 @@ def generate_log_variables():
     return year, month, day, hour, minute, second
 
 
-# appends a message to the day's log file
+# log: appends a message to the day's log file
 def log(module, message):
     filename = "logs/" + generate_log_name()
 
@@ -100,10 +80,11 @@ def log(module, message):
     except Exception as e:
         print(5, "[ERROR] failed to open file: " + str(e))
 
-    print(entry)
+    print(entry)  # also prints the message to the console
     return
 
 
+# send_email: sends an email using gmail
 def send_email(to, subject, message):
     # get gmail information
     with open("settings/gmail", "a+") as f:
@@ -123,3 +104,4 @@ def send_email(to, subject, message):
             with smtplib.SMTP_SSL(smtp_server, port, context=context) as server:
                 server.login(sender_email, password)
                 server.sendmail(sender_email, receiver_email, message)
+    return
