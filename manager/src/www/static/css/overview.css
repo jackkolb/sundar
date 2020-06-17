@@ -1,8 +1,8 @@
-/* node overview box */
+/* overview.css: CSS styling for the nodes overview display */
+
+/* node overview box is the box generated for each node*/
 .node-overview {
     background-color: white;
-    /*height: 31%;*/
-    /*width: 30%;*/
     box-shadow: 0px 5px 8px -4px black;
     border-radius: 5pt;
     padding: 15pt 15pt 15pt 15pt;
@@ -13,29 +13,34 @@
     background-color: lightgrey;
 }
 
+/* node name is the title for each node */
 .node-name {
     font-size: 30pt;
     color: dimgrey;
 }
 
+/* node circle is an indicator circle for the node damage */
 .node-circle {
     height: 20pt;
     width: 20pt;
     border-radius: 50%;
 }
 
+/* node detail is the node detail text (serial #, damage, Speck information, etc) */
 .node-detail {
     font-size: 20pt;
     color: grey;
     padding: 0 5%;
 }
 
+/* node status is a flex container for the name and damage indicator circle */
 .node-status {
     padding: 4%;
     display: flex;
     justify-content: space-between;
 }
 
+/* tile list is a list for the node tiles */
 ul.tile-list {
     overflow: hidden;
     list-style-type: none;
@@ -45,6 +50,7 @@ ul.tile-list {
     
 }
 
+/* tile is the individual tile in the tile list */
 li.tile {
     float: left;
     display: inline-block;

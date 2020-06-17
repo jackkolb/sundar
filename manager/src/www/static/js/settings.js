@@ -1,12 +1,16 @@
+// settings.js: contains functions for the settings panel of the manager webserver interface
+
+// generateSettings: creates the graphical settings panel
 function generateSettings() {
+    // content is an empty <div> in the HTML page that is filled with page content
     var content = document.getElementById("content");
 
-    // create settings
+    // create the settings box, a panel that gets populated
     var settingsBox = document.createElement("div");
         settingsBox.className = "settings-box";
         settingsBox.id = "settings-box";
 
-    // sync timer
+    // sync timer is an input for the node sync period
     var syncTimer = document.createElement("div");
         syncTimer.className = "settings-item";
         syncTimer.id = "sync-timer";
@@ -21,9 +25,10 @@ function generateSettings() {
         syncTimer.appendChild(syncTimerLabel);
         syncTimer.appendChild(syncTimerEntry);
       
+    // add a line break
     var breakline = document.createElement("br");
 
-    // Display Node Damage
+    // display damage is a toggle for whether the nodes' damages are displayed
     var displayDamage = document.createElement("div");
         displayDamage.className = "settings-item";
         displayDamage.id = "display-damage";
@@ -47,7 +52,7 @@ function generateSettings() {
         displayDamage.appendChild(displayDamageText);
         displayDamage.appendChild(displayDamageSwitch);
 
-    // Display Node Life Estimate
+    // display node life estimate is a toggle for whether the nodes' life estimate are displayed
     var displayEstimate = document.createElement("div");
         displayEstimate.className = "settings-item";
         displayEstimate.id = "display-estimate"
@@ -71,7 +76,7 @@ function generateSettings() {
         displayEstimate.appendChild(displayEstimateText);
         displayEstimate.appendChild(displayEstimateSwitch);
 
-    // Display Node IP Address
+    // display node IP address is a toggle for whether the nodes' IP addresses are displayed
     var displayAddress = document.createElement("div");
         displayAddress.className = "settings-item";
         displayAddress.id = "display-address";
@@ -95,7 +100,7 @@ function generateSettings() {
         displayAddress.appendChild(displayAddressText);
         displayAddress.appendChild(displayAddressSwitch);
     
-    // Display Node Speck Info
+    // display speck is a toggle for whether the nodes' Speck information is displayed (see more about Speck at kolb.dev/speck)
     var displaySpeck = document.createElement("div");
         displaySpeck.className = "settings-item";
         displaySpeck.id = "display-speck";
@@ -119,7 +124,7 @@ function generateSettings() {
         displaySpeck.appendChild(displaySpeckText);
         displaySpeck.appendChild(displaySpeckSwitch);
 
-    // Display Node Serial Number
+    // display serial is a toggle for whether the nodes' serial number is displayed
     var displaySerial = document.createElement("div");
         displaySerial.className = "settings-item";
         displaySerial.id = "display-serial"
@@ -143,7 +148,7 @@ function generateSettings() {
         displaySerial.appendChild(displaySerialText);
         displaySerial.appendChild(displaySerialSwitch);
 
-    // Display Node Sync Information
+    // display sync is a toggle for whether the time since last sync is displayed
     var displaySync = document.createElement("div");
         displaySync.className = "settings-item";
         displaySync.id = "display-sync"
@@ -167,10 +172,9 @@ function generateSettings() {
         displaySync.appendChild(displaySyncText);
         displaySync.appendChild(displaySyncSwitch);
 
+    // add each of these components to the settings box to populate the panel
     settingsBox.appendChild(syncTimer);
-
     settingsBox.appendChild(breakline);
-
     settingsBox.appendChild(displayDamage);
     settingsBox.appendChild(displayEstimate);
     settingsBox.appendChild(displayAddress);
@@ -178,13 +182,14 @@ function generateSettings() {
     settingsBox.appendChild(displaySerial);
     settingsBox.appendChild(displaySync);
 
-    // add / delete nodes
+    // make a button for adding a new node to the network
     var addNodeButton = document.createElement("button");
         addNodeButton.className = "add-node-button";
         addNodeButton.id = "add-node-button";
         addNodeButton.innerHTML = "(+) Add Node";
         addNodeButton.setAttribute("onclick", "showNewNodeEntry()");
 
+    // a text field for entering the IP address when adding a new node to the network (initially hidden)
     var newNodeEntry = document.createElement("input");
         newNodeEntry.className = "new-node-entry text-entry";
         newNodeEntry.id = "node-text-entry"
@@ -193,21 +198,31 @@ function generateSettings() {
         newNodeEntry.setAttribute("visibility", "hidden");
         newNodeEntry.setAttribute("onchange", "addNodeIP()");
 
+    // add the "add node" button and the "new node IP address" entry to the settings box
     settingsBox.appendChild(addNodeButton);
     settingsBox.appendChild(newNodeEntry);
 
+    // make a table to show all of the currently registered nodes
     var nodeTable = document.createElement("table");
         nodeTable.id = "nodeTable";
         nodeTable.className = "settings-node-table";
-
+    
+    // add the table to the settings box
     settingsBox.appendChild(nodeTable);
+
+    // populate the table with the nodes
     loadNodeSeries();
 
+    // add the settings box to the content <div>
     content.appendChild(settingsBox);
 
+    // initially hide the new node IP address input box
     hideNewNodeEntry();
 
+    // get the current sync timer period from the webserver's saved settings
     getTimer();
+
+    // by default, have all settings displayed
     displayDamageInput.checked = (getCookie("displayDamage") == "true");
     displayEstimateInput.checked = (getCookie("displayEstimate") == "true");
     displayAddressInput.checked = (getCookie("displayAddress") == "true");
@@ -216,15 +231,18 @@ function generateSettings() {
     displaySyncInput.checked = (getCookie("displaySync") == "true");
 }
 
-
+// showNewNodeEntry: shows the IP Address entry for adding a new node
 function showNewNodeEntry() {
     document.getElementById("node-text-entry").style.visibility = "visible";
 }
 
+// hideNewNodeEntry: hides the IP address entry for adding a new node
 function hideNewNodeEntry() {
     document.getElementById("node-text-entry").style.visibility = "hidden";
 }
 
+// errorAddNode: if there is an error (caused by not being able to reach the target IP address),
+// change the add new node button to red and display an error message for 1 second
 function errorAddNode() {
     var button = document.getElementById("add-node-button");
     button.style.color = "red";
@@ -235,6 +253,7 @@ function errorAddNode() {
     }, 1000);
 }
 
+// resetAddNodeButton: resets the add new node button to a default "add node"
 function resetAddNodeButton() {
     var button = document.getElementById("add-node-button");
     button.style.color = "#2196F3";
@@ -242,6 +261,7 @@ function resetAddNodeButton() {
     button.innerHTML = "(+) Add Node";
 }
 
+// loadingAddNodeButton: when adding to a new node, the "add node" button changes to a "connecting" message
 function loadingAddNodeButton() {
     var button = document.getElementById("add-node-button");
     button.style.color = "purple";
@@ -249,6 +269,7 @@ function loadingAddNodeButton() {
     button.innerHTML = "Connecting to Node";
 }
 
+// successAddNodeButton: when a new node is successfully added, the "add node" button changes to a "success" message
 function successAddNodeButton() {
     var button = document.getElementById("add-node-button");
     button.style.color = "green";
@@ -256,6 +277,8 @@ function successAddNodeButton() {
     button.innerHTML = "Success!";
 }
 
+// addNodeIP: adds a new node using the IP address given, and displays information about the process as it
+// connects to the node and succeeds/fails to add it to the network
 function addNodeIP() {
     console.log("adding node");
     var ip = document.getElementById("node-text-entry").value;
@@ -277,10 +300,10 @@ function addNodeIP() {
         errorAddNode();
         hideNewNodeEntry();
         window.setTimeout(function() {loadNodeSeries();}, 250);
-    });
-    
+    }); 
 }
 
+// generateNodeListing: adds a new entry to the node information table
 function generateNodeListing(serial, name, ip) {
     var newListing = document.createElement("tr");
         var newListingSerial = document.createElement("td");
@@ -307,6 +330,7 @@ function generateNodeListing(serial, name, ip) {
     return newListing;
 }
 
+// removeSerial: removes a node by its serial number
 function removeSerial(serial) {
     r = window.confirm("Are you sure you want to remove the node " + serial + "?")
     if (r) {
@@ -315,6 +339,7 @@ function removeSerial(serial) {
     }
 }
 
+// loadNodeSeries: loads the network's nodes from the webserver
 function loadNodeSeries() {
     fetch('/nodes').then(response => response.json())
     .then(data => {
@@ -332,7 +357,7 @@ function loadNodeSeries() {
     });    
 }
 
-
+// getTimer: gets the sync timer period from the webserver
 function getTimer() {
     fetch("/get-sync").then(response => response.json())
     .then(data => {
@@ -341,12 +366,14 @@ function getTimer() {
     return;
 }
 
+// setTimer: sets the sync timer period with the webserver
 function setTimer() {
     var value = document.getElementById("sync-timer-entry").value;
     fetch("/set-sync?timer=" + value);
     return;
 }
 
+// setCookie: adds a new cookie
 function setCookie(key, value) {
     var now = new Date();
     var expireTime = now.getTime() + 100000*43200;
@@ -355,6 +382,7 @@ function setCookie(key, value) {
     return;
 }
 
+// getCookie: gets a specific cookie
 function getCookie(key) {
     var name = key + "=";
     var decodedCookie = decodeURIComponent(document.cookie);
@@ -371,37 +399,42 @@ function getCookie(key) {
     return "";
 }
 
-
+// setDisplayDamage: sets a cookie for showing the display damage
 function setDisplayDamage() {
     var value = document.getElementById("damageToggle").checked;
     setCookie("displayDamage", value);
     return;
 }
 
+// setDisplayEstimate: sets a cookie for showing the nodes' damage estimates
 function setDisplayEstimate() {
     var value = document.getElementById("estimateToggle").checked;
     setCookie("displayEstimate", value);
     return;
 }
 
+// setDisplayAddress: sets a cookie for showing the nodes' IP addresses
 function setDisplayAddress() {
     var value = document.getElementById("addressToggle").checked;
     setCookie("displayAddress", value);
     return;
 }
 
+// setDisplaySpeck: sets a cookie for showing the nodes' speck information
 function setDisplaySpeck() {
     var value = document.getElementById("speckToggle").checked;
     setCookie("displaySpeck", value);
     return;
 }
 
+// setDisplaySerial: sets a cookie for showing the nodes' serial information
 function setDisplaySerial() {
     var value = document.getElementById("serialToggle").checked;
     setCookie("displaySerial", value);
     return;
 }
 
+// setDisplaySync: sets a cookie for showing the nodes' sync timers
 function setDisplaySync() {
     var value = document.getElementById("syncToggle").checked;
     setCookie("displaySync", value);

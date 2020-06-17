@@ -1,6 +1,8 @@
+/* settings.css: CSS descriptions for the settings menu screen */
+
+/* settings box is the main box used to display the settings information */
 .settings-box {
     width: 50%;
-    /*height: 77%;*/
     border-radius: 10pt;
     box-shadow: 0px 5px 8px -4px black;
     margin: 23pt 0pt 0pt 130pt;
@@ -8,6 +10,7 @@
     background-color: white;
 }
 
+/* settings name is the "Settings" title */
 .settings-name {
     font-size: 50pt;
     width: 100%;
@@ -16,6 +19,7 @@
     padding: 15pt 0 0 20pt;
 }
 
+/* settings item is the individual settings item (ex: the "Display Damage" setting toggle) */
 .settings-item {
     font-size: 20pt;
     color: dimgrey;
@@ -25,14 +29,17 @@
     align-items: center;
 }
 
+/* settings left pushes an item to the left (ex: the "Display Serial #" text) */
 .settings-left {
     flex-wrap: nowrap;
 }
 
+/* settings right pushes an item to the right (ex: a toggle slider) */
 .settings-right {
     margin-right: 5%;
 }
 
+/* add node button is a button used to add another node to the network*/
 .add-node-button  {
     background-color: white;
     text-align: center;
@@ -49,6 +56,7 @@
     box-shadow: 0 0 3pt #2196F3;
 }
 
+/* settings-node-table is the table used to list all the tracked nodes */
 .settings-node-table {
     padding: 0 0 0 10pt;
     margin: 10pt 0 0 20pt;
@@ -58,22 +66,27 @@
     border-collapse: collapse;
 }
 
+/* settings-node-table-serial is used on the serial # entry of the node table, and aligns the text to the left */
 .settings-node-table-serial {
     text-align: left;
 }  
 
+/* settings-node-table-name is used on the node name entry of the node table, and aligns the text to the left */
 .settings-node-table-name {
     text-align: left;
 }  
 
+/* settings-node-table-ip is used on the node ip entry of the node table, and aligns the text to the left */
 .settings-node-table-ip {
     text-align: left;
 }
 
+/* settings-node-table-buttonholder is used on the "delete" button entry of the node table, and aligns the button to the left */
 .settings-node-table-buttonholder {
     text-align: left;
 }
 
+/* settings-node-table-button is a button in the node entry table used to delete a node from the node network */
 .settings-node-table-button {
     background-color: white;
     text-align: center;

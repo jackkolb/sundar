@@ -1,10 +1,12 @@
+<!-- index.html: the web interface webpage. Contains a menu for seeing an overview of the nodes, and changing the display settings/nodes -->
+
 <html>
     <head>
         <title>Sundar Research - Node Manager</title>
     </head>
 
     <body>
-
+        <!-- CSS imports: these describe the formatting of the webpage -->
         <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
         <link href="static/css/styles.css" rel="stylesheet">
         <link href="static/css/title.css" rel="stylesheet">
@@ -14,19 +16,17 @@
         <link href="static/css/numberbox.css" rel="stylesheet">
         <link href="static/css/slider.css" rel="stylesheet">
         <link href="static/css/textentry.css" rel="stylesheet">
-        <!-- <link href="static/css/history_select.css" rel="stylesheet"> -->
         
+        <!-- JavaScript imports: these contains JavaScript functions used by the webpage -->
         <script src="static/js/ChartJs/Chart.min.js"></script>
         <script src="static/js/ChartJs/ChartUtils.js"></script>
-        <!-- <script src="static/js/history.js"></script> -->
         <script src="static/js/menus.js"></script>
-        <!-- <script src="static/js/history_select.js"></script> -->
         <script src="static/js/content.js"></script>
         <script src="static/js/utilities.js"></script>
         <script src="static/js/settings.js"></script>
-        
         <script src="static/js/nodes.js"></script>
 
+        <!-- a simple title bar-->
         <div class="title-bar">
             <span>
                 <div class=title-main>
@@ -38,19 +38,19 @@
             </span>
         </div>
 
-        <!-- Side navigation -->
+        <!-- side navigation menu for switching between seeing the node overview and seeing the settings page-->
         <div class="sidenav">
             <br>
             <a onclick="loadOverview()" id="overview">Overview</a>
-            <!-- <a onclick="loadHistory()" id="history">History</a> -->
             <a onclick="loadSettings()" id="settings">Settings</a>
         </div>
 
+        <!-- content is a <div> used to fill in the page content, such as the node tiles or the settings page -->
         <div class="content" id="content"><br><br></div>
 
         <script>
+            // when visiting this webpage, go to the node overview page
             loadOverview();
         </script>
-    
     </body>
 </html>

@@ -1,4 +1,6 @@
-/* title bar */
+/* title.css: CSS descriptions for the title bar */
+
+/* title bar is the overall title bar */
 .title-bar {
     position: fixed;
     background-color: #7070ff;
@@ -10,6 +12,7 @@
     z-index: 3;
 }
 
+/* title main is the main text (left side) of the title bar ("Sundar Research") */
 .title-main {
     color: white;
     position: absolute;
@@ -18,6 +21,7 @@
     left: 2%;
 }
 
+/* title sub is the sub text (right side) of the title bar ("Manager Overview") */
 .title-sub {
     color: white;
     position: absolute;

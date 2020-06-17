@@ -1,3 +1,6 @@
+/* numberbox.css: CSS descriptions for the numerical input box used by some settings */
+
+/* the numberbox base format */ 
 .numberbox {
     width: 50pt;
     float: right;
@@ -17,6 +20,7 @@
     outline: none;
 }
 
+/* the node-name-entry base format */
 .node-name-entry {
     border: 0 solid green;
 

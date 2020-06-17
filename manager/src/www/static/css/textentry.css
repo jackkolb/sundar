@@ -1,3 +1,6 @@
+/* textentry.css: contains CSS descriptions for a text entry box used in the settings to add a new node */
+
+/* the formatting for the textentry div */
 .textentry {
     width: 30pt;
     float: right;
@@ -7,26 +10,28 @@
     font-size: 15;
 }
 
+/* change the color upon hovering over the textentry*/
 .textentry:hover {
     border-bottom: 1pt solid lightsteelblue;
 }
 
+/* add a border upon focusing on the textentry */
 .textentry:focus {
     border: 2px solid transparent;
     box-shadow: none;
     outline: none;
 }
 
+/* formatting for the new-node-entry div, which is used to enter the new node's IP address */
 .new-node-entry {
     border: 0 solid green;
-
     font-size: 20pt;
     color: dimgrey;
     padding: 1% 0%;
-
     flex-shrink: 0;
 }
 
+/* add a border upon focusing on the new-node-entry */
 .new-node-entry:focus {
     border-bottom: 2px solid #2196F3;
     box-shadow: none;

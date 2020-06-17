@@ -1,7 +1,9 @@
-import datetime
-import smtplib, ssl
+# logs.py: contains functions for logging system information
+import datetime  # used to get the current date and time for the logs
+import smtplib, ssl  # used to send emails
 
 
+# get_date: returns the date in the form YEAR_MONTH_DAY
 def get_date():
     now = datetime.datetime.now()
     year = now.year
@@ -29,35 +31,13 @@ def get_date():
     return str(year) + "_" + str(month) + "_" + str(day)
 
 
-# uses the current date to determine the log file name
+# generate_log_name: uses the current date to determine the log file name
 def generate_log_name():
-    now = datetime.datetime.now()
-    year = now.year
-
-    month = now.month
-    if month < 10:
-        month = "0" + str(month)
-
-    day = now.day
-    if day < 10:
-        day = "0" + str(day)
-
-    hour = now.hour
-    if hour < 10:
-        hour = "0" + str(hour)
-
-    minute = now.minute
-    if minute < 10:
-        minute = "0" + str(minute)
-
-    second = now.second
-    if second < 10:
-        second = "0" + str(second)
-
-    filename = "log_" + "pi" "_" + str(year) + "_" + str(month) + "_" + str(day)    
+    filename = "log_" + "pi_manager_" + get_date
     return filename
 
 
+# generate_log_variables: gets the current year, month, day, hour, minute, and second
 def generate_log_variables():
     now = datetime.datetime.now()
     year = now.year
@@ -85,7 +65,7 @@ def generate_log_variables():
     return year, month, day, hour, minute, second
 
 
-# appends a message to the day's log file
+# logs: appends a message to the day's log file
 def log(module, message):
     filename = "logs/" + generate_log_name()
 
@@ -101,16 +81,17 @@ def log(module, message):
     except Exception as e:
         print(5, "[ERROR] failed to open file: " + str(e))
 
-    print(entry)
+    print(entry)  # also print the log item to the console
     return
 
 
+#  uses the given gmail settings to send an email through gmail
 def send_email(to, subject, message):
     # get gmail information
     with open("data/settings/gmail", "a+") as f:
         f.seek(0)  # read from beginning of file
         lines = f.readlines()
-        if len(lines) != 2:  # check if email file is well formed
+        if len(lines) != 2:  # check if email login file is well formed
             log("logs", "Email information not set, must be two lines email / password")
         else:
             port = 465  # For SSL
@@ -119,8 +100,9 @@ def send_email(to, subject, message):
             receiver_email = to  # Receiver email address
             password = lines[1]
             message = "Subject: " + subject + "\n\n" + message
-
             context = ssl.create_default_context()
+
+            # send the email
             with smtplib.SMTP_SSL(smtp_server, port, context=context) as server:
                 server.login(sender_email, password)
                 server.sendmail(sender_email, receiver_email, message)
